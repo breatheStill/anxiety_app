@@ -1,0 +1,29 @@
+{
+  "name": "anxiety_app",
+  "version": "1.0.0",
+  "description": "CF Code Fellows 301 Final Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breatheStill/anxiety_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breatheStill/anxiety_app/issues"
+  },
+  "homepage": "https://github.com/breatheStill/anxiety_app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "pg": "^7.7.1",
+    "superagent": "^4.1.0"
+  }
+}
