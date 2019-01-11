@@ -81,7 +81,7 @@ ___
 - Team Name: Anti-anxiety
 - Team members
     - Lorin Stewart, 
-    - Jessica Elliot, 
+    - Jessica Elliott, 
     - Andrew Davis, 
     - Erik Johnson 
 - Description
