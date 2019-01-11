@@ -24,7 +24,7 @@
 * As a person who is a professional psychologist, I want an app where I can share articles for people with anxiety.
 
 * As a person who has anxiety, I want an app that I can watch stress relieving videos.
-
+ 
 ##### Developer Stories
 
 * As a developer, I want code that I can easily read and adjust so I can add a feature to this project.
@@ -77,14 +77,6 @@ ___
 
 <a id="documentation"></a>
 ## Documentation
-Your project should be documented on GitHub and within your code base.
-
-On GitHub, create a `README.md` file as the main landing document of your repository. Continue to update it as your project evolves. 
-
-_Why:_
-> Projects should contain proper documentation so that anyone can visit your repository and understand the purpose of your application.
-
-At a minimum, your `README.md` should include the following:
 
 - Team Name: Anti-anxiety
 - Team members
