@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../head') %>
+<%- include('../layout/head') %>
 <body>
-  <%- include('../header') %>
+  <%- include('../layout/header') %>
   <main>
-    <p>Error</p>
+    <h1><%= message %></h1>
+    <p><%= error %></p>
   </main>
-  <%- include('../footer') %>
+  <%- include('../layout/footer') %>
 </body>
 </html>
