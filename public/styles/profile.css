@@ -16,7 +16,7 @@ header {
   padding: 8px;
 }
 
-section {
+main {
   margin-bottom: 100px;
 }
 
@@ -98,6 +98,21 @@ button {
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
+}
+
+fieldset section{
+  display: inline-block;
+  margin: 30px;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+  margin: 10px;
+}
+
+.block {
+  display: block;
 }
 
 footer {
