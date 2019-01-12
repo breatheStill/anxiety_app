@@ -64,6 +64,8 @@ function newJournal(req, res) {
 }
 
 
+//Mood API
+
 
 
 // Error 404
