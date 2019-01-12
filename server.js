@@ -35,11 +35,16 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', home);
+app.get('/profile', getProfile);
 
 
 // Route handlers
 function home(req, res) {
   res.render('pages/index');
+}
+
+function getProfile(req, res) {
+  res.render('pages/profile/show');
 }
 
 
