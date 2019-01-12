@@ -1,1 +1,19 @@
 /* layout */
+
+div > form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#user, #createProfile > input, label, button {
+  margin-top: 30px;
+}
+
+form > button {
+  margin-left: auto;
+  margin-right: auto;
+}
