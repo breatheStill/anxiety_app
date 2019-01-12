@@ -1,4 +1,4 @@
-<section id="profile">
+<main id="profile">
   <%- include('../../layout/banner', {bannerMessage: 'Profile Page'}) %>
   <img id="graph" src="https://via.placeholder.com/150" alt="">
     <div class="container">
@@ -16,5 +16,5 @@
       <p class="entry"><%= journal.entry %></p>
     </div>
   <% }) %>
-  <a href="/new"><button>Add New Entry</button></a>
-</section>
+  <button>Add New Entry</button>
+  </main>

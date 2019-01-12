@@ -1,8 +1,31 @@
-<section id="new">
-    <%- include('../../layout/banner', {bannerMessage: 'New Journal Entry'}) %>
-    Form goes here
-  </section>
+<main id="new">
+  <%- include('../../layout/banner', {bannerMessage: 'New Journal Entry'}) %>
 
-<form action="/new" method="POST">
-
-</form> 
+  <form action="/new" method="POST">
+    <fieldset>
+      <!-- <legend>Journal Entry</legend> -->
+      <section>
+        <label id="datePicker" class="block" for="date">Date</label>
+        <input type="date">
+      </section>
+      <section>
+        <div>
+          <label for="exercise">Exercise</label>
+          <input type="checkbox" name="exercise">
+        </div>
+        <div>
+          <label for="outdoors">Outdoors</label>
+          <input type="checkbox" name="outdoors">
+        </div>
+      </section>
+    </fieldset>
+      <div>
+        <label class="block" for="entry">Write About Your Day</label>
+        <textarea name="entry" id="" cols="30" rows="10"></textarea>
+      </div>
+    <button type="submit">Submit</button>
+    <div>
+      <a class="cancel" href="#">Cancel</a>
+    </div>
+  </form> 
+</main>
