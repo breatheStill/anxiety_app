@@ -1,4 +1,4 @@
-<section>
+<main id="login">
   <%- include('../../layout/banner', {bannerMessage: 'Login'}) %>
 <div id="user">
   <form action="/login" method="POST">
@@ -8,8 +8,12 @@
     <input name="password" type="text" placeholder="Your password">
     <button type="submit">Login</button>
   </form>
+
+  <button id="newUser">Create New User</button>
+
   <% if (typeof errorMessage === 'string' && errorMessage) { %>
     <p class="error"><%= errorMessage %></p>
   <% } %>
+
 </div>
-</section>
+</main>

@@ -1,12 +1,12 @@
-<section>
-    <%  -include('../../layout/banner', {bannerMessage: 'Create New Profile'}) %>
+<main id="createUser">
+    <%- include('../../layout/banner', {bannerMessage: 'Create New Profile'}) %>
     <div id="createProfile">
         <form action="/profile" method="GET">
           <label>Username:</label>
           <input name="username" type="text" placeholder="Create an username">
           <label>Password:</label>
           <input name="password" type="text" placeholder="Create a password">
-          <button type="submit">Login</button>
+          <button type="submit">Create & Login</button>
         </form>
     </div>
-</section>
+</main>

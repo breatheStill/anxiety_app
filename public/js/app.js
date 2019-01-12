@@ -26,3 +26,22 @@ $(() => {
   });
 
 });
+
+$(() => {
+
+  function eventHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function toggleLoginForm(){
+    $('#login').toggle();
+    $('#createUser').toggle();
+  }
+
+  $('#createUser').hide();
+  $('#newUser').on('click', e => {
+    eventHandler(e);
+    toggleLoginForm();
+  });
+});
