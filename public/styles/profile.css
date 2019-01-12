@@ -16,6 +16,10 @@ header {
   padding: 8px;
 }
 
+section {
+  margin-bottom: 100px;
+}
+
 h1 {
   font-size: 300%;
 }
@@ -26,6 +30,11 @@ h2 {
 
 h3 {
   font-size: 180%;
+  text-decoration: underline;
+}
+
+h4 {
+  /* font-size: 110%; */
   text-decoration: underline;
 }
 
@@ -49,13 +58,32 @@ h3 {
 
 }
 
+em {
+  font-style: italic;
+  font-size: 90%;
+}
+
+b {
+  font-weight: bold;
+}
+
+li {
+  font-size: 80%;
+}
+
 .journal {
   font-family: 'Times New Roman', Times, serif;
   border: solid black 1px;
   background-color: ivory;
-  margin: 5px auto;
+  margin: 10px auto;
   clear: right;
   width: 90%;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+
+.entry {
+  text-align: left;
 }
 
 button {
@@ -64,6 +92,7 @@ button {
   background-color: ivory;
   border: solid black 1px;
   cursor: pointer;
+  font-size: 80%;
 }
 
 footer {

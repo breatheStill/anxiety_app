@@ -78,7 +78,7 @@ const journals = [
     date: new Date(2018, 12, 31),
     exercise: false,
     outdoors: true,
-    entry: 'Had a wonderful time with the family on the lake.',
+    entry: 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.',
     rating: 3
   },
   {
@@ -87,7 +87,7 @@ const journals = [
     date: new Date(2019, 01, 01),
     exercise: true,
     outdoors: true,
-    entry: 'Felt kind of hungover.',
+    entry: 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.',
     rating: 4
   },
   {
@@ -96,7 +96,7 @@ const journals = [
     date: new Date(2019, 01, 09),
     exercise: false,
     outdoors: false,
-    entry: 'Played computer games until my eyes bled.',
+    entry: 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
     rating: 9
   },
 ]
