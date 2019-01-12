@@ -48,11 +48,11 @@ function home(req, res) {
 }
 
 function login(req, res) {
-  // TODO
+  res.render('pages/login/show');
 }
 
 function createUser(req, res) {
-  // TODO
+  res.render('pages/login/new');
 }
 
 function getProfile(req, res) {
