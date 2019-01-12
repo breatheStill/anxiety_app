@@ -35,9 +35,10 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', home);
-app.get('/login', login);
+app.get('/login', renderLogin);
+app.post('/login', verifyLogin)
 app.post('/create', createUser);
-app.get('/profile', getProfile);
+app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
 
 
@@ -47,8 +48,27 @@ function home(req, res) {
   res.render('pages/index');
 }
 
-function login(req, res) {
+function renderLogin(req, res) {
   res.render('pages/login/show');
+}
+
+function verifyLogin(req, res) {
+  console.log(req.body);
+  const SQL = 'SELECT * FROM users WHERE username=$1;';
+  const values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      // console.log(result.rows[0]);
+      const uid = result.rows[0].id;
+      const pw = result.rows[0].password;
+      if (req.body.password === pw) {
+        res.redirect(`/profile/${uid}`);
+      } else {
+        res.redirect('/login');
+      }
+    })
+    .catch(err => handleError(err, res));
 }
 
 function createUser(req, res) {
@@ -73,6 +93,16 @@ app.get('/*', function(req, res) {
     error: 'Not all those who wander are lost',
   })
 });
+
+
+// Server error handler
+function handleError(err, res) {
+  console.error(err);
+  if (res) res.status(500).render('pages/error', {
+    message: 'Server Error',
+    error: err
+  });
+}
 
 
 

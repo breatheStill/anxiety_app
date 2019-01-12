@@ -6,8 +6,8 @@
 -- Push db to heroku
 -- heroku pg:push just_breathe DATABASE_URL --app just-breathe-cf301
 
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS journals;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -26,10 +26,10 @@ CREATE TABLE journals (
 );
 
 INSERT INTO users(username, password)
-VALUES('Andrew', '1234');
+VALUES('andrew', '1234');
 
 INSERT INTO users(username, password)
-VALUES('Jess', 'test');
+VALUES('jess', 'test');
 
 INSERT INTO users(username, password)
-VALUES('Erik', 'p@rty');
+VALUES('erik', 'p@rty');
