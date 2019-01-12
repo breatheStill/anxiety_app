@@ -8,5 +8,8 @@
     <input name="password" type="text" placeholder="Your password">
     <button type="submit">Login</button>
   </form>
+  <% if (typeof errorMessage === 'string' && errorMessage) { %>
+    <p class="error"><%= errorMessage %></p>
+  <% } %>
 </div>
 </section>

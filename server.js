@@ -36,7 +36,7 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/', home);
 app.get('/login', renderLogin);
-app.post('/login', verifyLogin)
+app.post('/login', verifyLogin);
 app.post('/create', createUser);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
@@ -53,19 +53,21 @@ function renderLogin(req, res) {
 }
 
 function verifyLogin(req, res) {
-  console.log(req.body);
   const SQL = 'SELECT * FROM users WHERE username=$1;';
   const values = [req.body.username];
 
   client.query(SQL, values)
     .then(result => {
-      // console.log(result.rows[0]);
-      const uid = result.rows[0].id;
-      const pw = result.rows[0].password;
-      if (req.body.password === pw) {
-        res.redirect(`/profile/${uid}`);
+      if (result.rows.length === 0) {
+        res.render('pages/login/show', {errorMessage: 'Username does not exist'});
       } else {
-        res.redirect('/login');
+        const uid = result.rows[0].id;
+        const pw = result.rows[0].password;
+        if (req.body.password === pw) {
+          res.redirect(`/profile/${uid}`);
+        } else {
+          res.render('pages/login/show', {errorMessage: 'Password incorrect'});
+        }
       }
     })
     .catch(err => handleError(err, res));
