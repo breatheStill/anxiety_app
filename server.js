@@ -35,7 +35,11 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', home);
+app.get('/login', login);
+app.post('/create', createUser);
 app.get('/profile', getProfile);
+app.post('/new', newJournal);
+
 
 
 // Route handlers
@@ -43,8 +47,20 @@ function home(req, res) {
   res.render('pages/index');
 }
 
+function login(req, res) {
+  // TODO
+}
+
+function createUser(req, res) {
+  // TODO
+}
+
 function getProfile(req, res) {
   res.render('pages/profile/show', {journals: journals});
+}
+
+function newJournal(req, res) {
+  // TODO
 }
 
 
