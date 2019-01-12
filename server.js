@@ -64,7 +64,14 @@ function newJournal(req, res) {
 }
 
 
-
+//Search for Resource
+function foodSearch(query){
+  const url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+  return superagent.get(url)
+    .then(foodData => {
+      
+    })
+}
 
 // Error 404
 app.get('/*', function(req, res) {
