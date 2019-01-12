@@ -1,0 +1,20 @@
+<section id="profile">
+  <%- include('../../layout/banner', {bannerMessage: 'Profile Page'}) %>
+  <img id="graph" src="https://via.placeholder.com/150" alt="">
+    <div class="container">
+    <h3>Journal Entries</h3>
+  </div>
+  <% journals.forEach(journal => { %>
+    <div class="journal">
+      <p><em><%= journal.date.toDateString() %></em></p>
+      <ul>
+        <li>Exercise? <b><%= journal.exercise ? 'Yes' : 'No' %></b></li>
+        <li>Go outside? <b><%= journal.outdoors ? 'Yes' : 'No ' %></b></li>
+        <li>Rating: <b><%= journal.rating %></b></li>
+      </ul>
+      <hr>
+      <p class="entry"><%= journal.entry %></p>
+    </div>
+  <% }) %>
+  <a href="/new"><button>Add New Entry</button></a>
+</section>
