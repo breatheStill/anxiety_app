@@ -16,7 +16,7 @@ header {
   padding: 8px;
 }
 
-section {
+main {
   margin-bottom: 100px;
 }
 
@@ -98,6 +98,31 @@ button {
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
+  margin-bottom: 20px;
+}
+
+fieldset section{
+  display: inline-block;
+  margin: 30px;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+  margin: 10px;
+}
+
+.block {
+  display: block;
+}
+
+a.cancel {
+  text-decoration: none;
+  color: darkred;
+}
+
+a.cancel:hover {
+  color: red;
 }
 
 footer {
