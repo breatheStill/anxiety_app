@@ -33,7 +33,8 @@ h3 {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  height: 160px;
 }
 
 /* #graph, .container h3 {
@@ -41,10 +42,11 @@ h3 {
 } */
 
 #graph {
-  /* position: relative;
-  left: 200px; */
+  position: absolute; 
+  right: 5%; 
+  /* top: 100px; */
   /* float: right; */
-  justify-self: flex-end;
+
 }
 
 .journal {
