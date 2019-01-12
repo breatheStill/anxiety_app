@@ -1,5 +1,5 @@
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: cursive;
   text-align: center;
   font-size: 120%;
 }
@@ -13,25 +13,55 @@ header {
 #banner {
   margin-bottom: 10px;
   background-color: coral;
-  padding: 5px;
+  padding: 8px;
 }
 
 h1 {
-  font-size: 200%;
+  font-size: 300%;
 }
 
 h2 {
-  font-size: 150%;
+  font-size: 200%;
+}
+
+h3 {
+  font-size: 180%;
+  text-decoration: underline;
 }
 
 #profile .container {
   display: flex;
   flex-flow: row;
   justify-content: center;
+  align-items: flex-end;
 }
 
+/* #graph, .container h3 {
+  display: inline-block;
+} */
+
 #graph {
+  /* position: relative;
+  left: 200px; */
   /* float: right; */
+  justify-self: flex-end;
+}
+
+.journal {
+  font-family: 'Times New Roman', Times, serif;
+  border: solid black 1px;
+  background-color: ivory;
+  margin: 5px auto;
+  clear: right;
+  width: 90%;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  background-color: ivory;
+  border: solid black 1px;
+  cursor: pointer;
 }
 
 footer {

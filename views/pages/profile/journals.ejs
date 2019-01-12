@@ -1,7 +1,18 @@
 <section id="profile">
   <%- include('../../layout/banner', {bannerMessage: 'Profile Page'}) %>
   <div class="container">
-    <h2>Journal Entries</h2>
+    <h3>Journal Entries</h3>
     <img id="graph" src="https://via.placeholder.com/150" alt="">
   </div>
+  <% journals.forEach(journal => { %>
+    <div class="journal">
+      <p><%= journal.date.toDateString() %></p>
+      <ul>
+        <li>Did <%= journal.exercise ? '' : 'not ' %>exercise</li>
+        <li>Did <%= journal.outdoors ? '' : 'not ' %>experience the great outdoors</li>
+      </ul>
+      <p><%= journal.entry %></p>
+    </div>
+  <% }) %>
+  <a href="/new"><button>Add New Entry</button></a>
 </section>

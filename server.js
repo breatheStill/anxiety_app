@@ -44,7 +44,7 @@ function home(req, res) {
 }
 
 function getProfile(req, res) {
-  res.render('pages/profile/show');
+  res.render('pages/profile/show', {journals: journals});
 }
 
 
@@ -65,3 +65,38 @@ app.get('/*', function(req, res) {
 app.listen(PORT, () => {
   console.log(`server is up on port : ${PORT}`);
 });
+
+
+
+// ======================================
+// TEST DATA FOR RENDERING JOURNAL
+// ======================================
+const journals = [
+  {
+    id: 1,
+    uid: 12,
+    date: new Date(2018, 12, 31),
+    exercise: false,
+    outdoors: true,
+    entry: 'Had a wonderful time with the family on the lake.',
+    rating: 3
+  },
+  {
+    id: 2,
+    uid: 12,
+    date: new Date(2019, 01, 01),
+    exercise: true,
+    outdoors: true,
+    entry: 'Felt kind of hungover.',
+    rating: 4
+  },
+  {
+    id: 3,
+    uid: 12,
+    date: new Date(2019, 01, 09),
+    exercise: false,
+    outdoors: false,
+    entry: 'Played computer games until my eyes bled.',
+    rating: 9
+  },
+]
