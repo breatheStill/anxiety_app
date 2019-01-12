@@ -1,1 +1,12 @@
-<!-- user -->
+<section>
+  <%- include('../../layout/banner', {bannerMessage: 'Login'}) %>
+<div id="user">
+  <form action="/profile" method="GET">
+    <label>Username:</label>
+    <input name="username" type="text" placeholder="Your username">
+    <label>Password:</label>
+    <input name="password" type="text" placeholder="Your password">
+    <button type="submit">Login</button>
+  </form>
+</div>
+</section>
