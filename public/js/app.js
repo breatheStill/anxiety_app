@@ -7,14 +7,22 @@ $(() => {
     e.stopPropagation();
   }
 
+  function toggleProfileForm() {
+    $('#profile').toggle();
+    $('#new').toggle();
+  }
+
   // hide profile, show form
-  $('#profile').hide();
-  // $('#new').hide();
+  $('#new').hide();
   $('#profile button').on('click', e => {
     eventHelper(e);
+    toggleProfileForm();
+  });
 
-    $('#profile').hide();
-    $('#new').show();
+  // hide form, show profile
+  $('a.cancel').on('click', e => {
+    eventHelper(e);
+    toggleProfileForm();
   });
 
 });

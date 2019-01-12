@@ -98,6 +98,7 @@ button {
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
+  margin-bottom: 20px;
 }
 
 fieldset section{
@@ -113,6 +114,15 @@ textarea {
 
 .block {
   display: block;
+}
+
+a.cancel {
+  text-decoration: none;
+  color: darkred;
+}
+
+a.cancel:hover {
+  color: red;
 }
 
 footer {
