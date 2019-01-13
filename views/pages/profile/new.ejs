@@ -1,12 +1,15 @@
 <main id="new">
-  <%- include('../../layout/banner', {bannerMessage: 'New Journal Entry'}) %>
+  <%- include('../../layout/banner', {
+    bannerMessage: 'New Journal Entry',
+    username: username
+  }) %>
 
   <form action="/new" method="POST">
     <fieldset>
-      <!-- <legend>Journal Entry</legend> -->
+      <input name="uid" type="hidden" value="<%= uid %>">
       <section>
-        <label id="datePicker" class="block" for="date">Date</label>
-        <input type="date">
+        <label class="block" for="date">Date</label>
+        <input id="datePicker" name="date" type="date" required>
       </section>
       <section>
         <div>
@@ -21,7 +24,7 @@
     </fieldset>
       <div>
         <label class="block" for="entry">Write About Your Day</label>
-        <textarea name="entry" id="" cols="30" rows="10"></textarea>
+        <textarea name="entry" id="" cols="30" rows="10" required></textarea>
       </div>
     <button type="submit">Submit</button>
     <div>

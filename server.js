@@ -33,18 +33,26 @@ app.use(methodOverride((req, res) => {
 app.set('view engine', 'ejs');
 
 
+// ============================
 // Routes
+// ============================
+
 app.get('/', home);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
 app.post('/create', createUser);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
-app.post('/login', createAndLogin)
+app.get('/logout', logout);
+
+// the route below is not needed. The function that will handle user
+// app.post('/login', createAndLogin)
 
 
-
+// ============================
 // Route handlers
+// ============================
+
 function home(req, res) {
   res.render('pages/index');
 }
@@ -79,21 +87,38 @@ function createUser(req, res) {
 }
 
 function getProfile(req, res) {
-  const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  const SQL = `SELECT users.username, journals.*
+  FROM users 
+  INNER JOIN journals
+  ON users.id=journals.uid
+  WHERE users.id=$1;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
     .then(result => {
       res.render('pages/profile/show', {
         journals: result.rows,
-        uid: req.params.uid
+        uid: req.params.uid,
+        username: result.rows[0].username
       });
     })
     .catch(err => handleError(err, res));
 }
 
 function newJournal(req, res) {
-  // TODO
+  // placeholder helper function until Mood API connected
+  const rating = getRating(req.body.entry);
+
+  const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
+
+  const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
+
+  client.query(SQL, values)
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
 function createAndLogin (req, res) {
@@ -115,6 +140,21 @@ function createAndLogin (req, res) {
         res.redirect(`/profile/${result.rows[0].id}`);
       })
       .catch(err => handleError(err,res));
+}
+
+
+function logout(req, res) {
+  res.redirect('/login');
+}
+
+
+// ============================
+// Helper functions
+// ============================
+function getRating(entry) {
+  // TODO: retrieve from Mood API
+  //  For now return random int 1 - 10
+  return Math.floor(Math.random() * 11);
 }
 
 

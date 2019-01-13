@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
 <%- include('../../layout/head',{stylesheet: 'profile.css'}) %>
 <body>
-  <%- include('../../layout/header') %>
-  <%- include('user') %>
-  <%- include('new') %>
+  <!-- This div.content grouping is a CSS trick to keep the footer always at the bottom of the page -->
+  <div class="content">
+    <%- include('../../layout/header') %>
+    <%- include('user') %>
+    <%- include('new') %>
+  </div>
   <%- include('../../layout/footer') %>
 </body>
 </html>
