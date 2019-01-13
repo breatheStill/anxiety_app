@@ -17,11 +17,9 @@
           <li>Rating: <b><%= journal.rating %></b></li>
         </ul>
         <hr>
-        <div class="entry">
-          <% journal.entry.split('\n').forEach(paragraph => { %>
-            <p><%= paragraph %></p>
-          <% }) %>
-        </div>
+        <p class="entry">
+          <%- journal.entry.replace(/\n/g, '<br>') %>
+        </p>
       </div>
     <% }) %>
   <% } else { %>
