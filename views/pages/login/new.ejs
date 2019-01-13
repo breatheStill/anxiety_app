@@ -2,6 +2,7 @@
     <%- include('../../layout/banner', {bannerMessage: 'Create New Profile'}) %>
     <div id="createProfile">
         <form action="/profile" method="GET">
+            <input type="hidden" id="uid" value="<%= uid =>">
           <label>Username:</label>
           <input name="username" type="text" placeholder="Create an username">
           <label>Password:</label>

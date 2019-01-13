@@ -83,7 +83,10 @@ function getProfile(req, res) {
 
   client.query(SQL, values)
     .then(result => {
-      res.render('pages/profile/show', {journals: result.rows});
+      res.render('pages/profile/show', {
+        journals: result.rows,
+        uid: req.params.uid
+      });
     })
     .catch(err => handleError(err, res));
 }
