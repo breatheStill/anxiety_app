@@ -90,15 +90,16 @@ function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
   FROM users 
-  INNER JOIN journals
+  LEFT JOIN journals
   ON users.id=journals.uid
   WHERE users.id=$1;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
     .then(result => {
+      console.log(result.rows);
       res.render('pages/profile/show', {
-        journals: result.rows,
+        journals: result.rows[0].id === null ? undefined : result.rows,
         uid: req.params.uid,
         username: result.rows[0].username
       });
