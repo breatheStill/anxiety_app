@@ -1,9 +1,11 @@
 <header>
   <section>
     <% if (typeof username === 'string' && username) { %>
-      <div>
-        <h4><%= username %></h4>
-      </div>
+      <a href="/logout">
+        <div>
+          <h4><%= username %></h4>
+        </div>
+      </a>
     <% } %>
     <h1><a href="/">(just)Breathe</a></h1>
   </section>

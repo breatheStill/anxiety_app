@@ -43,7 +43,10 @@ app.post('/login', verifyLogin);
 app.post('/create', createUser);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
-app.post('/login', createAndLogin)
+app.get('/logout', logout);
+
+// the route below is not needed. The function that will handle user
+// app.post('/login', createAndLogin)
 
 
 // ============================
@@ -137,6 +140,11 @@ function createAndLogin (req, res) {
         res.redirect(`/profile/${result.rows[0].id}`);
       })
       .catch(err => handleError(err,res));
+}
+
+
+function logout(req, res) {
+  res.redirect('/login');
 }
 
 
