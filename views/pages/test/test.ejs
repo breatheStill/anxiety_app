@@ -10,20 +10,11 @@
   <header>Yo</header>
   <main>
     <h1>Index</h1>
-
-    <section>
-      <div>
-          <form action="/test/test" method="post">
-            <input type="text" name="search" placeholder="Enter a food" required>
-            <button type="submit">Search</button>
-          </form>
-      </div>
-    </section>
     <section>
         <div class="food-item">
-            <form id="foodForm" action="/test" method="POST">
-              <input type="text" name="name" value="<%= food.name %>">
-              <input type="text" name="author" value="<%= food.brand %>">
+            <form id="foodForm" action="/test/test" method="post">
+              <input type="text" name="search" required>
+              <button type="submit">Search</button>
             </form>
           </div>
     </section>

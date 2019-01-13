@@ -36,12 +36,11 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/', home);
 app.get('/test/test', test);
-app.post('/test/test', test);
-app.post('/test/show', foodSearch);
+app.post('/test/test', foodSearch);
 app.get('/login', login);
 app.post('/create', createUser);
 app.get('/profile', getProfile);
-app.post('/new', newJournal);
+// app.post('/new', newJournal);
 
 
 
@@ -66,27 +65,26 @@ function getProfile(req, res) {
   res.render('pages/profile/show', {journals: journals});
 }
 
-function newJournal(req, res) {
-  // TODO
-}
+// function newJournal(req, res) {
+//   // TODO
+// }
 
 //Constructor functions
 function Food(food){
   this.name = food.fields.item_name;
   this.brand = food.fields.brand_name;
+  console.log('this', this);
 }
 
 //Search for Resource
 function foodSearch(query){
-  const url = `https://api.nutritionix.com/v1_1/search/black-beans?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+  console.log('in my query function', query);
+  let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+  console.log('searching');
   return superagent.get(url)
     .then(foodData => {
-      const results = foodData.hits.map(item => {
-        console.log('in the .map');
-        let food = new Food(item);
-        console.log(food);
-        res.render('/pages/test/test', {food});
-      })
+      let results = foodData.body.hits.map(item => new Food(item));
+      res.render('/pages/test/show', {results});
     })
     .catch(err => console.error(err));
 }
