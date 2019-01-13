@@ -2,9 +2,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/modules.css">
-  <title>Breathe Still</title>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
+  <!-- This allows passing in a stylesheet that only applies to a single page for prototyping -->
+  <% if (typeof stylesheet === 'string') { %>
+    <link rel="stylesheet" href="/styles/<%= stylesheet  %>">
+  <% } %>
+  <title>(just)Breathe</title>
 </head>
