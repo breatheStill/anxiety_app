@@ -78,7 +78,14 @@ function createUser(req, res) {
 }
 
 function getProfile(req, res) {
-  res.render('pages/profile/show', {journals: journals});
+  const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  const values = [req.params.uid];
+
+  client.query(SQL, values)
+    .then(result => {
+      res.render('pages/profile/show', {journals: result.rows});
+    })
+    .catch(err => handleError(err, res));
 }
 
 function newJournal(req, res) {
@@ -122,7 +129,7 @@ app.listen(PORT, () => {
 const journals = [
   {
     id: 1,
-    uid: 12,
+    uid: 1,
     date: new Date(2018, 12, 31),
     exercise: false,
     outdoors: true,
@@ -131,7 +138,7 @@ const journals = [
   },
   {
     id: 2,
-    uid: 12,
+    uid: 1,
     date: new Date(2019, 01, 01),
     exercise: true,
     outdoors: true,
@@ -140,7 +147,7 @@ const journals = [
   },
   {
     id: 3,
-    uid: 12,
+    uid: 1,
     date: new Date(2019, 01, 09),
     exercise: false,
     outdoors: false,

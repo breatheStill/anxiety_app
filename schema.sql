@@ -33,3 +33,12 @@ VALUES('jess', 'test');
 
 INSERT INTO users(username, password)
 VALUES('erik', 'p@rty');
+
+INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
+VALUES(1, '2018-12-31', false, true, 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.', 3);
+
+INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
+VALUES(1, '2019-01-01', true, true, 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.', 4);
+
+INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
+VALUES(1, '2019-01-13', false, false, 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit.', 9);
