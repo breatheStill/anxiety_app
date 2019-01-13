@@ -1,5 +1,8 @@
 <main id="new">
-  <%- include('../../layout/banner', {bannerMessage: 'New Journal Entry'}) %>
+  <%- include('../../layout/banner', {
+    bannerMessage: 'New Journal Entry',
+    username: username
+  }) %>
 
   <form action="/new" method="POST">
     <fieldset>

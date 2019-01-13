@@ -84,7 +84,12 @@ function createUser(req, res) {
 }
 
 function getProfile(req, res) {
-  const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  const SQL = `SELECT users.username, journals.*
+  FROM users 
+  INNER JOIN journals
+  ON users.id=journals.uid
+  WHERE users.id=$1;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
@@ -92,7 +97,7 @@ function getProfile(req, res) {
       res.render('pages/profile/show', {
         journals: result.rows,
         uid: req.params.uid,
-        username: req.param.username
+        username: result.rows[0].username
       });
     })
     .catch(err => handleError(err, res));

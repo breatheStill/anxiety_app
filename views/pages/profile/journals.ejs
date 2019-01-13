@@ -1,10 +1,11 @@
 <main id="profile">
   <%- include('../../layout/banner', {
-    bannerMessage: `${username}'s Profile Page`
+    bannerMessage: `Profile Page`,
+    username: username
   }) %>
   <img id="graph" src="https://via.placeholder.com/150" alt="">
     <div class="container">
-    <h3>Journal Entries</h3>
+    <h4>Your Journal Entries</h4>
   </div>
   <% journals.forEach(journal => { %>
     <div class="journal">
