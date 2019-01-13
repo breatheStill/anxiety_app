@@ -33,7 +33,10 @@ app.use(methodOverride((req, res) => {
 app.set('view engine', 'ejs');
 
 
+// ============================
 // Routes
+// ============================
+
 app.get('/', home);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
@@ -43,8 +46,10 @@ app.post('/new', newJournal);
 app.post('/login', createAndLogin)
 
 
-
+// ============================
 // Route handlers
+// ============================
+
 function home(req, res) {
   res.render('pages/index');
 }
@@ -93,7 +98,18 @@ function getProfile(req, res) {
 }
 
 function newJournal(req, res) {
-  // TODO
+  // get rating helper function
+  const rating = getRating(req.body.entry);
+
+  const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
+
+  const values = [req.body.uid, req.body.date, req.body.exercise && true, req.body.outdoors && true, req.body.entry, rating];
+
+  client.query(SQL, values)
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
 function createAndLogin (req, res) {
@@ -115,6 +131,16 @@ function createAndLogin (req, res) {
         res.redirect(`/profile/${result.rows[0].id}`);
       })
       .catch(err => handleError(err,res));
+}
+
+
+// ============================
+// Helper functions
+// ============================
+function getRating(entry) {
+  // TODO: retrieve from Mood API
+  //  For now return random int 1 - 10
+  return Math.floor(Math.random() * 11);
 }
 
 

@@ -3,10 +3,10 @@
 
   <form action="/new" method="POST">
     <fieldset>
-      <input type="hidden" id="uid" value="<%= uid %>">
+      <input name="uid" type="hidden" value="<%= uid %>">
       <section>
-        <label id="datePicker" class="block" for="date">Date</label>
-        <input type="date">
+        <label class="block" for="date">Date</label>
+        <input id="datePicker" name="date" type="date">
       </section>
       <section>
         <div>
