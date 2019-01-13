@@ -98,12 +98,12 @@ function getProfile(req, res) {
 }
 
 function newJournal(req, res) {
-  // get rating helper function
+  // placeholder helper function until Mood API connected
   const rating = getRating(req.body.entry);
 
   const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
-
-  const values = [req.body.uid, req.body.date, req.body.exercise && true, req.body.outdoors && true, req.body.entry, rating];
+  
+  const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
 
   client.query(SQL, values)
     .then(result => {
