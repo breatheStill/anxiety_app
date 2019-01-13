@@ -40,6 +40,7 @@ app.post('/login', verifyLogin);
 app.post('/create', createUser);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
+app.post('/login', createAndLogin)
 
 
 
@@ -85,6 +86,26 @@ function newJournal(req, res) {
   // TODO
 }
 
+function createAndLogin (req, res) {
+  let SQL = 'SELECT * FROM user WHERE username=$1;';
+  let values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      if (req.body.username === result.rows[0].username) {
+        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+      }
+    })
+    .catch(err => console.error(err));
+
+    let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
+
+    return client.query(SQL, [req.body.username, req.body.password])
+      .then(result => {
+        res.redirect(`/profile/${result.rows[0].id}`);
+      })
+      .catch(err => handleError(err,res));
+}
 
 
 
