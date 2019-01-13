@@ -125,6 +125,10 @@ a.cancel:hover {
   color: red;
 }
 
+.error {
+  color: red;
+}
+
 footer {
   position: fixed;
   bottom: 0;
