@@ -91,7 +91,8 @@ function getProfile(req, res) {
     .then(result => {
       res.render('pages/profile/show', {
         journals: result.rows,
-        uid: req.params.uid
+        uid: req.params.uid,
+        username: req.param.username
       });
     })
     .catch(err => handleError(err, res));
@@ -102,7 +103,7 @@ function newJournal(req, res) {
   const rating = getRating(req.body.entry);
 
   const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
-  
+
   const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
 
   client.query(SQL, values)
