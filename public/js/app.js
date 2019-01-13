@@ -31,7 +31,7 @@ $(() => {
   }
   
   $('#createUser').hide();
-  $('#newUser').on('click', e => {
+  $('#toggleLogin').on('click', e => {
     eventHelper(e);
     toggleLoginForm();
   });
