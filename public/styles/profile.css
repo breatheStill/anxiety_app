@@ -1,19 +1,69 @@
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: cursive;
   text-align: center;
   font-size: 120%;
+  display: flex;
+  flex-direction: column;
 }
 
+.content {
+  flex: 1 0 auto;
+}
+/* .footer {
+  flex-shrink: 0;
+} */
+
 header {
-  /* margin-bottom: 10px; */
   padding: 10px;
   background-color: ivory;
+  /* box-sizing: border-box; */
+}
+
+header h1 {
+  margin-left: 74px;
+}
+
+header section {
+  width: 90%;
+  margin: auto;
+}
+
+header div {
+  float: right;
+  width: 111px;
+  height: 74px;
+  border-radius: 10%;
+  background-color: rgb(108, 188, 214);
+  color: ivory;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  cursor: pointer;
 }
 
 #banner {
   margin-bottom: 10px;
+  /* background-color: coral; */
+  /* padding: 8px; */
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+#banner div {
+  padding: 10px; 
+}
+
+#banner div:first-child{
   background-color: coral;
-  padding: 8px;
+}
+
+#banner div:nth-child(2){
+  background-color: lightblue;
 }
 
 main {
@@ -34,13 +84,17 @@ h2 {
 }
 
 h3 {
-  font-size: 180%;
-  text-decoration: underline;
+  font-size: 150%;
+  /* text-decoration: underline; */
 }
 
 h4 {
-  /* font-size: 110%; */
-  text-decoration: underline;
+  font-size: 130%;
+  /* text-decoration: underline; */
+}
+
+input, textarea {
+  font-size: 90%;
 }
 
 #profile .container {
@@ -80,11 +134,12 @@ li {
   font-family: 'Times New Roman', Times, serif;
   border: solid black 1px;
   background-color: ivory;
-  margin: 10px auto;
+  margin: 20px auto;
   clear: right;
   width: 90%;
-  padding: 0 50px;
+  padding: 10px 50px;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 
 .entry {
@@ -125,10 +180,19 @@ a.cancel:hover {
   color: red;
 }
 
+.error {
+  color: red;
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
   width: 100%;
   padding: 10px;
   background-color: ivory;
+  flex-shrink: 0;
+}
+
+.journal p, .journal li {
+  margin-bottom: 10px;
 }

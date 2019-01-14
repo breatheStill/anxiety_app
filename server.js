@@ -33,36 +33,129 @@ app.use(methodOverride((req, res) => {
 app.set('view engine', 'ejs');
 
 
+// ============================
 // Routes
+// ============================
+
 app.get('/', home);
-app.get('/login', login);
+app.get('/login', renderLogin);
+app.post('/login', verifyLogin);
 app.post('/create', createUser);
-app.get('/profile', getProfile);
+app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
+app.get('/logout', logout);
+
+// the route below is not needed. The function that will handle user
+// app.post('/login', createAndLogin)
 
 
-
+// ============================
 // Route handlers
+// ============================
+
 function home(req, res) {
   res.render('pages/index');
 }
 
-function login(req, res) {
+function renderLogin(req, res) {
   res.render('pages/login/show');
 }
 
+function verifyLogin(req, res) {
+  const SQL = 'SELECT * FROM users WHERE username=$1;';
+  const values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      if (result.rows.length === 0) {
+        res.render('pages/login/show', {errorMessage: 'Username does not exist'});
+      } else {
+        const uid = result.rows[0].id;
+        const pw = result.rows[0].password;
+        if (req.body.password === pw) {
+          res.redirect(`/profile/${uid}`);
+        } else {
+          res.render('pages/login/show', {errorMessage: 'Password incorrect'});
+        }
+      }
+    })
+    .catch(err => handleError(err, res));
+}
+
 function createUser(req, res) {
-  // TODO
+  res.render('pages/login/new');
 }
 
 function getProfile(req, res) {
-  res.render('pages/profile/show', {journals: journals});
+  // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
+  const SQL = `SELECT users.username, journals.*
+  FROM users 
+  INNER JOIN journals
+  ON users.id=journals.uid
+  WHERE users.id=$1;`;
+  const values = [req.params.uid];
+
+  client.query(SQL, values)
+    .then(result => {
+      res.render('pages/profile/show', {
+        journals: result.rows,
+        uid: req.params.uid,
+        username: result.rows[0].username
+      });
+    })
+    .catch(err => handleError(err, res));
 }
 
 function newJournal(req, res) {
-  // TODO
+  // placeholder helper function until Mood API connected
+  const rating = getRating(req.body.entry);
+
+  const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
+
+  const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
+
+  client.query(SQL, values)
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
+function createAndLogin (req, res) {
+  let SQL = 'SELECT * FROM user WHERE username=$1;';
+  let values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      if (req.body.username === result.rows[0].username) {
+        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+      }
+    })
+    .catch(err => console.error(err));
+
+    let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
+
+    return client.query(SQL, [req.body.username, req.body.password])
+      .then(result => {
+        res.redirect(`/profile/${result.rows[0].id}`);
+      })
+      .catch(err => handleError(err,res));
+}
+
+
+function logout(req, res) {
+  res.redirect('/login');
+}
+
+
+// ============================
+// Helper functions
+// ============================
+function getRating(entry) {
+  // TODO: retrieve from Mood API
+  //  For now return random int 1 - 10
+  return Math.floor(Math.random() * 11);
+}
 
 //Mood API
 
@@ -75,6 +168,16 @@ app.get('/*', function(req, res) {
     error: 'Not all those who wander are lost',
   })
 });
+
+
+// Server error handler
+function handleError(err, res) {
+  console.error(err);
+  if (res) res.status(500).render('pages/error', {
+    message: 'Server Error',
+    error: err
+  });
+}
 
 
 
@@ -92,7 +195,7 @@ app.listen(PORT, () => {
 const journals = [
   {
     id: 1,
-    uid: 12,
+    uid: 1,
     date: new Date(2018, 12, 31),
     exercise: false,
     outdoors: true,
@@ -101,7 +204,7 @@ const journals = [
   },
   {
     id: 2,
-    uid: 12,
+    uid: 1,
     date: new Date(2019, 01, 01),
     exercise: true,
     outdoors: true,
@@ -110,7 +213,7 @@ const journals = [
   },
   {
     id: 3,
-    uid: 12,
+    uid: 1,
     date: new Date(2019, 01, 09),
     exercise: false,
     outdoors: false,

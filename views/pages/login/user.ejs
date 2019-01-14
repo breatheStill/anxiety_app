@@ -1,12 +1,19 @@
-<section>
+<main id="login">
   <%- include('../../layout/banner', {bannerMessage: 'Login'}) %>
 <div id="user">
-  <form action="/profile" method="GET">
+  <form action="/login" method="POST">
     <label>Username:</label>
-    <input name="username" type="text" placeholder="Your username">
+    <input name="username" type="text" placeholder="Your username" required>
     <label>Password:</label>
-    <input name="password" type="text" placeholder="Your password">
+    <input name="password" type="password" placeholder="Your password" required>
     <button type="submit">Login</button>
   </form>
+
+  <a href="" id="toggleLogin">Create New User</a>
+
+  <% if (typeof errorMessage === 'string' && errorMessage) { %>
+    <p class="error"><%= errorMessage %></p>
+  <% } %>
+
 </div>
-</section>
+</main>

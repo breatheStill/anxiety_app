@@ -2,9 +2,12 @@
 <html lang="en">
 <%- include('../../layout/head', {stylesheet: 'profile.css'}) %>
 <body>
-  <%- include('../../layout/header') %>
-  <%- include('journals', journals) %>
-  <%- include('new') %>
+  <!-- This div.content grouping is a CSS trick to keep the footer always at the bottom of the page -->
+  <div class="content">
+    <%- include('../../layout/header') %>
+    <%- include('journals') %>
+    <%- include('new') %>
+  </div>
   <%- include('../../layout/footer') %>
 </body>
 </html>
