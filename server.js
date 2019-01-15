@@ -40,14 +40,11 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
-app.post('/create', createUser);
+// app.get('/create', renderNewUser);
+app.post('/create', createAndLogin)
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
 app.get('/logout', logout);
-
-// the route below is not needed. The function that will handle user
-// app.post('/login', createAndLogin)
-
 
 // ============================
 // Route handlers
@@ -82,10 +79,32 @@ function verifyLogin(req, res) {
     .catch(err => handleError(err, res));
 }
 
-function createUser(req, res) {
+function renderNewUser(req, res) {
   res.render('pages/login/new');
 }
 
+function createAndLogin (req, res) {
+  let SQL = 'SELECT * FROM user WHERE username=$1;';
+  let values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      if (req.body.username === result.rows[0].username) {
+        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+      } else {
+        console.log('It\'s new!')
+      }
+    })
+    .catch(err => handleError(err, res));
+    
+    // let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
+
+    // return client.query(SQL, [req.body.username, req.body.password])
+    //   .then(result => {
+    //     res.redirect(`/profile/${result.rows[0].id}`);
+    //   })
+    //   .catch(err => handleError(err,res));
+}
 function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
@@ -123,24 +142,7 @@ function newJournal(req, res) {
 }
 
 function createAndLogin (req, res) {
-  let SQL = 'SELECT * FROM user WHERE username=$1;';
-  let values = [req.body.username];
 
-  client.query(SQL, values)
-    .then(result => {
-      if (req.body.username === result.rows[0].username) {
-        res.render('pages/login/show', {errorMessage: 'Username already exists'});
-      }
-    })
-    .catch(err => console.error(err));
-
-    let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
-
-    return client.query(SQL, [req.body.username, req.body.password])
-      .then(result => {
-        res.redirect(`/profile/${result.rows[0].id}`);
-      })
-      .catch(err => handleError(err,res));
 }
 
 
