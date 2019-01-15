@@ -3,7 +3,10 @@
     bannerMessage: `Profile Page`,
     username: username
   }) %>
-  <img id="graph" src="https://via.placeholder.com/150" alt="">
+  <!-- <img id="graph" src="https://via.placeholder.com/150" alt=""> -->
+
+  <%- include('graph') %>
+
     <div class="container">
     <h4>Your Journal Entries</h4>
   </div>
@@ -25,8 +28,7 @@
                     <th>Emotion</th>
                       <th>Rating</th>
                     </tr>
-                  </thead>
-                <tr>
+                    <tr>
                   <td>Anger</td>
                   <td><%= journal.anger %></td>
                 </tr>
