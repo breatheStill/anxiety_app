@@ -126,7 +126,8 @@ function getProfile(req, res) {
   FROM users 
   LEFT JOIN journals
   ON users.id=journals.uid
-  WHERE users.id=$1;`;
+  WHERE users.id=$1
+  ORDER BY journals.date DESC;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
@@ -148,7 +149,7 @@ function newJournal(req, res) {
       indico.emotion(req.body.entry)
         .then(emotions => {
           const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
-          
+
           // console.log(...Object.values(emotions), sentiment);
           // console.log(Object.values(journalMetrics));
 
