@@ -26,7 +26,12 @@ CREATE TABLE journals (
   exercise BOOLEAN,
   outdoors BOOLEAN,
   entry TEXT,
-  rating INTEGER
+  sentiment INTEGER,
+  anger INTEGER,
+  fear INTEGER,
+  joy INTEGER,
+  sadness INTEGER,
+  surprise INTEGER
 );
 
 INSERT INTO users(username, password)
@@ -42,11 +47,11 @@ INSERT INTO users(username, password)
 VALUES('lorin', 'milktoast');
 
 
-INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
-VALUES((SELECT id FROM users WHERE username='andrew'), '2018-12-31', false, true, 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.', 3);
+INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise)
+VALUES((SELECT id FROM users WHERE username='andrew'), '2018-12-31', false, true, 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.', 5, 7, 6, 4, 2, 1);
 
-INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
-VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-01', true, true, 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.', 4);
+INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise)
+VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-01', true, true, 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.', 4, 4, 9, 10, 10, 10);
 
-INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
-VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-13', false, false, 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit.', 9);
+INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise)
+VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-13', false, false, 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit.', 5, 9, 4, 6, 10, 0 );

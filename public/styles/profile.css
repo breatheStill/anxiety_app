@@ -157,7 +157,7 @@ li {
 button {
   width: 200px;
   height: 50px;
-  background-color: ivory;
+  background-color: azure;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
@@ -165,7 +165,7 @@ button {
 }
 
 button:hover {
-  background-color: azure;
+  background-color: ivory;
 }
 
 fieldset section{
