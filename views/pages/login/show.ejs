@@ -5,8 +5,11 @@
   <!-- This div.content grouping is a CSS trick to keep the footer always at the bottom of the page -->
   <div class="content">
     <%- include('../../layout/header') %>
-    <%- include('user') %>
-    <%- include('new') %>
+    <% if (onLogin === true) { %>
+      <%- include('user') %>
+    <% } else { %>
+      <%- include('new') %>
+    <% } %>
   </div>
   <%- include('../../layout/footer') %>
 </body>

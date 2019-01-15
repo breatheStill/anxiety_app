@@ -138,3 +138,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/node,macos,windows
+
+
+#####################################
+# Ignored by team members
+indico-test.js
+chart-test.*
+archive.sql
+schema.1.sql

@@ -13,9 +13,6 @@ body {
 .content {
   flex: 1 0 auto;
 }
-/* .footer {
-  flex-shrink: 0;
-} */
 
 header {
   padding: 10px;
@@ -24,7 +21,7 @@ header {
 }
 
 header h1 {
-  margin-left: 74px;
+  /* margin-left: 74px; */
 }
 
 header section {
@@ -38,15 +35,26 @@ header div {
   height: 74px;
   border-radius: 10%;
   background-color: rgb(108, 188, 214);
+  /* color: ivory; */
+  
+  
+  margin-left: -74px;
+}
+
+header div a {
+  display: block;
+  width: 111px;
+  height: 74px;
+  text-decoration: none;
   color: ivory;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #banner {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   /* background-color: coral; */
   /* padding: 8px; */
   display: flex;
@@ -105,16 +113,16 @@ input, textarea {
   height: 160px;
 }
 
-/* #graph, .container h3 {
-  display: inline-block;
-} */
+
+
 
 #graph {
   position: absolute; 
   right: 5%; 
-  /* top: 100px; */
-  /* float: right; */
-
+  width: 250px;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 em {
@@ -137,7 +145,7 @@ li {
   margin: 20px auto;
   clear: right;
   width: 90%;
-  padding: 10px 50px;
+  padding: 20px 50px;
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -149,11 +157,15 @@ li {
 button {
   width: 200px;
   height: 50px;
-  background-color: ivory;
+  background-color: azure;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
   margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: ivory;
 }
 
 fieldset section{
@@ -180,6 +192,17 @@ a.cancel:hover {
   color: red;
 }
 
+a.toggleLogin {
+  color: darkblue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+}
+
+a.toggleLogin:hover {
+  color: rgb(67, 147, 197);
+}
+
 .error {
   color: red;
 }
@@ -195,4 +218,45 @@ footer {
 
 .journal p, .journal li {
   margin-bottom: 10px;
+}
+
+.journalHeader {
+  display: flex;
+  justify-content: flex-start;
+  position: relative; 
+}
+
+.journalInfo {
+  flex: 0 1 auto;
+  position: absolute;             /* new */
+  left: 50%;
+  transform: translateX(-50%);
+    
+}
+
+table {
+  font-size: 65%;
+  flex: 0 1 auto;
+  margin: 0 40px 10px auto; 
+  table-layout: fixed;     
+  background-color: aliceblue;
+  border: 5px solid aliceblue;
+}
+
+thead {
+  padding: 5px;
+  border-bottom: 1px black solid;
+}
+
+th {
+  font-weight: bold;
+}
+
+th:nth-child(1){
+  padding-right: 5px;
+}
+
+th:nth-child(1), td:nth-child(1) {
+  text-align: left;
+  border-right: black 1px solid;
 }

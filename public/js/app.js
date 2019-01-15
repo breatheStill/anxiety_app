@@ -25,14 +25,4 @@ $(() => {
     toggleProfileForm();
   });
 
-  function toggleLoginForm(){
-    $('#login').toggle();
-    $('#createUser').toggle();
-  }
-  
-  $('#createUser').hide();
-  $('#toggleLogin').on('click', e => {
-    eventHelper(e);
-    toggleLoginForm();
-  });
 });
