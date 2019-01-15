@@ -6,6 +6,8 @@ const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
+const indico = require('indico.io');
+indico.apiKey =  process.env.INDICO_API_KEY;
 
 // Load env vars;
 require('dotenv').config();
@@ -139,18 +141,43 @@ function getProfile(req, res) {
 }
  
 function newJournal(req, res) {
-  // placeholder helper function until Mood API connected
-  const rating = getRating(req.body.entry);
+  // first indico call returns a high quality assessment
+  indico.sentimentHQ(req.body.entry)
+    .then(sentiment => {
+      // seconen indical returns 5 emotion scores
+      indico.emotion(req.body.entry)
+        .then(emotions => {
+          const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
+          
+          // console.log(...Object.values(emotions), sentiment);
+          // console.log(Object.values(journalMetrics));
 
-  const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
+          const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
 
-  const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
+          const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
 
-  client.query(SQL, values)
-    .then(result => {
-      res.redirect(`/profile/${req.body.uid}`);
-    })
+          client.query(SQL, values)
+            .then(result => {
+              res.redirect(`/profile/${req.body.uid}`);
+            })
+            .catch(err => handleError(err, res));
+          })
+        .catch(err => handleError(err, res));
+        })
     .catch(err => handleError(err, res));
+
+
+
+    // const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
+
+    // const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, Math.round(sentRes), 1, 2, 3, 4, 5];
+
+    // client.query(SQL, values)
+    //   .then(result => {
+    //     res.redirect(`/profile/${req.body.uid}`);
+    //   })
+    //   .catch(err => handleError(err, res));
+  
 }
 
 function logout(req, res) {
@@ -160,14 +187,18 @@ function logout(req, res) {
 // ============================
 // Helper functions
 // ============================
-function getRating(entry) {
-  // TODO: retrieve from Mood API
-  //  For now return random int 1 - 10
-  return Math.floor(Math.random() * 11);
 
+function normalizeJournalMetrics(sentiment, emotions) {
+  emotions.sentiment = sentiment;
+  return Object.assign({}, ...Object.keys(emotions).map(e => {
+    return {[e]: Math.round(emotions[e] * 10)};
+  }));
 }
 
+// ===============================
 //Constructor functions
+// ===============================
+
 function Food(food){
   this.name = food.fields.item_name;
   this.brand = food.fields.brand_name;
