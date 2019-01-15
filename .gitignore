@@ -145,3 +145,4 @@ $RECYCLE.BIN/
 indico-test.js
 chart-test.*
 archive.sql
+schema.1.sql

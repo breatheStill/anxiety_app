@@ -208,6 +208,10 @@ function findAir(req, res){
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13d983e3fb257723b81ce0ab24e04eaff187ccd1
 //Constructor functions
 // ===============================
 
@@ -275,3 +279,7 @@ function handleError(err, res) {
 app.listen(PORT, () => {
   console.log(`server is up on port : ${PORT}`);
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13d983e3fb257723b81ce0ab24e04eaff187ccd1
