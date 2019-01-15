@@ -37,8 +37,13 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
+
+//test section
 app.get('/test/test', test);
 app.post('/test/test', foodSearch);
+app.get('/test/test', findAir);
+
+//functional
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
 app.post('/create', createAndLogin);
@@ -108,10 +113,10 @@ function createAndLogin (req, res) {
 function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
-  FROM users 
-  LEFT JOIN journals
-  ON users.id=journals.uid
-  WHERE users.id=$1;`;
+    FROM users 
+    LEFT JOIN journals
+    ON users.id=journals.uid
+    WHERE users.id=$1;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
@@ -125,7 +130,7 @@ function getProfile(req, res) {
     })
     .catch(err => handleError(err, res));
 }
- 
+
 function newJournal(req, res) {
   // placeholder helper function until Mood API connected
   const rating = getRating(req.body.entry);
@@ -155,11 +160,36 @@ function getRating(entry) {
 
 }
 
+// =============================
+// API TEST STUFF
+// =============================
+
+function findAir(req, res){
+  let query = req.query.data;
+  console.log('query', query);
+
+  return searchLatLong(query)
+    .then(localData => {
+      res.send('pages/test/test', {localData});
+    })
+
+    .catch(err => {console.error(err)});
+}
+
+
 //Constructor functions
 function Food(food){
   this.name = food.fields.item_name;
   this.brand = food.fields.brand_name;
   console.log('this', this);
+}
+
+function Location(location){
+  this.formatted_query = location.formatted_address;
+  this.latitude = location.geometry.location.lat;
+  this.longitude = location.geometry.location.lng;
+
+  this.short_name = location.address_components[0].short_name;
 }
 
 //Search for Resource
@@ -174,6 +204,22 @@ function foodSearch(query){
     })
     .catch(err => console.error(err));
 }
+
+function searchLatLong(query){
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
+  return superagent.get(url)
+    .then(geoData => {
+      const location = new Location(geoData.body.results[0]);
+      console.log('location', location);
+
+      return client.query([query, location.formatted_query, location.latitude, location.longitude])
+        .then(() =>{
+          return location;
+        })
+        .catch(err =>console.error(err));
+    })
+}
+
 
 // Error 404
 app.get('/*', function(req, res) {
