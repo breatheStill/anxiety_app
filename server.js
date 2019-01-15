@@ -32,7 +32,6 @@ app.use(methodOverride((req, res) => {
 
 app.set('view engine', 'ejs');
 
-
 // ============================
 // Routes
 // ============================
@@ -40,7 +39,7 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
-app.post('/create', createAndLogin)
+app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
 app.get('/logout', logout);
@@ -79,26 +78,25 @@ function verifyLogin(req, res) {
 }
 
 function createAndLogin (req, res) {
-  let SQL = 'SELECT * FROM user WHERE username=$1;';
-  let values = [req.body.username];
-
-  client.query(SQL, values)
+  let SQL = 'SELECT username FROM users';
+  
+  client.query(SQL)
     .then(result => {
-      if (req.body.username === result.rows[0].username) {
+      console.log(result.rows);
+      if (result.rows.map(n => n.username).includes(req.body.username)) {
         res.render('pages/login/show', {errorMessage: 'Username already exists'});
       } else {
-        console.log('It\'s new!')
+        SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id;';
+        let values = [req.body.username, req.body.password];
+        client.query(SQL, values)
+          .then(data => {
+            console.log(data.rows);
+            res.redirect(`/profile/${data.rows[0].id}`);
+          })
+          .catch(err => handleError(err, res));
       }
     })
     .catch(err => handleError(err, res));
-    
-    // let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
-
-    // return client.query(SQL, [req.body.username, req.body.password])
-    //   .then(result => {
-    //     res.redirect(`/profile/${result.rows[0].id}`);
-    //   })
-    //   .catch(err => handleError(err,res));
 }
 function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
@@ -136,15 +134,9 @@ function newJournal(req, res) {
     .catch(err => handleError(err, res));
 }
 
-function createAndLogin (req, res) {
-
-}
-
-
 function logout(req, res) {
   res.redirect('/login');
 }
-
 
 // ============================
 // Helper functions
@@ -155,8 +147,6 @@ function getRating(entry) {
   return Math.floor(Math.random() * 11);
 }
 
-
-
 // Error 404
 app.get('/*', function(req, res) {
   res.status(404).render('pages/error', {
@@ -164,7 +154,6 @@ app.get('/*', function(req, res) {
     error: 'Not all those who wander are lost',
   })
 });
-
 
 // Server error handler
 function handleError(err, res) {
@@ -175,15 +164,10 @@ function handleError(err, res) {
   });
 }
 
-
-
-
 // App listening on PORT
 app.listen(PORT, () => {
   console.log(`server is up on port : ${PORT}`);
 });
-
-
 
 // ======================================
 // TEST DATA FOR RENDERING JOURNAL
