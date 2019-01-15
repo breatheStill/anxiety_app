@@ -41,6 +41,7 @@ app.get('/test/test', test);
 app.post('/test/test', foodSearch);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
+app.get('/create', renderCreate);
 app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
@@ -59,7 +60,9 @@ function test(req, res) {
 }
 
 function renderLogin(req, res) {
-  res.render('pages/login/show');
+  res.render('pages/login/show', {
+    onLogin: true
+  });
 }
 
 function verifyLogin(req, res) {
@@ -69,18 +72,28 @@ function verifyLogin(req, res) {
   client.query(SQL, values)
     .then(result => {
       if (result.rows.length === 0) {
-        res.render('pages/login/show', {errorMessage: 'Username does not exist'});
+        res.render('pages/login/show', {
+          onLogin: true,
+          errorMessage: 'Username does not exist'
+        });
       } else {
         const uid = result.rows[0].id;
         const pw = result.rows[0].password;
         if (req.body.password === pw) {
           res.redirect(`/profile/${uid}`);
         } else {
-          res.render('pages/login/show', {errorMessage: 'Password incorrect'});
+          res.render('pages/login/show', {
+            onLogin: true,
+            errorMessage: 'Password incorrect'
+          });
         }
       }
     })
     .catch(err => handleError(err, res));
+}
+
+function renderCreate(req, res) {
+  res.render('pages/login/show', {onLogin: false});
 }
 
 function createAndLogin (req, res) {
@@ -88,15 +101,16 @@ function createAndLogin (req, res) {
   
   client.query(SQL)
     .then(result => {
-      console.log(result.rows);
       if (result.rows.map(n => n.username).includes(req.body.username)) {
-        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+        res.render('pages/login/show', {
+          onLogin: false,
+          errorMessage: 'Username already exists'
+        });
       } else {
         SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id;';
         let values = [req.body.username, req.body.password];
         client.query(SQL, values)
           .then(data => {
-            console.log(data.rows);
             res.redirect(`/profile/${data.rows[0].id}`);
           })
           .catch(err => handleError(err, res));
@@ -106,7 +120,6 @@ function createAndLogin (req, res) {
 }
 
 function getProfile(req, res) {
-  // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
   FROM users 
   LEFT JOIN journals
@@ -116,7 +129,6 @@ function getProfile(req, res) {
 
   client.query(SQL, values)
     .then(result => {
-      console.log(result.rows);
       res.render('pages/profile/show', {
         journals: result.rows[0].id === null ? undefined : result.rows,
         uid: req.params.uid,
@@ -196,36 +208,3 @@ function handleError(err, res) {
 app.listen(PORT, () => {
   console.log(`server is up on port : ${PORT}`);
 });
-
-// ======================================
-// TEST DATA FOR RENDERING JOURNAL
-// ======================================
-const journals = [
-  {
-    id: 1,
-    uid: 1,
-    date: new Date(2018, 12, 31),
-    exercise: false,
-    outdoors: true,
-    entry: 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.',
-    rating: 3
-  },
-  {
-    id: 2,
-    uid: 1,
-    date: new Date(2019, 01, 01),
-    exercise: true,
-    outdoors: true,
-    entry: 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.',
-    rating: 4
-  },
-  {
-    id: 3,
-    uid: 1,
-    date: new Date(2019, 01, 09),
-    exercise: false,
-    outdoors: false,
-    entry: 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-    rating: 9
-  },
-]

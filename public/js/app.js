@@ -25,14 +25,15 @@ $(() => {
     toggleProfileForm();
   });
 
-  function toggleLoginForm(){
-    $('#login').toggle();
-    $('#createUser').toggle();
-  }
+  // function toggleLoginForm(){
+  //   $('.error').hide();
+  //   $('#login').toggle();
+  //   $('#createUser').toggle();
+  // }
   
-  $('#createUser').hide();
-  $('#toggleLogin').on('click', e => {
-    eventHelper(e);
-    toggleLoginForm();
-  });
+  // $('#createUser').hide();
+  // $('#toggleLogin').on('click', e => {
+  //   eventHelper(e);
+  //   toggleLoginForm();
+  // });
 });

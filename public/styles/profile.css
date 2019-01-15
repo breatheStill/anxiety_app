@@ -164,6 +164,10 @@ button {
   margin-bottom: 20px;
 }
 
+button:hover {
+  background-color: azure;
+}
+
 fieldset section{
   display: inline-block;
   margin: 30px;
@@ -186,6 +190,17 @@ a.cancel {
 
 a.cancel:hover {
   color: red;
+}
+
+a.toggleLogin {
+  color: darkblue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+}
+
+a.toggleLogin:hover {
+  color: rgb(67, 147, 197);
 }
 
 .error {

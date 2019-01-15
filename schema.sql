@@ -38,6 +38,9 @@ VALUES('jess', 'test');
 INSERT INTO users(username, password)
 VALUES('erik', 'p@rty');
 
+INSERT INTO users(username, password)
+VALUES('lorin', 'milktoast');
+
 
 INSERT INTO journals(uid, date, exercise, outdoors, entry, rating)
 VALUES((SELECT id FROM users WHERE username='andrew'), '2018-12-31', false, true, 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.', 3);
