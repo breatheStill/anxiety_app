@@ -145,7 +145,7 @@ li {
   margin: 20px auto;
   clear: right;
   width: 90%;
-  padding: 10px 50px;
+  padding: 20px 50px;
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -218,4 +218,45 @@ footer {
 
 .journal p, .journal li {
   margin-bottom: 10px;
+}
+
+.journalHeader {
+  display: flex;
+  justify-content: flex-start;
+  position: relative; 
+}
+
+.journalInfo {
+  flex: 0 1 auto;
+  position: absolute;             /* new */
+  left: 50%;
+  transform: translateX(-50%);
+    
+}
+
+table {
+  font-size: 65%;
+  flex: 0 1 auto;
+  margin: 0 40px 10px auto; 
+  table-layout: fixed;     
+  background-color: aliceblue;
+  border: 5px solid aliceblue;
+}
+
+thead {
+  padding: 5px;
+  border-bottom: 1px black solid;
+}
+
+th {
+  font-weight: bold;
+}
+
+th:nth-child(1){
+  padding-right: 5px;
+}
+
+th:nth-child(1), td:nth-child(1) {
+  text-align: left;
+  border-right: black 1px solid;
 }
