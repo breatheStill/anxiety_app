@@ -6,6 +6,8 @@ const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
+const indico = require('indico.io');
+indico.apiKey =  process.env.INDICO_API_KEY;
 
 // Load env vars;
 require('dotenv').config();
@@ -46,6 +48,7 @@ app.get('/test/test', findAir);
 //functional
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
+app.get('/create', renderCreate);
 app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
@@ -64,7 +67,9 @@ function test(req, res) {
 }
 
 function renderLogin(req, res) {
-  res.render('pages/login/show');
+  res.render('pages/login/show', {
+    onLogin: true
+  });
 }
 
 function verifyLogin(req, res) {
@@ -74,18 +79,28 @@ function verifyLogin(req, res) {
   client.query(SQL, values)
     .then(result => {
       if (result.rows.length === 0) {
-        res.render('pages/login/show', {errorMessage: 'Username does not exist'});
+        res.render('pages/login/show', {
+          onLogin: true,
+          errorMessage: 'Username does not exist'
+        });
       } else {
         const uid = result.rows[0].id;
         const pw = result.rows[0].password;
         if (req.body.password === pw) {
           res.redirect(`/profile/${uid}`);
         } else {
-          res.render('pages/login/show', {errorMessage: 'Password incorrect'});
+          res.render('pages/login/show', {
+            onLogin: true,
+            errorMessage: 'Password incorrect'
+          });
         }
       }
     })
     .catch(err => handleError(err, res));
+}
+
+function renderCreate(req, res) {
+  res.render('pages/login/show', {onLogin: false});
 }
 
 function createAndLogin (req, res) {
@@ -93,15 +108,16 @@ function createAndLogin (req, res) {
   
   client.query(SQL)
     .then(result => {
-      console.log(result.rows);
       if (result.rows.map(n => n.username).includes(req.body.username)) {
-        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+        res.render('pages/login/show', {
+          onLogin: false,
+          errorMessage: 'Username already exists'
+        });
       } else {
         SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id;';
         let values = [req.body.username, req.body.password];
         client.query(SQL, values)
           .then(data => {
-            console.log(data.rows);
             res.redirect(`/profile/${data.rows[0].id}`);
           })
           .catch(err => handleError(err, res));
@@ -111,17 +127,17 @@ function createAndLogin (req, res) {
 }
 
 function getProfile(req, res) {
-  // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
-    FROM users 
-    LEFT JOIN journals
-    ON users.id=journals.uid
-    WHERE users.id=$1;`;
+  FROM users 
+  LEFT JOIN journals
+  ON users.id=journals.uid
+  WHERE users.id=$1
+  ORDER BY journals.date DESC;`;
+
   const values = [req.params.uid];
 
   client.query(SQL, values)
     .then(result => {
-      console.log(result.rows);
       res.render('pages/profile/show', {
         journals: result.rows[0].id === null ? undefined : result.rows,
         uid: req.params.uid,
@@ -132,18 +148,31 @@ function getProfile(req, res) {
 }
 
 function newJournal(req, res) {
-  // placeholder helper function until Mood API connected
-  const rating = getRating(req.body.entry);
+  // first indico call returns a high quality assessment
+  indico.sentimentHQ(req.body.entry)
+    .then(sentiment => {
+      // seconen indical returns 5 emotion scores
+      indico.emotion(req.body.entry)
+        .then(emotions => {
+          const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
 
-  const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, rating) VALUES($1, $2, $3, $4, $5, $6);`;
+          // console.log(...Object.values(emotions), sentiment);
+          // console.log(Object.values(journalMetrics));
 
-  const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, rating];
+          const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
 
-  client.query(SQL, values)
-    .then(result => {
-      res.redirect(`/profile/${req.body.uid}`);
-    })
+          const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
+
+          client.query(SQL, values)
+            .then(result => {
+              res.redirect(`/profile/${req.body.uid}`);
+            })
+            .catch(err => handleError(err, res));
+          })
+        .catch(err => handleError(err, res));
+        })
     .catch(err => handleError(err, res));
+  
 }
 
 function logout(req, res) {
@@ -153,12 +182,14 @@ function logout(req, res) {
 // ============================
 // Helper functions
 // ============================
-function getRating(entry) {
-  // TODO: retrieve from Mood API
-  //  For now return random int 1 - 10
-  return Math.floor(Math.random() * 11);
 
+function normalizeJournalMetrics(sentiment, emotions) {
+  emotions.sentiment = sentiment;
+  return Object.assign({}, ...Object.keys(emotions).map(e => {
+    return {[e]: Math.round(emotions[e] * 10)};
+  }));
 }
+
 
 // =============================
 // API TEST STUFF
@@ -178,6 +209,8 @@ function findAir(req, res){
 
 
 //Constructor functions
+// ===============================
+
 function Food(food){
   this.name = food.fields.item_name;
   this.brand = food.fields.brand_name;
@@ -242,36 +275,3 @@ function handleError(err, res) {
 app.listen(PORT, () => {
   console.log(`server is up on port : ${PORT}`);
 });
-
-// ======================================
-// TEST DATA FOR RENDERING JOURNAL
-// ======================================
-const journals = [
-  {
-    id: 1,
-    uid: 1,
-    date: new Date(2018, 12, 31),
-    exercise: false,
-    outdoors: true,
-    entry: 'Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur. Had a wonderful time with the family on the lake.',
-    rating: 3
-  },
-  {
-    id: 2,
-    uid: 1,
-    date: new Date(2019, 01, 01),
-    exercise: true,
-    outdoors: true,
-    entry: 'Felt kind of hungover. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum aliquam, totam vero odit sit quasi consequatur aspernatur corporis tempora rerum autem. Aliquid itaque enim quibusdam repellat consectetur totam consequuntur.',
-    rating: 4
-  },
-  {
-    id: 3,
-    uid: 1,
-    date: new Date(2019, 01, 09),
-    exercise: false,
-    outdoors: false,
-    entry: 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit. ',
-    rating: 9
-  },
-]
