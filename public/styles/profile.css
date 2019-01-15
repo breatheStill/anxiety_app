@@ -13,9 +13,6 @@ body {
 .content {
   flex: 1 0 auto;
 }
-/* .footer {
-  flex-shrink: 0;
-} */
 
 header {
   padding: 10px;
@@ -24,7 +21,7 @@ header {
 }
 
 header h1 {
-  margin-left: 74px;
+  /* margin-left: 74px; */
 }
 
 header section {
@@ -38,11 +35,22 @@ header div {
   height: 74px;
   border-radius: 10%;
   background-color: rgb(108, 188, 214);
+  /* color: ivory; */
+  
+  
+  margin-left: -74px;
+}
+
+header div a {
+  display: block;
+  width: 111px;
+  height: 74px;
+  text-decoration: none;
   color: ivory;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #banner {

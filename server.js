@@ -38,16 +38,16 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
+
+app.get('/test/test', test);
+app.post('/test/test', foodSearch);
+
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
-app.post('/create', createUser);
+app.post('/create', createAndLogin)
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
 app.get('/logout', logout);
-
-// the route below is not needed. The function that will handle user
-// app.post('/login', createAndLogin)
-
 
 // ============================
 // Route handlers
@@ -56,6 +56,12 @@ app.get('/logout', logout);
 function home(req, res) {
   res.render('pages/index');
 }
+
+
+function test(req, res) {
+  res.render('pages/test/test');
+}
+
 
 function renderLogin(req, res) {
   res.render('pages/login/show');
@@ -82,30 +88,50 @@ function verifyLogin(req, res) {
     .catch(err => handleError(err, res));
 }
 
-function createUser(req, res) {
-  res.render('pages/login/new');
+function createAndLogin (req, res) {
+  let SQL = 'SELECT * FROM user WHERE username=$1;';
+  let values = [req.body.username];
+
+  client.query(SQL, values)
+    .then(result => {
+      if (req.body.username === result.rows[0].username) {
+        res.render('pages/login/show', {errorMessage: 'Username already exists'});
+      } else {
+        console.log('It\'s new!')
+      }
+    })
+    .catch(err => handleError(err, res));
+    
+    // let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
+
+    // return client.query(SQL, [req.body.username, req.body.password])
+    //   .then(result => {
+    //     res.redirect(`/profile/${result.rows[0].id}`);
+    //   })
+    //   .catch(err => handleError(err,res));
 }
 
 function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
   FROM users 
-  INNER JOIN journals
+  LEFT JOIN journals
   ON users.id=journals.uid
   WHERE users.id=$1;`;
   const values = [req.params.uid];
 
   client.query(SQL, values)
     .then(result => {
+      console.log(result.rows);
       res.render('pages/profile/show', {
-        journals: result.rows,
+        journals: result.rows[0].id === null ? undefined : result.rows,
         uid: req.params.uid,
         username: result.rows[0].username
       });
     })
     .catch(err => handleError(err, res));
 }
-
+ 
 function newJournal(req, res) {
   // placeholder helper function until Mood API connected
   const rating = getRating(req.body.entry);
@@ -122,24 +148,7 @@ function newJournal(req, res) {
 }
 
 function createAndLogin (req, res) {
-  let SQL = 'SELECT * FROM user WHERE username=$1;';
-  let values = [req.body.username];
 
-  client.query(SQL, values)
-    .then(result => {
-      if (req.body.username === result.rows[0].username) {
-        res.render('pages/login/show', {errorMessage: 'Username already exists'});
-      }
-    })
-    .catch(err => console.error(err));
-
-    let SQL = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
-
-    return client.query(SQL, [req.body.username, req.body.password])
-      .then(result => {
-        res.redirect(`/profile/${result.rows[0].id}`);
-      })
-      .catch(err => handleError(err,res));
 }
 
 
@@ -155,10 +164,28 @@ function getRating(entry) {
   // TODO: retrieve from Mood API
   //  For now return random int 1 - 10
   return Math.floor(Math.random() * 11);
+
 }
 
-//Mood API
+//Constructor functions
+function Food(food){
+  this.name = food.fields.item_name;
+  this.brand = food.fields.brand_name;
+  console.log('this', this);
+}
 
+//Search for Resource
+function foodSearch(query){
+  console.log('in my query function', query);
+  let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+  console.log('searching');
+  return superagent.get(url)
+    .then(foodData => {
+      let results = foodData.body.hits.map(item => new Food(item));
+      res.render('/pages/test/show', {results});
+    })
+    .catch(err => console.error(err));
+}
 
 
 // Error 404
