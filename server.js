@@ -40,7 +40,6 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
-// app.get('/create', renderNewUser);
 app.post('/create', createAndLogin)
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
@@ -77,10 +76,6 @@ function verifyLogin(req, res) {
       }
     })
     .catch(err => handleError(err, res));
-}
-
-function renderNewUser(req, res) {
-  res.render('pages/login/new');
 }
 
 function createAndLogin (req, res) {
