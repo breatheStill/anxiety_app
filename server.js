@@ -37,6 +37,8 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
+app.get('/test/test', test);
+app.post('/test/test', foodSearch);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
 app.post('/create', createAndLogin);
@@ -50,6 +52,10 @@ app.get('/logout', logout);
 
 function home(req, res) {
   res.render('pages/index');
+}
+
+function test(req, res) {
+  res.render('pages/test/test');
 }
 
 function renderLogin(req, res) {
@@ -98,6 +104,7 @@ function createAndLogin (req, res) {
     })
     .catch(err => handleError(err, res));
 }
+
 function getProfile(req, res) {
   // const SQL = 'SELECT * FROM journals WHERE uid=$1;';
   const SQL = `SELECT users.username, journals.*
@@ -118,7 +125,7 @@ function getProfile(req, res) {
     })
     .catch(err => handleError(err, res));
 }
-
+ 
 function newJournal(req, res) {
   // placeholder helper function until Mood API connected
   const rating = getRating(req.body.entry);
@@ -145,6 +152,27 @@ function getRating(entry) {
   // TODO: retrieve from Mood API
   //  For now return random int 1 - 10
   return Math.floor(Math.random() * 11);
+
+}
+
+//Constructor functions
+function Food(food){
+  this.name = food.fields.item_name;
+  this.brand = food.fields.brand_name;
+  console.log('this', this);
+}
+
+//Search for Resource
+function foodSearch(query){
+  console.log('in my query function', query);
+  let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+  console.log('searching');
+  return superagent.get(url)
+    .then(foodData => {
+      let results = foodData.body.hits.map(item => new Food(item));
+      res.render('/pages/test/show', {results});
+    })
+    .catch(err => console.error(err));
 }
 
 // Error 404
