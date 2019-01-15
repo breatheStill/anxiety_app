@@ -144,3 +144,4 @@ $RECYCLE.BIN/
 # Ignored by team members
 indico-test.js
 chart-test.*
+archive.sql
