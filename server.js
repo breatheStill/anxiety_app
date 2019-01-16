@@ -167,11 +167,10 @@ function newJournal(req, res) {
               res.redirect(`/profile/${req.body.uid}`);
             })
             .catch(err => handleError(err, res));
-          })
-        .catch(err => handleError(err, res));
         })
+        .catch(err => handleError(err, res));
+    })
     .catch(err => handleError(err, res));
-  
 }
 
 function logout(req, res) {
@@ -188,8 +187,6 @@ function normalizeJournalMetrics(sentiment, emotions) {
     return {[e]: Math.round(emotions[e] * 10)};
   }));
 }
-
-
 // =============================
 // API TEST STUFF
 // =============================
@@ -203,7 +200,6 @@ function findAir(req, res){
 
     .catch(err => {console.error(err)});
 }
-
 
 //Constructor functions
 // ===============================
@@ -245,7 +241,6 @@ function searchLatLong(query){
     })
     .catch(err =>console.error(err));
 }
-
 
 // Error 404
 app.get('/*', function(req, res) {

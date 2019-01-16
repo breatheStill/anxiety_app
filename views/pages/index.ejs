@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../layout/head') %>
+<%- include('../layout/head', {stylesheet: 'profile.css'}) %>
+
 <body>
   <%- include('../layout/header') %>
   <main>
     <h1>Index</h1>
     <a href="/login">Sign In</a>
+
+    <section id="geocoding">
+      
+    </section>
+
+    <section id="nutrition">
+
+      <div>
+        
+        <h5>Nutrition can affect our mood</h5>
+
+        <p>Science has found that what we eat can affect our mood. So maybe choose your snacks with that in mind. Look for foods high in magnesium, zinc, B-vitamins, and Omega-3 fatty acids. Also there is strong evidence for including anti-oxidants and probiotics, a healthy gut helps with the production of serotonin, one of the "happy hormones". <br>
+          Conversely, there are also foods that can bring us down, and increase our feelings of anxiety. Foods that quickly ramp up our system, but are often followed by a crash just as quickly. 
+        </p>
+
+        <div>
+
+          <h6>Quick snacks</h6>
+          
+          <ul>
+          
+            <li>Almonds, Cashews, Walnuts, Pecans</li>
+          
+            <li>Bananas, berries, plums/prunes</li>
+          
+            <li>Avocados, Spinach, Kale, Broccoli, Asparagas</li>
+          
+            <li>Cheddar cheese, String cheese (Mozzarella)</li>
+          
+            <li>Probiotic drinks, Kefir drinks, pickles</li>
+          
+            <li>Hard boiled eggs, Edamame</li>
+          
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h6>Foods to Avoid</h6>
+
+          <ul>
+
+            <li>Sugary drinks. Soda, diet or regular, and even fruit juices.</li>
+
+            <li>Baked goods, especially if they are not whole grain.</li>
+
+            <li>Caffeinated drinks, Energy drinks, and Alcohol. They can all have a negative effect on sleep patterns.</li>
+
+            <li>Dressings and Sauces. They are often a surprising source of sugar. Soy sauce, ketchup, and low-fat dressings are all high in simple sugars.</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="articles">
+      <div id="articles_anxiety">
+        <h3>Articles on Anxiety</h3>
+        <ul>
+          <li><a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders/index.shtml">Anxiety definition, symptoms, and types</a></li>
+          <li><a href="https://www.webmd.com/anxiety-panic/guide/anxiety-panic-guide-treatment-care">Web MD suggestions for treatment</a></li>
+          <li><a href="https://www.anxiety.org/treatments">More suggestions on treatment</a></li>
+        </ul>
+      </div>
+      <div id="quotes">
+        <h3>Quotes</h3>
+        <ul>
+          <li>“Do what you can, with what you've got, where you are.” — Theodore Roosevelt</li>
+          <li>“There is no trouble so great or grave that cannot be much diminished by a nice cup of tea.” — attributed to Bernard-Paul Heroux</li>
+          <li>"You don't have to see the whole staircase, just take the first step." — Martin Luther King</li>
+        </ul>
+      </div>
+    </section>
+
   </main>
   <%- include('../layout/footer') %>
 </body>
