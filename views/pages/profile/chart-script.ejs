@@ -2,12 +2,12 @@
 
 <script>
     // This creates normal js object to work with
-    journals = <%- JSON.stringify(journals) %>;
+    journals = <% - JSON.stringify(journals) %>;
 
     window.onload = function () {
 
         // ============================
-        // Profile Page Chart Logic Below
+        // Embedded Profile Page Chart
         // ============================
 
         if (document.getElementById('myChart')) {
@@ -35,7 +35,7 @@
 
 
         // ============================
-        // Main Chart Logic Below
+        // Main Chart
         // ============================
 
         if (document.getElementById('myMainChart')) {
