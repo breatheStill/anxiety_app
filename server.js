@@ -168,11 +168,10 @@ function newJournal(req, res) {
               res.redirect(`/profile/${req.body.uid}`);
             })
             .catch(err => handleError(err, res));
-          })
-        .catch(err => handleError(err, res));
         })
+        .catch(err => handleError(err, res));
+    })
     .catch(err => handleError(err, res));
-  
 }
 
 function logout(req, res) {
@@ -189,8 +188,6 @@ function normalizeJournalMetrics(sentiment, emotions) {
     return {[e]: Math.round(emotions[e] * 10)};
   }));
 }
-
-
 // =============================
 // API TEST STUFF
 // =============================
@@ -207,7 +204,6 @@ function findAir(req, res){
     .catch(err => {console.error(err)});
 }
 
-
 //Constructor functions
 // ===============================
 
@@ -221,7 +217,6 @@ function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
-
   this.short_name = location.address_components[0].short_name;
 }
 
@@ -252,7 +247,6 @@ function searchLatLong(query){
         .catch(err =>console.error(err));
     })
 }
-
 
 // Error 404
 app.get('/*', function(req, res) {
