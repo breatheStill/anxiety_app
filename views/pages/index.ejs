@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../layout/head') %>
+<%- include('../layout/head', {stylesheet: 'profile.css'}) %>
+
 <body>
   <%- include('../layout/header') %>
   <main>
     <h1>Index</h1>
     <a href="/login">Sign In</a>
+
+    <section id="geocoding">
+      
+    </section>
+
+    <section id="nutrition">
+      <div>
+        <h3>Foods that can affect our mood</h3>
+        <ul>
+          <li>Foods naturally rich in magnesium may help to feel calmer. Quick, no-cook options are nuts (almonds, cashews, and peanuts), Avocado, and Banana. A list of other foods found <a href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/" target="_blank">here</a>.</li>
+          <li><a href="https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/" target="_blank">Zinc</a>, oysters have the highest concentraition, but you can also get your intake from  </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
   <%- include('../layout/footer') %>
 </body>
