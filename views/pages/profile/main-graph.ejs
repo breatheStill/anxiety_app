@@ -1,66 +1,69 @@
-<main id="main-graph">
+<main id="mainGraph">
     <%- include('../../layout/banner', {
         bannerMessage: `Main Graph`,
         username: username
     }) %>
-    <div id="graph-container">
-        <canvas id="myMainChart" width="400" height="400" ></canvas>
+    <div id="graphContainer">
+        <canvas id="myMainChart" width="600" height="600"></canvas>
     </div>
+        
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
-<script>
-// This creates normal js object to work with
-// const journalEntries = <%- JSON.stringify(journals) %>;
-console.log(journals);
-
-var ctx = document.getElementById('myMainChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1,3).join(' ')).reverse(),
-        datasets: [{
-            label: "Sentiment",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'darkblue',
-            data: journals.map(j => j.sentiment)
-        },{
-            label: "Anger",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'red',
-            data: journals.map(j => j.anger)
-        },{
-            label: "Fear",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'red',
-            data: journals.map(j => j.fear)
-        },{
-            label: "Joy",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'green',
-            data: journals.map(j => j.joy)
-        },{
-            label: "Sadness",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'black',
-            data: journals.map(j => j.sadness)
-        },{
-            label: "Surprise",
-            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-            borderColor: 'purple',
-            data: journals.map(j => j.surprise)
-        }
-    ]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-
-console.log(chart);
-
-</script>
+<%- include('chart-script') %>
+        
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        
+    <script>
+        // This creates normal js object to work with
+        // const journalEntries = <%- JSON.stringify(journals) %>;
+        console.log(journals);
+        
+        var ctx = document.getElementById('myMainChart').getContext('2d');
+        var mainChart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+            
+            // The data for our dataset
+            data: {
+                labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1,3).join(' ')).reverse(),
+                datasets: [{
+                    label: "Sentiment",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'darkblue',
+                    data: journals.map(j => j.sentiment)
+                },{
+                    label: "Anger",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'red',
+                    data: journals.map(j => j.anger)
+                },{
+                    label: "Fear",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'red',
+                    data: journals.map(j => j.fear)
+                },{
+                    label: "Joy",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'green',
+                    data: journals.map(j => j.joy)
+                },{
+                    label: "Sadness",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'black',
+                    data: journals.map(j => j.sadness)
+                },{
+                    label: "Surprise",
+                    // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                    borderColor: 'purple',
+                    data: journals.map(j => j.surprise)
+                }
+            ]
+        },
+        
+        // Configuration options go here
+        options: {}
+    });
+    
+    console.log(mainChart);
+    
+    </script> -->

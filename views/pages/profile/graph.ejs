@@ -1,12 +1,14 @@
 <% if (typeof journals === 'object' && journals) { %>
-  <div id="graph">
-    <canvas id="myChart" value=<%= journals %>></canvas>
+  <div id="smallGraph">
+    <canvas id="myChart"></canvas>
   </div>
   <% } %>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
-<script>
+<%- include('chart-script') %>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+
+<!-- <script>
 // This creates normal js object to work with
 const journals = <%- JSON.stringify(journals) %>;
 
@@ -30,4 +32,4 @@ var chart = new Chart(ctx, {
     options: {}
 });
 
-</script>
+</script> -->

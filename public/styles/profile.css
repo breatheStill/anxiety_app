@@ -116,13 +116,14 @@ input, textarea {
 
 
 
-#graph {
+#smallGraph {
   position: absolute; 
   right: 5%; 
   width: 250px;
   background-color: ivory;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 em {
@@ -240,11 +241,11 @@ table {
   margin: 0 40px 10px auto; 
   table-layout: fixed;     
   background-color: aliceblue;
-  border: 5px solid aliceblue;
+  border-left: 5px solid aliceblue;
 }
 
 thead {
-  padding: 5px;
+  /* padding: 5px; */
   border-bottom: 1px black solid;
 }
 
@@ -253,7 +254,13 @@ th {
 }
 
 th:nth-child(1){
-  padding-right: 5px;
+  padding-right: 3px;
+  /* margin-left: 3px; */
+}
+
+th:nth-child(2){
+  /* padding-right: 5px; */
+  margin-left: 3px;
 }
 
 th:nth-child(1), td:nth-child(1) {
@@ -261,8 +268,21 @@ th:nth-child(1), td:nth-child(1) {
   border-right: black 1px solid;
 }
 
-#graph-container {
-  width: 80%;
+tr:nth-child(even) {
+  background-color: ivory;
+  border-right: 5px solid ivory;
+  border-left: 5px solid ivory;
+}
+
+#graphContainer {
+  height: 700px;
+  width: 700px;
   margin: auto;
   background-color: ivory;
+}
+
+#myMainChart {
+  /* height: 500px;
+  width: 700px;
+  margin: auto; */
 }
