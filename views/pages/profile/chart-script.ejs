@@ -2,7 +2,7 @@
 
 <script>
 
-$(document).ready(function() { 
+window.onload = function() { 
     // This creates normal js object to work with
     journals = <%- JSON.stringify(journals) %>;
     
@@ -89,7 +89,7 @@ $(document).ready(function() {
             console.log(mainChart);
             }
     
- });
+ };
 
 
 </script>
