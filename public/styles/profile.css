@@ -260,3 +260,9 @@ th:nth-child(1), td:nth-child(1) {
   text-align: left;
   border-right: black 1px solid;
 }
+
+#graph-container {
+  width: 80%;
+  margin: auto;
+  background-color: ivory;
+}

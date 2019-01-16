@@ -156,9 +156,6 @@ function newJournal(req, res) {
         .then(emotions => {
           const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
 
-          // console.log(...Object.values(emotions), sentiment);
-          // console.log(Object.values(journalMetrics));
-
           const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
 
           const values = [req.body.uid, req.body.date, req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
@@ -208,6 +205,7 @@ function findAir(req, res){
 }
 
 
+// ===============================
 //Constructor functions
 // ===============================
 

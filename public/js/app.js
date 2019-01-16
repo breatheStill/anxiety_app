@@ -1,7 +1,6 @@
 'use strict';
 
 $(() => {
-
   function eventHelper(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -12,8 +11,12 @@ $(() => {
     $('#new').toggle();
   }
 
-  // hide profile, show form
+  // hide 
+  $('#profile').hide();
   $('#new').hide();
+  $('#main-graph').show();
+
+  // hide profile, show form
   $('#profile button').on('click', e => {
     eventHelper(e);
     toggleProfileForm();
