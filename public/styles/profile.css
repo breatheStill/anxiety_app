@@ -36,8 +36,8 @@ header div {
   border-radius: 10%;
   background-color: rgb(108, 188, 214);
   /* color: ivory; */
-  
-  
+
+
   margin-left: -74px;
 }
 
@@ -63,7 +63,7 @@ header div a {
 }
 
 #banner div {
-  padding: 10px; 
+  padding: 10px;
 }
 
 #banner div:first-child{
@@ -117,8 +117,8 @@ input, textarea {
 
 
 #smallGraph {
-  position: absolute; 
-  right: 5%; 
+  position: absolute;
+  right: 5%;
   width: 250px;
   background-color: ivory;
   border: 1px solid black;
@@ -224,7 +224,7 @@ footer {
 .journalHeader {
   display: flex;
   justify-content: flex-start;
-  position: relative; 
+  position: relative;
 }
 
 .journalInfo {
@@ -232,14 +232,14 @@ footer {
   position: absolute;             /* new */
   left: 50%;
   transform: translateX(-50%);
-    
+
 }
 
 table {
   font-size: 65%;
   flex: 0 1 auto;
-  margin: 0 40px 10px auto; 
-  table-layout: fixed;     
+  margin: 0 40px 10px auto;
+  table-layout: fixed;
   background-color: aliceblue;
   border-left: 5px solid aliceblue;
 }
@@ -277,7 +277,7 @@ tr:nth-child(even) {
 #graphContainer {
   height: 700px;
   width: 700px;
-  margin: auto;
+  margin: auto auto 50px auto;
   background-color: ivory;
 }
 
@@ -285,4 +285,8 @@ tr:nth-child(even) {
   /* height: 500px;
   width: 700px;
   margin: auto; */
+}
+
+#mainChart {
+  margin-bottom: 50px;
 }

@@ -6,13 +6,7 @@ $(() => {
     e.stopPropagation();
   }
 
-  function toggleProfileForm() {
-    $('#profile').toggle();
-    $('#new').toggle();
-  }
-
-
-  // get oist of jQuery objedts
+  // a list of jQuery objedts
   const components = [
     '#mainGraph',
     '#profile',
@@ -26,28 +20,27 @@ $(() => {
     });
   }
 
-  // hide profile, show form
+  // show form
   $('#profile button').on('click', e => {
     eventHelper(e);
-    // toggleProfileForm();
     showPage('#new');
   });
 
-  // hide form, show profile
+  // show profile
   $('a.cancel').on('click', e => {
     eventHelper(e);
-    // toggleProfileForm();
     showPage('#profile');
   });
 
+  // show main chart
   $('#smallGraph').on('click', e => {
     eventHelper(e);
-    // $('#profile').hide();
-    // $('canvas#myMainChart').show();
-    // $('#mainGraph').show();
     showPage('#mainGraph');
   });
 
+    // render profile page on first visit
    showPage('#profile');
+
+
 
   });

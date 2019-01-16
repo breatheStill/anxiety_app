@@ -1,95 +1,94 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 <script>
-
-window.onload = function() { 
     // This creates normal js object to work with
     journals = <%- JSON.stringify(journals) %>;
-    
-    // ============================
-    // Profile Page Chart Logic Below
-    // ============================
-    
-    if (document.getElementById('myChart')) {
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'line',
-        
-            // The data for our dataset
-            data: {
-                labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1,3).join(' ')).reverse(),
-                datasets: [{
-                    label: "Your Sentiment scores over time",
-                    backgroundColor: 'rgba(68, 147, 212, 0.342)',
-                    borderColor: 'rgb(20, 81, 131)',
-                    data: journals.map(j => j.sentiment),
-                }],
-                borderWitdh: 1
-            },
-        
-            // Configuration options go here
-            options: {}
-        });
-    }
-    
-    
-    // ============================
-    // Main Chart Logic Below
-    // ============================
-    
-    if (document.getElementById('myMainChart')) {
-        console.log(journals);
-                var mctx = document.getElementById('myMainChart').getContext('2d');
-                var mainChart = new Chart(mctx, {
-                    // The type of chart we want to create
-                    type: 'line',
-                    
-                    // The data for our dataset
-                    data: {
-                        labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1,3).join(' ')).reverse(),
-                        datasets: [{
-                            label: "Sentiment",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'darkblue',
-                            data: journals.map(j => j.sentiment)
-                        },{
-                            label: "Anger",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'red',
-                            data: journals.map(j => j.anger)
-                        },{
-                            label: "Fear",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'red',
-                            data: journals.map(j => j.fear)
-                        },{
-                            label: "Joy",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'green',
-                            data: journals.map(j => j.joy)
-                        },{
-                            label: "Sadness",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'black',
-                            data: journals.map(j => j.sadness)
-                        },{
-                            label: "Surprise",
-                            // backgroundColor: 'rgba(68, 147, 212, 0.2)',
-                            borderColor: 'purple',
-                            data: journals.map(j => j.surprise)
-                        }
-                    ]
+
+    window.onload = function () {
+
+        // ============================
+        // Profile Page Chart Logic Below
+        // ============================
+
+        if (document.getElementById('myChart')) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1, 3).join(' ')).reverse(),
+                    datasets: [{
+                        label: "Your Sentiment scores over time",
+                        backgroundColor: 'rgba(68, 147, 212, 0.342)',
+                        borderColor: 'rgb(20, 81, 131)',
+                        data: journals.map(j => j.sentiment),
+                    }],
+                    borderWitdh: 1
                 },
-                
+
                 // Configuration options go here
                 options: {}
             });
-            
-            console.log(mainChart);
-            }
-    
- };
+        }
+
+
+        // ============================
+        // Main Chart Logic Below
+        // ============================
+
+        if (document.getElementById('myMainChart')) {
+            console.log(journals);
+            var mctx = document.getElementById('myMainChart').getContext('2d');
+            var mainChart = new Chart(mctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1, 3).join(' ')).reverse(),
+                    datasets: [{
+                        label: "Sentiment",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'darkblue',
+                        data: journals.map(j => j.sentiment)
+                    }, {
+                        label: "Anger",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'red',
+                        data: journals.map(j => j.anger)
+                    }, {
+                        label: "Fear",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'red',
+                        data: journals.map(j => j.fear)
+                    }, {
+                        label: "Joy",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'green',
+                        data: journals.map(j => j.joy)
+                    }, {
+                        label: "Sadness",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'black',
+                        data: journals.map(j => j.sadness)
+                    }, {
+                        label: "Surprise",
+                        // backgroundColor: 'rgba(68, 147, 212, 0.2)',
+                        borderColor: 'purple',
+                        data: journals.map(j => j.surprise)
+                    }
+                    ]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+
+        }
+
+    };
 
 
 </script>
