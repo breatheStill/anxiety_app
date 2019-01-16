@@ -99,3 +99,7 @@ ___
 * Optional: For getting food.
 
 ---
+
+### Resource citations
+
+* Article referenced for nutrition suggestions,  https://www.health.harvard.edu/blog/nutritional-strategies-to-ease-anxiety-201604139441
