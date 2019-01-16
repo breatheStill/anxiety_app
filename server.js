@@ -195,7 +195,8 @@ function normalizeJournalMetrics(sentiment, emotions) {
 // =============================
 
 function findAir(req, res){
-  return searchLatLong(req.query.data)
+  console.log(req.query)
+  return searchLatLong(req.query.search)
     .then(localData => {
       res.send(localData);
     })
@@ -217,8 +218,6 @@ function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
-
-  this.short_name = location.address_components[0].short_name;
 }
 
 //Search for Resource
@@ -236,7 +235,7 @@ function Location(location){
 
 function searchLatLong(query){
   console.log('query', query);
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=seattle&key=${process.env.GEOCODE_API_KEY}`;
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(url)
     .then(geoData => {
       const location = new Location(geoData.body.results[0]);
