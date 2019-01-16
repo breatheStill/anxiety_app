@@ -42,8 +42,7 @@ app.get('/', home);
 
 //test section
 app.get('/test/test', test);
-app.post('/test/test', foodSearch);
-app.get('/test/test', findAir);
+app.get('/test/show', findAir);
 
 //functional
 app.get('/login', renderLogin);
@@ -165,11 +164,10 @@ function newJournal(req, res) {
               res.redirect(`/profile/${req.body.uid}`);
             })
             .catch(err => handleError(err, res));
-          })
-        .catch(err => handleError(err, res));
         })
+        .catch(err => handleError(err, res));
+    })
     .catch(err => handleError(err, res));
-  
 }
 
 function logout(req, res) {
@@ -186,71 +184,65 @@ function normalizeJournalMetrics(sentiment, emotions) {
     return {[e]: Math.round(emotions[e] * 10)};
   }));
 }
-
-
 // =============================
 // API TEST STUFF
 // =============================
 
 function findAir(req, res){
-  let query = req.query.data;
-  console.log('query', query);
-
-  return searchLatLong(query)
+  console.log(req.query)
+  return searchLatLong(req.query.search)
     .then(localData => {
-      res.send('pages/test/test', {localData});
+      res.send(localData);
     })
 
     .catch(err => {console.error(err)});
 }
 
+<<<<<<< HEAD
 
 // ===============================
+=======
+>>>>>>> 06170b11277382fc83550dcd938a77d62addf3e7
 //Constructor functions
 // ===============================
 
-function Food(food){
-  this.name = food.fields.item_name;
-  this.brand = food.fields.brand_name;
-  console.log('this', this);
-}
+// function Food(food){
+//   this.name = food.fields.item_name;
+//   this.brand = food.fields.brand_name;
+//   console.log('this', this);
+// }
 
 function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
-
-  this.short_name = location.address_components[0].short_name;
 }
 
 //Search for Resource
-function foodSearch(query){
-  console.log('in my query function', query);
-  let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
-  console.log('searching');
-  return superagent.get(url)
-    .then(foodData => {
-      let results = foodData.body.hits.map(item => new Food(item));
-      res.render('/pages/test/show', {results});
-    })
-    .catch(err => console.error(err));
-}
+// function foodSearch(query){
+//   console.log('in my query function', query);
+//   let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
+//   console.log('searching');
+//   return superagent.get(url)
+//     .then(foodData => {
+//       let results = foodData.body.hits.map(item => new Food(item));
+//       res.render('/pages/test/show', {results});
+//     })
+//     .catch(err => console.error(err));
+// }
 
 function searchLatLong(query){
+  console.log('query', query);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
   return superagent.get(url)
     .then(geoData => {
       const location = new Location(geoData.body.results[0]);
       console.log('location', location);
 
-      return client.query([query, location.formatted_query, location.latitude, location.longitude])
-        .then(() =>{
-          return location;
-        })
-        .catch(err =>console.error(err));
+      return location;
     })
+    .catch(err =>console.error(err));
 }
-
 
 // Error 404
 app.get('/*', function(req, res) {
