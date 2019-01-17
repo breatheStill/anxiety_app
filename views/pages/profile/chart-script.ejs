@@ -1,10 +1,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 <script>
-    // This creates normal js object to work with
-    journals = <% - JSON.stringify(journals) %>;
 
     window.onload = function () {
+
+        // This creates normal js object to work wth
+        journals = <%- JSON.stringify(journals) %>;
 
         // ============================
         // Embedded Profile Page Chart

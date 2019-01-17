@@ -104,7 +104,7 @@ function renderCreate(req, res) {
 
 function createAndLogin (req, res) {
   let SQL = 'SELECT username FROM users';
-  
+
   client.query(SQL)
     .then(result => {
       if (result.rows.map(n => n.username).includes(req.body.username)) {
@@ -127,7 +127,7 @@ function createAndLogin (req, res) {
 
 function getProfile(req, res) {
   const SQL = `SELECT users.username, journals.*
-  FROM users 
+  FROM users
   LEFT JOIN journals
   ON users.id=journals.uid
   WHERE users.id=$1
@@ -198,11 +198,8 @@ function findAir(req, res){
     .catch(err => {console.error(err)});
 }
 
-<<<<<<< HEAD
 
 // ===============================
-=======
->>>>>>> 06170b11277382fc83550dcd938a77d62addf3e7
 //Constructor functions
 // ===============================
 

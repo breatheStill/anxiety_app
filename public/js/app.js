@@ -6,7 +6,7 @@ $(() => {
     e.stopPropagation();
   }
 
-  // a list of jQuery objedts
+  // a list of elements
   const components = [
     '#mainGraph',
     '#profile',
@@ -40,7 +40,5 @@ $(() => {
 
     // render profile page on first visit
    showPage('#profile');
-
-
 
   });

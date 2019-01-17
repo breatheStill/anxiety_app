@@ -268,7 +268,6 @@ th:nth-child(1), td:nth-child(1) {
   border-right: black 1px solid;
 }
 
-<<<<<<< HEAD
 tr:nth-child(even) {
   background-color: ivory;
   border-right: 5px solid ivory;
@@ -276,7 +275,7 @@ tr:nth-child(even) {
 }
 
 #graphContainer {
-  height: 700px;
+  position: relative;
   width: 700px;
   margin: auto auto 50px auto;
   background-color: ivory;
@@ -291,7 +290,7 @@ tr:nth-child(even) {
 #mainChart {
   margin-bottom: 50px;
 }
-=======
+
 /* Articles and Quotes */
 
 #articles {
@@ -310,7 +309,7 @@ tr:nth-child(even) {
   border-width: 5px 5px 5px 0px;
   border-style: solid;
   padding: 10px;
-} 
+}
 
 #articles_anxiety li {
   list-style-type: circle !important;
@@ -325,5 +324,3 @@ tr:nth-child(even) {
 }
 
 /* END - Articles and Quotes */
-
->>>>>>> 06170b11277382fc83550dcd938a77d62addf3e7
