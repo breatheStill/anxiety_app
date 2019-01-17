@@ -39,6 +39,7 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
+app.post('/', newSuggestion);
 
 //test section
 app.get('/test/test', test);
@@ -58,7 +59,16 @@ app.get('/logout', logout);
 // ============================
 
 function home(req, res) {
-  res.render('pages/index');
+  let SQL = `SELECT * FROM suggestions`;
+  console.log('SQL', SQL);
+
+  return client.query(SQL)
+    .then(suggestion => {
+      
+      console.log('suggestion', suggestion);
+      res.render('pages/index', {suggestion});
+    })
+    .catch(err => errorMessage(err, res));
 }
 
 function test(req, res) {
@@ -169,6 +179,20 @@ function newJournal(req, res) {
             .catch(err => handleError(err, res));
         })
         .catch(err => handleError(err, res));
+    })
+    .catch(err => handleError(err, res));
+}
+
+function newSuggestion(req, res) {
+  const SQL = `INSERT INTO suggestions (suggestion, name) VALUES ($1, $2);`;
+  const values = [req.body.suggestion, req.body.name];
+
+  console.log('suggestion', req.body);
+
+  return client.query(SQL, values)
+    .then(result => {
+      console.log('in the then');
+      res.render('pages/index');
     })
     .catch(err => handleError(err, res));
 }
