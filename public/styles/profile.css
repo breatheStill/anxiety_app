@@ -261,6 +261,23 @@ th:nth-child(1), td:nth-child(1) {
   border-right: black 1px solid;
 }
 
+/* Nutrition */
+
+/* #nutrition {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */
+
+#nutrition-intro {
+  border: 5px solid black;
+}
+
+.food-dos-donts {
+  width: 48%;
+  border: 2px solid black;
+}
+
 /* Articles and Quotes */
 
 #articles {
@@ -294,4 +311,12 @@ th:nth-child(1), td:nth-child(1) {
 }
 
 /* END - Articles and Quotes */
+
+/* Side-bar */
+
+.community-suggestion {
+  margin: auto;
+  border: 2px solid black;
+  width: 75%;
+}
 
