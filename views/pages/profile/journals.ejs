@@ -6,10 +6,13 @@
 
   <%- include('graph') %>
 
-  <div class="container">
+  <div id="headingContainer">
     <h4>Your Journal Entries</h4>
+    <button>Add New Entry</button>
   </div>
-  <button>Add New Entry</button>
+
+
+
   <% if (typeof journals === 'object' && journals) { %>
   <% journals.forEach(journal => { %>
   <div class="journal">

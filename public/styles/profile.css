@@ -105,26 +105,18 @@ input, textarea {
   font-size: 90%;
 }
 
-#profile .container {
+#headingContainer {
   display: flex;
-  flex-flow: row;
-  justify-content: center;
+  flex-flow: column;
+  justify-content: flex-start;
   align-items: center;
-  height: 160px;
+  /* height: 160px; */
 }
 
 
 
 
-#smallGraph {
-  position: absolute;
-  right: 5%;
-  width: 250px;
-  background-color: ivory;
-  border: 1px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 
 em {
   font-style: italic;
@@ -274,11 +266,23 @@ tr:nth-child(even) {
   border-left: 5px solid ivory;
 }
 
+#smallGraphContainer {
+  position: relative;
+  margin: 20px auto;
+  width: 350px;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 #graphContainer {
   position: relative;
-  width: 700px;
+  width: 90%;
   margin: auto auto 50px auto;
   background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 #myMainChart {

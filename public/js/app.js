@@ -33,7 +33,7 @@ $(() => {
   });
 
   // show main chart
-  $('#smallGraph').on('click', e => {
+  $('#smallGraphContainer').on('click', e => {
     eventHelper(e);
     showPage('#mainGraph');
   });
