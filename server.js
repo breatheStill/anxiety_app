@@ -194,8 +194,8 @@ function normalizeJournalMetrics(sentiment, emotions) {
 function findAir(req, res){
   console.log(req.query)
   return searchLatLong(req.query.search)
-    .then(localData => {
-      res.send(localData);
+    .then( () => {
+      res.render('pages/test/show');
     })
 
     .catch(err => {console.error(err)});
