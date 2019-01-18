@@ -154,6 +154,21 @@ li {
 
 .entry {
   text-align: left;
+  margin-bottom: 20px;
+}
+
+.entry-options {
+  display: flex;
+  justify-content: center;
+}
+
+.entry-options a {
+  text-decoration: none;
+  font-size: 75%;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #555;
+  padding: 4px;
 }
 
 #previews {
@@ -169,7 +184,10 @@ li {
   font-size: 80%;
   width: 250px;
   margin: 10px;
+  cursor: pointer;
+  padding: 20px;
 }
+
 
 button {
   width: 200px;

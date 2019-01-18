@@ -41,6 +41,24 @@ $(() => {
   // render profile page on first visit
   showPage('#profile');
 
+
+
+  // show full journal entries
+  $('.entry-full').hide();
+
+  $('.preview').on('click', e => {
+    console.log(e.target.closest('div').id);
+    const jid = e.target.closest('div').id.split('-')[1];
+    $('.preview').hide();
+    $(`#entry-${jid}`).show();
+  });
+
+  $('.entry-options a').on('click', e => {
+    eventHelper(e);
+    $(e.target).closest('.entry-full').hide();
+    $('.preview').show();
+  })
+
 });
 
 var map;

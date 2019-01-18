@@ -1,10 +1,14 @@
-<div class="journal preview">
-  <h4><em>
-      <%= journal.date.toDateString() %></em></h4>
+  <div class="journal preview" id="<%= `preview-${journal.id}` %>">
+    <h4><em>
+        <%= journal.date.toDateString() %></em></h4>
 
-  <hr>
+    <hr>
 
-  <p class="entry">
-    <%- journal.entry.replace(/\n/g, '<br>').split(' ').slice(0, 10).join(' ') + '...' %>
-  </p>
+    <p class="entry">
+      <%- journal.entry.replace(/\n/g, '<br>').split(' ').slice(0, 10).join(' ') + '...' %>
+    </p>
+  </div>
+
+<div class="entry-full" id="<%= `entry-${journal.id}` %>">
+  <%- include('entry') %>
 </div>
