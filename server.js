@@ -53,6 +53,7 @@ app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
 app.put('/update', updateJournal);
+app.delete('/delete', deleteJournal);
 app.get('/logout', logout);
 
 // ============================
@@ -222,6 +223,17 @@ function updateJournal(req, res) {
         .catch(err => handleError(err, res));
     })
     .catch(err => handleError(err, res));
+}
+
+function deleteJournal(req, res) {
+  const SQL = 'DELETE FROM journals WHERE id=$1';
+  const values = [req.body.jid];
+
+  client.query(SQL, values)
+  .then(result => {
+    res.redirect(`/profile/${req.body.uid}`);
+  })
+  .catch(err => handleError(err, res));
 }
 
 function newSuggestion(req, res) {

@@ -84,11 +84,6 @@ $(() => {
     $(`#delete-${jid}`).show();
   });
 
-  // $('.delete-form a.cancel').on('click', e => {
-  //   $('.delete-form').hide();
-  //   $('.preview').show();
-  // })
-
 });
 
 var map;
