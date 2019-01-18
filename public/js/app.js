@@ -65,7 +65,7 @@ $(() => {
   // populate update form with journal info
   $('a.update').on('click', e => {
     eventHelper(e);
-    console.log(e.target.closest('div.entry-full').id);
+    // console.log(e.target.closest('div.entry-full').id);
     const jid = e.target.closest('div.entry-full').id.split('-')[1];
     const form = $(`#edit-${jid}`).clone(true, true);
     form.appendTo($('.content'));
