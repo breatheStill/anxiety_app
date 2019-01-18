@@ -148,3 +148,4 @@ chart-test.*
 chart-usagel.html
 archive.sql
 schema.1.sql
+*.dump

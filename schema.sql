@@ -23,6 +23,7 @@ CREATE TABLE journals (
   id SERIAL PRIMARY KEY,
   uid uuid NOT NULL REFERENCES users(id),
   date DATE,
+  entered TIMESTAMP DEFAULT now(),
   exercise BOOLEAN,
   outdoors BOOLEAN,
   entry TEXT,
