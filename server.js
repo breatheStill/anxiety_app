@@ -60,13 +60,12 @@ app.get('/logout', logout);
 
 function home(req, res) {
   let SQL = `SELECT * FROM suggestions`;
-  console.log('SQL', SQL);
 
   return client.query(SQL)
     .then(suggestion => {
-      
-      console.log('suggestion', suggestion);
-      res.render('pages/index', {suggestion});
+      let array = suggestion.rows;
+      console.log('suggestion array', array);
+      res.render('pages/index', {array});
     })
     .catch(err => errorMessage(err, res));
 }
@@ -218,8 +217,8 @@ function normalizeJournalMetrics(sentiment, emotions) {
 function findAir(req, res){
   console.log(req.query)
   return searchLatLong(req.query.search)
-    .then(localData => {
-      res.send(localData);
+    .then( () => {
+      res.render('pages/test/show');
     })
 
     .catch(err => {console.error(err)});
