@@ -22,7 +22,7 @@
 
                 // The data for our dataset
                 data: {
-                    labels: journals.map(j => new Date(j.date)),
+                    labels: journals.slice(Math.max(journals.length - 5, 0)).map(j => new Date(j.date)),
                     datasets: [{
                         label: "Sentiment",
                         backgroundColor: 'rgba(29, 87, 134, 0.1)',
@@ -70,6 +70,7 @@
 
                 // The data for our dataset
                 data: {
+
                     labels: journals.map(j => new Date(j.date)),
                     datasets: [{
                         label: "Sentiment",
