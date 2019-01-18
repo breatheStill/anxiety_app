@@ -52,13 +52,15 @@
       </table>
     </div>
     <hr>
-    <p class="entry">
-      <%- journal.entry.replace(/\n/g, '<br>') %>
-    </p>
+    <div class="entry">
+      <p>
+        <%- journal.entry.replace(/\n/g, '<br>') %>
+      </p>
+    </div>
 
     <div class="entry-options">
-
-      <a href="">Back to Profile</a>
-
+      <a class="update" href="">Update Journal Entry</a>
+      <a class="return" href="">Return to Profile</a>
+      <a class="delete" href="">Delete Journal Entry</a>
     </div>
   </div>

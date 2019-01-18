@@ -29,6 +29,7 @@ $(() => {
   // show profile
   $('a.cancel').on('click', e => {
     eventHelper(e);
+    $('.content>.entry-edit').remove();
     showPage('#profile');
   });
 
@@ -43,21 +44,34 @@ $(() => {
 
 
 
-  // show full journal entries
+  // toggle full/preview/edit journal entries
   $('.entry-full').hide();
+  $('.entry-edit').hide();
 
   $('.preview').on('click', e => {
-    console.log(e.target.closest('div').id);
+
     const jid = e.target.closest('div').id.split('-')[1];
     $('.preview').hide();
     $(`#entry-${jid}`).show();
   });
 
-  $('.entry-options a').on('click', e => {
+  $('a.return').on('click', e => {
     eventHelper(e);
     $(e.target).closest('.entry-full').hide();
     $('.preview').show();
   })
+
+
+  // populate update form with journal info
+  $('a.update').on('click', e => {
+    eventHelper(e);
+    console.log(e.target.closest('div.entry-full').id);
+    const jid = e.target.closest('div.entry-full').id.split('-')[1];
+    const form = $(`#edit-${jid}`).clone(true, true);
+    form.appendTo($('.content'));
+    $('#profile').hide();
+    form.show();
+  });
 
 });
 

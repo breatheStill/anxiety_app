@@ -1,14 +1,16 @@
 <main id="profile">
-  <%- include('../../layout/banner', {
-    bannerMessage: `Profile Page`,
-    username: username
-  }) %>
+  <div id="profile-upper">
+    <%- include('../../layout/banner', {
+      bannerMessage: `Profile Page`,
+      username: username
+    }) %>
 
-  <%- include('graph') %>
+    <%- include('graph') %>
 
-  <div id="headingContainer">
-    <h4>Your Journal Entries</h4>
-    <button>Add New Entry</button>
+    <div id="headingContainer">
+      <h4>Your Journal Entries</h4>
+      <button>Add New Entry</button>
+    </div>
   </div>
 
 
@@ -18,6 +20,16 @@
       <% journals.forEach(journal => { %>
 
         <%- include('entry-preview', {journal}) %>
+
+        <div class="entry-full" id="<%= `entry-${journal.id}` %>">
+            <%- include('entry', {journal}) %>
+        </div>
+
+        <main class='entry-edit' id="<%= `edit-${journal.id}` %>">
+            <%- include('form', {journal, username, uid}) %>
+        </main>
+
+
 
       <% }) %>
     </section>

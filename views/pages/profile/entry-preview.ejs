@@ -8,7 +8,3 @@
       <%- journal.entry.replace(/\n/g, '<br>').split(' ').slice(0, 10).join(' ') + '...' %>
     </p>
   </div>
-
-<div class="entry-full" id="<%= `entry-${journal.id}` %>">
-  <%- include('entry') %>
-</div>

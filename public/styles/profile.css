@@ -154,12 +154,12 @@ li {
 
 .entry {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .entry-options {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .entry-options a {
@@ -169,6 +169,23 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #555;
   padding: 4px;
+}
+
+
+.entry-options a.return {
+  border: none;
+}
+
+.entry-options a.return:hover {
+  color: green;
+}
+
+.entry-options a.update:hover {
+  color: blue;
+}
+
+.entry-options a.delete:hover {
+  color: red;
 }
 
 #previews {

@@ -1,0 +1,38 @@
+
+    <%- include('../../layout/banner', {
+      bannerMessage: `${typeof journal === 'object' ? 'Update' : 'New'} Journal Entry`,
+      username: username
+    }) %>
+
+    <form action="/new" method="POST">
+      <fieldset>
+        <input name="uid" type="hidden" value="<%= uid %>">
+        <% if (typeof journal === 'object') { %>
+          <input name="jid" type="hidden" value="<%= journal.id %>">
+        <% } %>
+        <section>
+          <label class="block" for="date">Date</label>
+          <input id="datePicker" name="date" type="date" value="<%= typeof journal === 'object' ? journal.date.toISOString().slice(0,10) : '' %>" required>
+        </section>
+        <section>
+          <div>
+            <label for="exercise">Exercise</label>
+            <input type="checkbox" name="exercise" <%= typeof journal === 'object' && journal.exercise ? 'checked' : '' %>>
+          </div>
+          <div>
+            <label for="outdoors">Outdoors</label>
+            <input type="checkbox" name="outdoors" <%= typeof journal === 'object' && journal.outdoors ? 'checked' : '' %>>
+          </div>
+        </section>
+      </fieldset>
+        <div>
+          <label class="block" for="entry">Write About Your Day</label>
+          <textarea name="entry" id="" cols="30" rows="10" required>
+              <%= typeof journal === 'object' ? journal.entry : '' %>
+          </textarea>
+        </div>
+      <button type="submit"><%= typeof journal === 'object' ? 'Update' : 'Submit' %></button>
+      <div>
+        <a class="cancel" href="#">Cancel</a>
+      </div>
+    </form>
