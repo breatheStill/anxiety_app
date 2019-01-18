@@ -7,7 +7,7 @@ const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
 const indico = require('indico.io');
-indico.apiKey =  process.env.INDICO_API_KEY;
+indico.apiKey = process.env.INDICO_API_KEY;
 
 // Load env vars;
 require('dotenv').config();
@@ -41,8 +41,8 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 
 //test section
-app.get('/test/test', test);
-app.get('/test/show', findAir);
+// app.get('/test/test', test);
+app.get('/', findAir);
 
 //functional
 app.get('/login', renderLogin);
@@ -58,7 +58,7 @@ app.get('/logout', logout);
 // ============================
 
 function home(req, res) {
-  res.render('pages/index');
+  res.render('pages/index', {mapSRC: process.env.MAP});
 }
 
 function test(req, res) {
@@ -104,7 +104,7 @@ function renderCreate(req, res) {
 
 function createAndLogin (req, res) {
   let SQL = 'SELECT username FROM users';
-  
+
   client.query(SQL)
     .then(result => {
       if (result.rows.map(n => n.username).includes(req.body.username)) {
@@ -195,7 +195,7 @@ function findAir(req, res){
   console.log(req.query)
   return searchLatLong(req.query.search)
     .then( () => {
-      res.render('pages/test/show');
+      res.render('pages/index');
     })
 
     .catch(err => {console.error(err)});
@@ -209,11 +209,13 @@ function findAir(req, res){
 //   this.brand = food.fields.brand_name;
 //   console.log('this', this);
 // }
+var mapLocations = [];
 
 function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
+  mapLocations.push(this);
 }
 
 //Search for Resource
@@ -241,6 +243,9 @@ function searchLatLong(query){
     })
     .catch(err =>console.error(err));
 }
+
+
+
 
 // Error 404
 app.get('/*', function(req, res) {
