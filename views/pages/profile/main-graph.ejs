@@ -7,8 +7,9 @@
         <canvas id="myMainChart"></canvas>
     </div>
 
-    <a href="/profile/<%= uid %>">Return to Profile</a>
+    <%- include('definitions') %>
 
+    <a href="/profile/<%= uid %>">Return to Profile</a>
 </main>
 
 <%- include('chart-script') %>
