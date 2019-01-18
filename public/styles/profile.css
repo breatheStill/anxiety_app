@@ -209,7 +209,7 @@ li {
 button {
   width: 200px;
   height: 50px;
-  background-color: azure;
+  background-color: aliceblue;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
@@ -218,6 +218,35 @@ button {
 
 button:hover {
   background-color: ivory;
+}
+
+.delete-form {
+  width: 400px;
+  font-size: 100%;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+}
+
+.delete-form button {
+  color: darkred;
+  background-color: #eee;
+}
+
+.delete-form button:hover {
+  color: red;
+}
+
+.delete-form a.cancel {
+  color: darkslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+}
+
+.delete-form a.cancel:hover {
+  color: darkgreen;
 }
 
 fieldset section{

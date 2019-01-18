@@ -47,6 +47,7 @@ $(() => {
   // toggle full/preview/edit journal entries
   $('.entry-full').hide();
   $('.entry-edit').hide();
+  $('.delete-form').hide();
 
   $('.preview').on('click', e => {
 
@@ -58,8 +59,9 @@ $(() => {
   $('a.return').on('click', e => {
     eventHelper(e);
     $(e.target).closest('.entry-full').hide();
+    $('.delete-form').hide();
     $('.preview').show();
-  })
+  });
 
 
   // populate update form with journal info
@@ -72,6 +74,20 @@ $(() => {
     $('#profile').hide();
     form.show();
   });
+
+  // show delete journal entry form
+  $('a.delete').on('click', e => {
+    eventHelper(e);
+
+    const jid = e.target.closest('div.entry-full').id.split('-')[1];
+    $('.entry-full').hide();
+    $(`#delete-${jid}`).show();
+  });
+
+  // $('.delete-form a.cancel').on('click', e => {
+  //   $('.delete-form').hide();
+  //   $('.preview').show();
+  // })
 
 });
 
