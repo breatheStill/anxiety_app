@@ -3,16 +3,13 @@
 <%- include('../../layout/head', {stylesheet: 'profile.css'}) %>
 <body>
   <!-- This div.content grouping is a CSS trick to keep the footer always at the bottom of the page -->
-  <section>
-    <div class="content">
-      <%- include('../../layout/header') %>
-      <%- include('journals') %>
-      <%- include('new') %>
-    </div>
 
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=parks%20near%20me&key=AIzaSyDm6ueB8oYE7Aq1MLBI-JaC9JHg4mDpaJs" allowfullscreen></iframe>
-
-  </section>
+  <div class="content">
+    <%- include('../../layout/header') %>
+    <%- include('journals') %>
+    <%- include('form') %>
+    <%- include('main-graph') %>
+  </div>
   <%- include('../../layout/footer') %>
 </body>
 </html>

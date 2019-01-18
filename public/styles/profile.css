@@ -37,8 +37,8 @@ header div {
   border-radius: 10%;
   background-color: rgb(108, 188, 214);
   /* color: ivory; */
-  
-  
+
+
   margin-left: -74px;
 }
 
@@ -51,7 +51,7 @@ header div a {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* cursor: pointer; */
+  font-size: 85%;
 }
 
 #banner {
@@ -64,7 +64,7 @@ header div a {
 }
 
 #banner div {
-  padding: 10px; 
+  padding: 10px;
 }
 
 #banner div:first-child{
@@ -107,12 +107,12 @@ input, textarea {
   font-size: 90%;
 }
 
-#profile .container {
+#headingContainer {
   display: flex;
-  flex-flow: row;
-  justify-content: center;
+  flex-flow: column;
+  justify-content: flex-start;
   align-items: center;
-  height: 160px;
+  /* height: 160px; */
 }
 
 #map-container{
@@ -125,14 +125,7 @@ input, textarea {
 }
 
 
-#graph {
-  position: absolute; 
-  right: 5%; 
-  width: 250px;
-  background-color: ivory;
-  border: 1px solid black;
-  border-radius: 5px;
-}
+
 
 em {
   font-style: italic;
@@ -161,12 +154,62 @@ li {
 
 .entry {
   text-align: left;
+  margin-bottom: 30px;
 }
+
+.entry-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.entry-options a {
+  text-decoration: none;
+  font-size: 75%;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #555;
+  padding: 4px;
+}
+
+
+.entry-options a.return {
+  border: none;
+}
+
+.entry-options a.return:hover {
+  color: green;
+}
+
+.entry-options a.update:hover {
+  color: blue;
+}
+
+.entry-options a.delete:hover {
+  color: red;
+}
+
+#previews {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.preview {
+  font-size: 80%;
+  width: 250px;
+  margin: 10px;
+  cursor: pointer;
+  padding: 20px;
+}
+
 
 button {
   width: 200px;
   height: 50px;
-  background-color: azure;
+  background-color: aliceblue;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
@@ -175,6 +218,35 @@ button {
 
 button:hover {
   background-color: ivory;
+}
+
+.delete-form {
+  width: 400px;
+  font-size: 100%;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+}
+
+.delete-form button {
+  color: darkred;
+  background-color: #eee;
+}
+
+.delete-form button:hover {
+  color: red;
+}
+
+.delete-form a.cancel {
+  color: darkslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+}
+
+.delete-form a.cancel:hover {
+  color: darkgreen;
 }
 
 fieldset section{
@@ -186,6 +258,7 @@ textarea {
   width: 500px;
   height: 200px;
   margin: 10px;
+  padding: 10px;
 }
 
 .block {
@@ -232,7 +305,7 @@ footer {
 .journalHeader {
   display: flex;
   justify-content: flex-start;
-  position: relative; 
+  position: relative;
 }
 
 .journalInfo {
@@ -240,20 +313,20 @@ footer {
   position: absolute;             /* new */
   left: 50%;
   transform: translateX(-50%);
-    
+
 }
 
 table {
   font-size: 65%;
   flex: 0 1 auto;
-  margin: 0 40px 10px auto; 
-  table-layout: fixed;     
+  margin: 0 40px 10px auto;
+  table-layout: fixed;
   background-color: aliceblue;
-  border: 5px solid aliceblue;
+  border-left: 5px solid aliceblue;
 }
 
 thead {
-  padding: 5px;
+  /* padding: 5px; */
   border-bottom: 1px black solid;
 }
 
@@ -262,7 +335,13 @@ th {
 }
 
 th:nth-child(1){
-  padding-right: 5px;
+  padding-right: 3px;
+  /* margin-left: 3px; */
+}
+
+th:nth-child(2){
+  /* padding-right: 5px; */
+  margin-left: 3px;
 }
 
 th:nth-child(1), td:nth-child(1) {
@@ -270,6 +349,35 @@ th:nth-child(1), td:nth-child(1) {
   border-right: black 1px solid;
 }
 
+
+tr:nth-child(even) {
+  background-color: ivory;
+  border-right: 5px solid ivory;
+  border-left: 5px solid ivory;
+}
+
+#smallGraphContainer {
+  position: relative;
+  margin: 20px auto;
+  width: 350px;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#graphContainer {
+  position: relative;
+  width: 90%;
+  margin: auto auto 50px auto;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#mainChart {
+  margin-bottom: 50px;
+}
 /* Map */
 
 #map {
@@ -311,7 +419,7 @@ th:nth-child(1), td:nth-child(1) {
   border-width: 5px 5px 5px 0px;
   border-style: solid;
   padding: 10px;
-} 
+}
 
 #articles_anxiety li {
   list-style-type: circle !important;
@@ -327,6 +435,64 @@ th:nth-child(1), td:nth-child(1) {
 
 /* END - Articles and Quotes */
 
+
+/* START - Definitions */
+
+#definitions {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+
+#definitions>div {
+  width: 300px;
+  /* height: 200px; */
+  background-color: ivory;
+
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+#definitions h3 {
+  margin-bottom: 10px;
+}
+#definitions p {
+  text-align: jusfity;
+}
+
+#sentiment {
+  border: 4px solid rgba(71, 139, 194, 1);
+}
+
+#anger {
+  border: 4px solid rgba(211, 69, 69, 1);
+}
+
+#fear {
+  border: 4px solid rgba(252, 221, 128, 1);
+}
+
+#joy {
+  border: 4px solid rgba(239, 149, 157, 1);
+}
+
+#sadness {
+  border: 4px solid rgba(166, 212, 216, 1);
+}
+
+#surprise {
+  border: 4px solid rgba(161, 204, 126, 1);
+}
+
+/* END - Definitions */
+
 /* Side-bar */
 
 .community-suggestion {
@@ -334,4 +500,3 @@ th:nth-child(1), td:nth-child(1) {
   border: 2px solid black;
   width: 75%;
 }
-

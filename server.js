@@ -52,6 +52,8 @@ app.get('/create', renderCreate);
 app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
+app.put('/update', updateJournal);
+app.delete('/delete', deleteJournal);
 app.get('/logout', logout);
 
 // ============================
@@ -67,7 +69,7 @@ function home(req, res) {
       console.log('suggestion array', array);
       res.render('pages/index', {array});
     })
-    .catch(err => errorMessage(err, res));
+    .catch(err => handleError(err, res));
 }
 
 function test(req, res) {
@@ -113,7 +115,7 @@ function renderCreate(req, res) {
 
 function createAndLogin (req, res) {
   let SQL = 'SELECT username FROM users';
-  
+
   client.query(SQL)
     .then(result => {
       if (result.rows.map(n => n.username).includes(req.body.username)) {
@@ -135,16 +137,22 @@ function createAndLogin (req, res) {
 }
 
 function getProfile(req, res) {
-  const SQL = `SELECT users.username, journals.*
-  FROM users 
+  const SQL = `
+
+  SELECT users.username, journals.*
+  FROM users
   LEFT JOIN journals
   ON users.id=journals.uid
   WHERE users.id=$1
-  ORDER BY journals.date DESC;`;
+  ORDER BY journals.date DESC,
+  journals.entered DESC;
+  `;
 
   const values = [req.params.uid];
 
   client.query(SQL, values)
+
+
     .then(result => {
       res.render('pages/profile/show', {
         journals: result.rows[0].id === null ? undefined : result.rows,
@@ -164,8 +172,7 @@ function newJournal(req, res) {
         .then(emotions => {
           const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
 
-          // console.log(...Object.values(emotions), sentiment);
-          // console.log(Object.values(journalMetrics));
+
 
           const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
 
@@ -180,6 +187,53 @@ function newJournal(req, res) {
         .catch(err => handleError(err, res));
     })
     .catch(err => handleError(err, res));
+}
+
+function updateJournal(req, res) {
+  console.log('got here', req.body);
+  indico.sentimentHQ(req.body.entry)
+    .then(sentiment => {
+      // seconen indical returns 5 emotion scores
+      indico.emotion(req.body.entry)
+        .then(emotions => {
+          const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
+
+          const SQL = `UPDATE journals SET
+              date=$2,
+              entered=$3,
+              exercise=$4,
+              outdoors=$5,
+              entry=$6,
+              sentiment=$7,
+              anger=$8,
+              fear=$9,
+              joy=$10,
+              sadness=$11,
+              surprise=$12
+              WHERE id=$1;`;
+
+          const values = [req.body.jid, req.body.date, new Date().toISOString().slice(0,10), req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
+
+          client.query(SQL, values)
+            .then(result => {
+              res.redirect(`/profile/${req.body.uid}`);
+            })
+            .catch(err => handleError(err, res));
+        })
+        .catch(err => handleError(err, res));
+    })
+    .catch(err => handleError(err, res));
+}
+
+function deleteJournal(req, res) {
+  const SQL = 'DELETE FROM journals WHERE id=$1';
+  const values = [req.body.jid];
+
+  client.query(SQL, values)
+  .then(result => {
+    res.redirect(`/profile/${req.body.uid}`);
+  })
+  .catch(err => handleError(err, res));
 }
 
 function newSuggestion(req, res) {
@@ -224,6 +278,8 @@ function findAir(req, res){
     .catch(err => {console.error(err)});
 }
 
+
+// ===============================
 //Constructor functions
 // ===============================
 
