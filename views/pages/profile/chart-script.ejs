@@ -22,12 +22,12 @@
 
                 // The data for our dataset
                 data: {
-                    labels: journals.slice(Math.max(journals.length - 5, 0)).map(j => new Date(j.date)),
+                    labels: journals.slice(0, Math.min(journals.length, 5)).map(j => new Date(j.date)),
                     datasets: [{
                         label: "Sentiment",
                         backgroundColor: 'rgba(29, 87, 134, 0.1)',
                         borderColor: 'rgb(29, 87, 134)',
-                        data: journals.map(j => j.sentiment),
+                        data: journals.map(j => j.sentiment).slice(0, Math.min(journals.length, 5)),
                         borderWidth: 1
                     }],
 
