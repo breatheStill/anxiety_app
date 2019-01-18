@@ -7,13 +7,15 @@
   <title>Document</title>
 </head>
 <body>
+  <%- include('../../layout/head', {stylesheet: 'profile.css'}) %>
   <header>Yo</header>
  <main>
-    <section>
+    <section id="map-container">
         <div id="map"></div>
         <!-- Replace the value of the key parameter with your own API key. -->
-        <script src="" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPThqiGyDRZjboBjUxlV-cWgq2IEOHEiU&callback=initMap" async defer></script>
     </section>
  </main>
+ <%- include('../../layout/footer') %>
 </body>
 </html>

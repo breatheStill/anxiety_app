@@ -13,7 +13,7 @@ $(() => {
     '#new',
   ];
 
-  function showPage (page) {
+  function showPage(page) {
     components.forEach(element => {
       if (element === page) $(`${element}`).show();
       else $(`${element}`).hide();
@@ -38,7 +38,18 @@ $(() => {
     showPage('#mainGraph');
   });
 
-    // render profile page on first visit
-   showPage('#profile');
+  // render profile page on first visit
+  showPage('#profile');
 
+});
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 47.630, lng: -122.350 },
+    zoom: 14
   });
+}
+
+
+  // initMap();

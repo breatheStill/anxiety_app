@@ -113,7 +113,14 @@ input, textarea {
   /* height: 160px; */
 }
 
+#map-container{
+  height: 500px;
+  width: 500px;
+}
 
+#map{
+  height: 100%;
+}
 
 
 
