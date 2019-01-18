@@ -1,0 +1,15 @@
+<div class="journal">
+    <div class="journalHeader">
+      <div class="journalInfo">
+        <p><em>
+            <%= journal.date.toDateString() %></em></p>
+
+
+      </div>
+
+    </div>
+    <hr>
+    <p class="entry">
+      <%- journal.entry.replace(/\n/g, '<br>') %>
+    </p>
+  </div>
