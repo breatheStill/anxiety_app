@@ -16,12 +16,13 @@ body {
 
 header {
   padding: 10px;
-  background-color: ivory;
+  background: url("../styles/images/feather-3010848_1920.jpg");
   /* box-sizing: border-box; */
 }
 
 header h1 {
   /* margin-left: 74px; */
+  color: aliceblue;
 }
 
 header section {
@@ -84,7 +85,8 @@ h1 {
 
 h1 a {
   text-decoration: none;
-  color: black;
+  color: gray;
+
 }
 
 h2 {
@@ -267,6 +269,7 @@ th:nth-child(1), td:nth-child(1) {
   border-right: black 1px solid;
 }
 
+
 tr:nth-child(even) {
   background-color: ivory;
   border-right: 5px solid ivory;
@@ -300,6 +303,28 @@ tr:nth-child(even) {
 
 #mainChart {
   margin-bottom: 50px;
+
+/* Map */
+
+#map {
+  height: 200px;
+  width: 225px;
+}
+/* Nutrition */
+
+/* #nutrition {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */
+
+#nutrition-intro {
+  border: 5px solid black;
+}
+
+.food-dos-donts {
+  width: 48%;
+  border: 2px solid black;
 }
 
 /* Articles and Quotes */
@@ -373,3 +398,12 @@ tr:nth-child(even) {
 }
 
 /* END - Definitions */
+
+/* Side-bar */
+
+.community-suggestion {
+  margin: auto;
+  border: 2px solid black;
+  width: 75%;
+}
+

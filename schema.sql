@@ -11,6 +11,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 DROP TABLE IF EXISTS journals;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS suggestions;
 
 CREATE TABLE users (
   id uuid DEFAULT uuid_generate_v4 (),
@@ -34,6 +35,14 @@ CREATE TABLE journals (
   sadness INTEGER,
   surprise INTEGER
 );
+
+CREATE TABLE suggestions (
+  suggestion TEXT,
+  name TEXT,
+  id SERIAL PRIMARY KEY
+);
+
+
 
 INSERT INTO users(username, password)
 VALUES('andrew', '1234');
@@ -108,3 +117,4 @@ VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-01', true, true,
 
 INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise)
 VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-13', false, false, 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit.', 5, 9, 4, 6, 10, 0 );
+
