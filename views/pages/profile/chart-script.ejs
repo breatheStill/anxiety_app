@@ -1,4 +1,5 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 
 <script>
 
@@ -6,6 +7,8 @@
 
         // This creates normal js object to work wth
         journals = <%- JSON.stringify(journals) %>;
+        // journals.sort((a,b) => a.date - b.date);
+        // console.log(journals[0].date);
 
         // ============================
         // Embedded Profile Page Chart
@@ -19,7 +22,7 @@
 
                 // The data for our dataset
                 data: {
-                    labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1, 3).join(' ')).reverse(),
+                    labels: journals.map(j => new Date(j.date)),
                     datasets: [{
                         label: "Sentiment",
                         backgroundColor: 'rgba(29, 87, 134, 0.1)',
@@ -40,6 +43,14 @@
                     title: {
                         display: true,
                         text: 'Emotional Ratings Over Time'
+                    },
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            time: {
+                                unit: 'month'
+                            }
+                        }]
                     }
                 }
             });
@@ -59,7 +70,8 @@
 
                 // The data for our dataset
                 data: {
-                    labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1, 3).join(' ')).reverse(),
+                    // labels: journals.map(j => new Date(j.date).toDateString().split(' ').slice(1, 3).join(' ')).reverse(),
+                    labels: journals.map(j => new Date(j.date)),
                     datasets: [{
                         label: "Sentiment",
                         backgroundColor: 'rgba(71, 139, 194, .05)',
@@ -106,6 +118,14 @@
                         display: true,
                         text: 'Emotional Ratings Over Time',
                         fontSize: 16
+                    },
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            time: {
+                                unit: 'month'
+                            }
+                        }]
                     }
                 }
             });
