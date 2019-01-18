@@ -295,16 +295,9 @@ tr:nth-child(even) {
   border-radius: 5px;
 }
 
-#myMainChart {
-  /* height: 500px;
-  width: 700px;
-  margin: auto; */
-}
-
 #mainChart {
   margin-bottom: 50px;
 }
-
 /* Map */
 
 #map {
@@ -379,7 +372,7 @@ tr:nth-child(even) {
   width: 300px;
   /* height: 200px; */
   background-color: ivory;
-  border: black 1px solid;
+
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 80%;
@@ -395,7 +388,27 @@ tr:nth-child(even) {
 }
 
 #sentiment {
-  background-color: rgba(71, 139, 194, .5);
+  border: 4px solid rgba(71, 139, 194, 1);
+}
+
+#anger {
+  border: 4px solid rgba(211, 69, 69, 1);
+}
+
+#fear {
+  border: 4px solid rgba(252, 221, 128, 1);
+}
+
+#joy {
+  border: 4px solid rgba(239, 149, 157, 1);
+}
+
+#sadness {
+  border: 4px solid rgba(166, 212, 216, 1);
+}
+
+#surprise {
+  border: 4px solid rgba(161, 204, 126, 1);
 }
 
 /* END - Definitions */
