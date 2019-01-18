@@ -21,7 +21,7 @@ $(() => {
   }
 
   // show form
-  $('#profile button').on('click', e => {
+  $('#profile button.new').on('click', e => {
     eventHelper(e);
     showPage('#new');
   });
