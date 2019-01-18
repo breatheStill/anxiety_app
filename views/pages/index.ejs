@@ -9,12 +9,12 @@
     <a href="/login">Sign In</a>
 
     <section id="geocoding">
-        <img src="../../public/styles/images/map-846083_1920.jpg" alt="map section">
+        <img src="/styles/images/map-846083_1920.jpg" alt="map section" id="map">
     </section>
 
     <section id="nutrition">
 
-      <div>
+      <div id="nutrition-intro">
         
         <h5>Nutrition can affect our mood</h5>
 
@@ -22,7 +22,7 @@
           Conversely, there are also foods that can bring us down, and increase our feelings of anxiety. Foods that quickly ramp up our system, but are often followed by a crash just as quickly. 
         </p>
 
-        <div>
+        <div class="food-dos-donts">
 
           <h6>Quick snacks</h6>
           
@@ -44,7 +44,7 @@
 
         </div>
 
-        <div>
+        <div class="food-dos-donts">
 
           <h6>Foods to Avoid</h6>
 
@@ -82,16 +82,19 @@
       </div>
     </section>
 
-    <section>
+    <section id="side-bar">
+
+      <% array.forEach(suggestion => { %>
       
-      <div class="community-suggestion">
+        <div class="community-suggestion">
 
-      <p><%= suggestion.rows[0].suggestion%></p>
-      <p><%=suggestion.rows[0].name%></p>
+        <p><%=suggestion.suggestion%></p>
+        <p><%=suggestion.name%></p>
 
-      </div>
+        </div>
+      <% }) %>
      
-      <div>
+      <div class="community-suggestion">
 
         <h3>What have you found helpful to manage your anxiety?</h3>
 

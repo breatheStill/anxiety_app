@@ -60,13 +60,12 @@ app.get('/logout', logout);
 
 function home(req, res) {
   let SQL = `SELECT * FROM suggestions`;
-  console.log('SQL', SQL);
 
   return client.query(SQL)
     .then(suggestion => {
-      
-      console.log('suggestion', suggestion);
-      res.render('pages/index', {suggestion});
+      let array = suggestion.rows;
+      console.log('suggestion array', array);
+      res.render('pages/index', {array});
     })
     .catch(err => errorMessage(err, res));
 }
