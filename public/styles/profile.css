@@ -1,3 +1,5 @@
+
+
 html, body {
   height: 100%;
 }
@@ -15,49 +17,52 @@ body {
 }
 
 header {
-  padding: 10px;
+  height: 60px;
+  padding: 5px;
   background: url("../styles/images/feather-3010848_1920.jpg");
-  /* box-sizing: border-box; */
+
 }
 
 header h1 {
-  /* margin-left: 74px; */
-  color: aliceblue;
+  flex: 0 1 auto;
+  position: absolute;             /* new */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 header section {
+  position: relative;
   width: 90%;
   margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
 }
 
-header div {
-  float: right;
-  width: 111px;
-  height: 74px;
-  border-radius: 10%;
-  background-color: rgb(108, 188, 214);
-  /* color: ivory; */
 
+/* header h1 {
+  width: 200px
+} */
 
-  margin-left: -74px;
-}
-
-header div a {
+header a.header-menu {
   display: block;
-  width: 111px;
-  height: 74px;
+  width: 75px;
+  height: 50px;
   text-decoration: none;
   color: ivory;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  font-size: 85%;
+
+  font-size: 70%;
+  background-color: rgb(108, 188, 214);
+  border-radius: 10%;
+  flex: 0 1 auto;
+  margin-left: auto;
 }
 
 #banner {
   margin-bottom: 40px;
-  /* background-color: coral; */
-  /* padding: 8px; */
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -80,7 +85,7 @@ main {
 }
 
 h1 {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 h1 a {
@@ -90,16 +95,16 @@ h1 a {
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 150%;
 }
 
 h3 {
-  font-size: 150%;
+  font-size: 100%;
   /* text-decoration: underline; */
 }
 
 h4 {
-  font-size: 130%;
+  font-size: 90%;
   /* text-decoration: underline; */
 }
 
@@ -499,4 +504,47 @@ tr:nth-child(even) {
   margin: auto;
   border: 2px solid black;
   width: 75%;
+}
+
+
+
+
+@media only screen and (min-width: 767px) {
+  header {
+    height: 90px;
+    padding: 10px;
+  }
+
+  header a.header-menu {
+
+    width: 115px;
+    height: 74px;
+    font-size: 85%;
+    border-radius: 10%;
+    flex: 0 1 auto;
+  }
+
+  h1 {
+    font-size: 300%;
+  }
+
+  h1 a {
+    text-decoration: none;
+    color: gray;
+
+  }
+
+  h2 {
+    font-size: 200%;
+  }
+
+  h3 {
+    font-size: 150%;
+    /* text-decoration: underline; */
+  }
+
+  h4 {
+    font-size: 130%;
+    /* text-decoration: underline; */
+  }
 }
