@@ -303,6 +303,7 @@ tr:nth-child(even) {
 
 #mainChart {
   margin-bottom: 50px;
+}
 
 /* Map */
 
@@ -406,4 +407,3 @@ tr:nth-child(even) {
   border: 2px solid black;
   width: 75%;
 }
-
