@@ -51,7 +51,7 @@ header div a {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* cursor: pointer; */
+  font-size: 85%;
 }
 
 #banner {

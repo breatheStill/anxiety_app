@@ -3,14 +3,14 @@
     <div id="createProfile">
         <form action="/create" method="POST">
             <label>Username:</label>
-            <input name="username" type="text" placeholder="Create a username" required>
+            <input name="username" type="text" placeholder="Create a username" maxlength="9" required>
             <label>Password:</label>
             <input name="password" type="password" placeholder="Create a password" required>
             <button type="submit">Create</button>
         </form>
 
         <a href="/login" class="toggleLogin">Login</a>
-        
+
         <% if (typeof errorMessage === 'string' && errorMessage) { %>
             <p class="error"><%= errorMessage %></p>
         <% } %>
