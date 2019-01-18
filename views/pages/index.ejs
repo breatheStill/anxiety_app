@@ -9,7 +9,7 @@
     <a href="/login">Sign In</a>
 
     <section id="geocoding">
-      
+        <img src="../../public/styles/images/map-846083_1920.jpg" alt="map section">
     </section>
 
     <section id="nutrition">
@@ -79,6 +79,35 @@
           <li>“There is no trouble so great or grave that cannot be much diminished by a nice cup of tea.” — attributed to Bernard-Paul Heroux</li>
           <li>"You don't have to see the whole staircase, just take the first step." — Martin Luther King</li>
         </ul>
+      </div>
+    </section>
+
+    <section>
+      
+      <div class="community-suggestion">
+
+      <p><%= suggestion.rows[0].suggestion%></p>
+      <p><%=suggestion.rows[0].name%></p>
+
+      </div>
+     
+      <div>
+
+        <h3>What have you found helpful to manage your anxiety?</h3>
+
+        <form id="suggestion-form" action="/" method="POST">
+          <fieldset>
+            <div>
+              <textarea name="suggestion" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label class="block" for="name">Submitted by...</label>
+              <input type="text" name="name">
+            </div>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+
       </div>
     </section>
 
