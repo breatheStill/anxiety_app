@@ -156,6 +156,21 @@ li {
   text-align: left;
 }
 
+#previews {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.preview {
+  font-size: 80%;
+  width: 250px;
+  margin: 10px;
+}
+
 button {
   width: 200px;
   height: 50px;

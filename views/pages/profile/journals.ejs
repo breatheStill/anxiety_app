@@ -14,11 +14,13 @@
 
 
   <% if (typeof journals === 'object' && journals) { %>
-  <% journals.forEach(journal => { %>
+    <section id="previews">
+      <% journals.forEach(journal => { %>
 
-    <%- include('entry', {journal}) %>
+        <%- include('entry-preview', {journal}) %>
 
-  <% }) %>
+      <% }) %>
+    </section>
   <% } else { %>
   <p>You have not written any journal entries yet.</p>
   <% } %>

@@ -1,15 +1,10 @@
-<div class="journal">
-    <div class="journalHeader">
-      <div class="journalInfo">
-        <p><em>
-            <%= journal.date.toDateString() %></em></p>
+<div class="journal preview">
+  <h4><em>
+      <%= journal.date.toDateString() %></em></h4>
 
+  <hr>
 
-      </div>
-
-    </div>
-    <hr>
-    <p class="entry">
-      <%- journal.entry.replace(/\n/g, '<br>') %>
-    </p>
-  </div>
+  <p class="entry">
+    <%- journal.entry.replace(/\n/g, '<br>').split(' ').slice(0, 10).join(' ') + '...' %>
+  </p>
+</div>
