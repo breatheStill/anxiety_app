@@ -84,12 +84,15 @@
 
     <section id="side-bar">
 
-      <div class="community-suggestion">
+      <% array.forEach(suggestion => { %>
+      
+        <div class="community-suggestion">
 
-      <p><%= suggestion.rows[0].suggestion%></p>
-      <p><%=suggestion.rows[0].name%></p>
+        <p><%=suggestion.suggestion%></p>
+        <p><%=suggestion.name%></p>
 
-      </div>
+        </div>
+      <% }) %>
      
       <div class="community-suggestion">
 
