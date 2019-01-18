@@ -67,7 +67,7 @@ function home(req, res) {
       console.log('suggestion array', array);
       res.render('pages/index', {array});
     })
-    .catch(err => errorMessage(err, res));
+    .catch(err => handleError(err, res));
 }
 
 function test(req, res) {

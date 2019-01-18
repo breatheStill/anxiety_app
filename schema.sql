@@ -65,5 +65,3 @@ VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-01', true, true,
 INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise)
 VALUES((SELECT id FROM users WHERE username='andrew'), '2019-01-13', false, false, 'Played computer games until my eyes bled. Lorem ipsum dolor sit amet consectetur adipisicing elit.', 5, 9, 4, 6, 10, 0 );
 
-INSERT INTO suggestions(suggestion, name)
-VALUES('Work for me, please!!', 'Jess');
