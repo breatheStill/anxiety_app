@@ -9,8 +9,8 @@
               <%= journal.exercise ? 'Yes' : 'No' %></b></li>
           <li>Go outside? <b>
               <%= journal.outdoors ? 'Yes' : 'No ' %></b></li>
-          <li>Sentiment: <b>
-              <%= journal.sentiment %></b></li>
+          <li>Sentiment: <b><span class="<%= journal.sentiment > 5 ? 'positive' : 'negative' %>">
+              <%= journal.sentiment %></span></b></li>
         </ul>
       </div>
       <table>
