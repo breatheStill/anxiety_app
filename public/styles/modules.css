@@ -41,7 +41,11 @@ header a {
 }
 
 #geocoding {
-  height: 400px;
+  height: 350px;
+}
+
+#loCal {
+  visibility: hidden;
 }
 
 #geocoding form {
