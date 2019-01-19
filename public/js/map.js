@@ -1,10 +1,10 @@
 var map;
 
-function initMap(lat = 47.630, lng = -122.350) {
+function initMap(lat = 47.61857333710042, lng = -122.35186339779943) {
   console.log(lat,lng)
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat , lng},
-    zoom: 14
+    zoom: 17
   });
 }
 

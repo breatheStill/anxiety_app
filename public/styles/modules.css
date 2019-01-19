@@ -14,6 +14,17 @@ header a {
   color: rgb(72, 164, 207);
 }
 
+#map-container{
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 500px;
+}
+
+#map{
+  height: 100%;
+}
+
 .food-dos-donts {
   margin-left: 10px;
   float: left;
