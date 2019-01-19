@@ -93,3 +93,11 @@ img {
 main#login, main#createUser{
   text-align: center;
 }
+
+#headingContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* height: 160px; */
+}
