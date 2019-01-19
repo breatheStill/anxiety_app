@@ -95,6 +95,10 @@ footer {
   text-align: center;
 }
 
+footer small {
+  margin-bottom: 45px;
+}
+
 footer p {
   margin-top: 12px;
   font-size: 13px;
@@ -106,7 +110,7 @@ footer p a {
 
 footer p a:hover {
   text-decoration: underline;
-  margin-bottom: 45px;
+  /* margin-bottom: 15px; */
 }
 
 
@@ -120,7 +124,7 @@ footer p a:hover {
   }
 
   footer {
-    height: 60px;
+    height: 90px;
   }
 
   footer p {
@@ -135,7 +139,7 @@ footer p a:hover {
   }
 
   footer {
-    height: 80px;
+    height: 100px;
   }
 
   footer p {
