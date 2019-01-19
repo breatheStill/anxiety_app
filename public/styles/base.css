@@ -1,5 +1,7 @@
 /* base */
-
+/* html {
+} */
 body {
-  background-color: lightgreen;
+  background: url("/styles/images/light-1282314_1920.jpg");
+  /* margin: auto; */
 }
