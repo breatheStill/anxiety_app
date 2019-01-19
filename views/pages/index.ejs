@@ -8,9 +8,28 @@
     <h1>Index</h1>
     <a href="/login">Sign In</a>
 
-    <section id="geocoding">
-        <img src="/styles/images/map-846083_1920.jpg" alt="map section" id="map">
+    <section class="mains" id="geocoding">
+    
+      <h2>Find an Open Space and Fresh Air</h2>
+      
+      <section id="map-container">
+          <div id="map"></div>
+          <!-- Replace the value of the key parameter with your own API key. -->
+          <script src="/js/map.js"> </script>
+          <script src="<%= mapSRC %>" async defer></script>
+      </section>
+      
+       <section id="loCal">
+          <div>
+            <form id="localForm">
+              <input type="text" name="search" required>
+              <button type="submit">Search</button>
+            </form>
+          </div>
+        </section>
+      
     </section>
+   
 
     <section id="nutrition">
 
