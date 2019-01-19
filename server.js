@@ -40,8 +40,8 @@ app.set('view engine', 'ejs');
 
 app.get('/', home);
 app.post('/', newSuggestion);
-
 app.get('/', findAir);
+
 
 //functional
 app.get('/login', renderLogin);
@@ -64,7 +64,8 @@ function home(req, res) {
   return client.query(SQL)
     .then(suggestion => {
       let array = suggestion.rows;
-      res.render('pages/index', {array, mapSRC: process.env.MAP});
+      // res.render('pages/index', {array, mapSRC: process.env.MAP});
+      res.render('pages/index', {array, mapSRC: `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&callback=initMap`})
     })
     .catch(err => handleError(err, res));
 }
