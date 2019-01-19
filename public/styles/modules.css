@@ -149,6 +149,10 @@ header a {
   margin-top: 15px;
 }
 
+#side-bar button {
+  margin: auto 45%;
+}
+
 /* .suggestion textarea {
   background-color: aliceblue; 
 } */
@@ -458,7 +462,7 @@ b {
   color: darkgreen;
 }
 
-.profile-forms form {
+form {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -472,7 +476,7 @@ b {
   margin-top: 30px;
 }
 
-.profile-forms button {
+button {
   margin-left: auto;
   margin-right: auto;
 }
