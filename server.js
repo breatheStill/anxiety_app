@@ -7,7 +7,7 @@ const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
 const indico = require('indico.io');
-indico.apiKey =  process.env.INDICO_API_KEY;
+indico.apiKey = process.env.INDICO_API_KEY;
 
 // Load env vars;
 require('dotenv').config();
@@ -41,9 +41,7 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.post('/', newSuggestion);
 
-//test section
-app.get('/test/test', test);
-app.get('/test/show', findAir);
+app.get('/', findAir);
 
 //functional
 app.get('/login', renderLogin);
@@ -66,15 +64,11 @@ function home(req, res) {
   return client.query(SQL)
     .then(suggestion => {
       let array = suggestion.rows;
-      console.log('suggestion array', array);
-      res.render('pages/index', {array});
+      res.render('pages/index', {array, mapSRC: process.env.MAP});
     })
     .catch(err => handleError(err, res));
 }
 
-function test(req, res) {
-  res.render('pages/test/test');
-}
 
 function renderLogin(req, res) {
   res.render('pages/login/show', {
@@ -230,10 +224,10 @@ function deleteJournal(req, res) {
   const values = [req.body.jid];
 
   client.query(SQL, values)
-  .then(result => {
-    res.redirect(`/profile/${req.body.uid}`);
-  })
-  .catch(err => handleError(err, res));
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
 function newSuggestion(req, res) {
@@ -246,7 +240,7 @@ function newSuggestion(req, res) {
     .then(result => {
       console.log('in the then');
       // res.render('pages/index');
-      res.redirect('/');
+      res.redirect('pages/index');
     })
     .catch(err => handleError(err, res));
 }
@@ -273,7 +267,7 @@ function findAir(req, res){
   console.log(req.query)
   return searchLatLong(req.query.search)
     .then( () => {
-      res.render('pages/test/show');
+      res.render('pages/index');
     })
 
     .catch(err => {console.error(err)});
@@ -284,31 +278,16 @@ function findAir(req, res){
 //Constructor functions
 // ===============================
 
-// function Food(food){
-//   this.name = food.fields.item_name;
-//   this.brand = food.fields.brand_name;
-//   console.log('this', this);
-// }
+var mapLocations = [];
 
 function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
+  mapLocations.push(this);
 }
 
-//Search for Resource
-// function foodSearch(query){
-//   console.log('in my query function', query);
-//   let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
-//   console.log('searching');
-//   return superagent.get(url)
-//     .then(foodData => {
-//       let results = foodData.body.hits.map(item => new Food(item));
-//       res.render('/pages/test/show', {results});
-//     })
-//     .catch(err => console.error(err));
-// }
-
+// Resources
 function searchLatLong(query){
   console.log('query', query);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
@@ -321,6 +300,9 @@ function searchLatLong(query){
     })
     .catch(err =>console.error(err));
 }
+
+
+
 
 // Error 404
 app.get('/*', function(req, res) {
