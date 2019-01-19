@@ -58,7 +58,7 @@ h1 {
   background-color: rgb(239, 243, 247);
 }
 
-.andrew-body div > form {
+div > form {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -67,11 +67,11 @@ h1 {
   margin-top: 50px;
 }
 
-.andrew-body #user, #createProfile > input, label, button {
+#user, #createProfile > input, label, button {
   margin-top: 30px;
 }
 
-.andrew-body form > button {
+form > button {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 15px;
@@ -106,6 +106,7 @@ footer p a {
 
 footer p a:hover {
   text-decoration: underline;
+  margin-bottom: 45px;
 }
 
 
@@ -138,7 +139,7 @@ footer p a:hover {
   }
 
   footer p {
-    margin-top: 30px;
+    margin-top: 15px;
     font-size: 30px;
   }
 }
