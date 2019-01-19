@@ -1,0 +1,7 @@
+  To dump a database called mydb into a SQL-script file:
+
+  $ pg_dump mydb > db.sql
+
+  To reload such a script into a (freshly created) database named newdb:
+
+  $ psql -d newdb -f db.sql

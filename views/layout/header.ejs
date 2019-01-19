@@ -10,14 +10,14 @@
           <% } else { %>
             <a href="/login">Login</a>
           <% } %>
+          <% if (typeof username === 'string' && username) { %>
+            <div id="user-button">
+              <!-- <a href="/logout"> -->
+                <h4><%= username %></h4>
+              <!-- </a> -->
+            </div>
+          <% } %>
         </div>
-        <% if (typeof username === 'string' && username) { %>
-          <div id="user-button">
-            <!-- <a href="/logout"> -->
-              <h4><%= username %></h4>
-            <!-- </a> -->
-          </div>
-        <% } %>
 
         <div class="header-div" id="just-breathe-logo">
           <h1>(just)Breathe</h1>
