@@ -1,32 +1,56 @@
 /* modules */
 
+/* Header */
 header a {
   color: aliceblue;
 }
 
-/* .mains {
-  height: 200px;
-  width: 90%;
-  border-radius: 25px;
-} */
+#menu {
+    position: relative;
+    display: inline-block;
+}
 
+#menu-content {
+  display: none;
+  position: absolute;
+  min-width: 20px;
+  padding: 5px 5px;
+  z-index: 1;
+}
+
+#menu:hover #menu-content {
+  display: block;
+}
+
+#wind-icon {
+  color: aliceblue;
+  font-size: 20px;
+}
+
+/* Index */
 .mains h2 {
+  margin-top: 10px;
   text-align: center;
   font-family: 'Amatic SC', cursive;
-  font-size: 35px;
+  font-size: 25px;
   color: rgb(72, 164, 207);
 }
 
-
-
 #map-container{
-  /* margin-left: auto;
-  margin-right: auto; */
   height: 300px;
 }
 
 #geocoding {
-  height: 450px;
+  height: 400px;
+}
+
+#geocoding form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
 }
 
 #map{
@@ -34,12 +58,13 @@ header a {
 }
 
 #nutrition {
-  height: 450px;
+  height: 500px;
 }
 
 .nutri-info {
   text-indent: 20px;
-  margin: 10px auto;
+  margin: 5px auto;
+  font-size: 13px;
   width: 85%;
 }
 
@@ -48,19 +73,16 @@ header a {
 }
 
 .food-dos-donts {
-  /* background-color: aliceblue; */
   margin-left: 10px;
   float: left;
   width: 45%;
-  
-  /* border-radius: 2px; */
-  /* border: 2px solid rgb(180, 198, 226); */
 }
 
 .food-dos-donts h6 {
   text-align: center;
   text-decoration: underline;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  font-size: 12px;
 }
 
 .food-dos-donts ul {
@@ -71,10 +93,50 @@ header a {
 .food-dos-donts ul li {
   margin-left: 3px;
   margin-bottom: 3px;
-  font-size: 13px;
+  font-size: 10px;
 }
 
-div > form {
+#articles {
+  height: 300px;
+}
+
+#articles div {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#articles h3 {
+  text-decoration: underline;
+  margin-bottom: 3px;
+}
+#articles ul li a {
+  list-style: circle;
+  list-style-position: inside;
+}
+
+#articles ul li {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  font-size: 10px;
+}
+
+#articles a {
+  color: black;
+}
+
+#articles a:hover {
+  color: rgb(82, 82, 141);
+  text-decoration: underline;
+}
+
+#side-bar h2 {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  color: rgb(72, 164, 207);
+}
+
+#side-bar form {
   display: flex;
   flex-direction: column;
   width: 200px;
@@ -83,19 +145,28 @@ div > form {
   margin-top: 15px;
 }
 
-#user, #createProfile > input, label, button {
-  margin-top: 30px;
+.suggestion {
+  background-color: aliceblue;
+  border-radius: 25px;
 }
 
-form > button {
-  margin-left: auto;
-  margin-right: auto;
+#suggestion-form {
+  display: inline;
 }
 
+#suggestion-content {
+  width: 80%;
+  text-align: center;
+}
+
+#suggestion-name {
+  width: 80%;
+  text-align: right;
+}
 
 @media screen and (min-width: 768px) {
   #geocoding {
-    height: 600px;
+    height: 550px;
   }
 
   #map-container{
@@ -104,20 +175,32 @@ form > button {
     height: 400px;
     width: 400px;
   }
+
+  .mains h2 {
+    font-size: 45px;
+  }
   
+  #geocoding form {
+     margin-top: 30px;
+  }
+  
+  .food-dos-donts h6 {
+    font-size: 18px;
+  } 
+
   .food-dos-donts ul li {
     margin-left: 25px;
     font-size: 13px;
   }
-  
-  div > form {
-    margin-top: 30px;
+
+  #articles div {
+    font-size: 20px;
   }
 }
 
 @media screen and (min-width: 960px) {
   #geocoding {
-    height: 700px;
+    height: 650px;
   }
   
   #map-container{
@@ -127,8 +210,18 @@ form > button {
     width: 500px;
   }
 
+  #geocoding form {
+    margin-top: 40px;
+  }
+
+  .mains h2 {
+    font-size: 40px;
+  }
+
   .food-dos-donts ul li {
     margin-left: 35px;
-    font-size: 15px;
+    font-size: 18px;
   }
+
+  
 }
