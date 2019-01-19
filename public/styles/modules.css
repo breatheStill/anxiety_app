@@ -67,7 +67,7 @@ a.toggleLogin {
 
 .journal {
   font-family: 'Times New Roman', Times, serif;
-  border: solid black 1px;
+  border: solid black 2px;
   background-color: rgba(255, 255, 255, 0.514);
   margin: 20px auto;
   clear: right;
@@ -376,4 +376,16 @@ a.toggleLogin:hover {
 
 small {
   font-size: 75%;
+}
+
+div#user-button {
+  font-size: 115%;
+  background-color: #eee;
+  color: rgb(25, 67, 116);
+  padding: 7px 10px;
+  border-radius: 3px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
 }

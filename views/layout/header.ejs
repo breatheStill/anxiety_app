@@ -5,20 +5,26 @@
         <a href="/">
           <h4>Home</h4>
         </a>
-        <a href="/login">
-          Login</a>
-
+        <% if (typeof username === 'string' && username) { %>
+        <a href="/logout">Logout</a>
+          <% } else { %>
+            <a href="/login">Login</a>
+          <% } %>
         </div>
         <% if (typeof username === 'string' && username) { %>
-          <div id="logout">
-            <a href="/logout">
+          <div id="user-button">
+            <!-- <a href="/logout"> -->
               <h4><%= username %></h4>
-            </a>
+            <!-- </a> -->
           </div>
         <% } %>
-      <div class="header-div" id="just-breathe-logo">
-        <h1>(just)Breathe</h1>
-      </div>
+
+        <div class="header-div" id="just-breathe-logo">
+          <h1>(just)Breathe</h1>
+        </div>
+
+
+
 
     </section>
   </header>

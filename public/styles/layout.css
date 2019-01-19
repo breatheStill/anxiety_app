@@ -18,8 +18,7 @@ header {
 
 header section {
   width: 100%;
-
-
+  /* display: inline-block; */
 }
 
 .header-div {
@@ -118,6 +117,6 @@ main#login, main#createUser{
   width: 90%;
   margin: auto auto 50px auto;
   background-color: rgba(255, 255, 255, 0.705);
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
 }

@@ -241,7 +241,7 @@ function newSuggestion(req, res) {
     .then(result => {
       console.log('in the then');
       // res.render('pages/index');
-      res.redirect('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }

@@ -35,3 +35,7 @@ button {
   border-radius: 3px;
   cursor: pointer;
 }
+
+input {
+  height: 30px;
+}
