@@ -29,6 +29,9 @@ header section {
   align-self: flex-end;
 }
 
+a:link {
+  text-decoration: none;
+}
 
 #banner {
   visibility: hidden;
@@ -59,6 +62,12 @@ h1 {
   background-color: rgb(239, 243, 247);
 }
 
+/* About Us */
+#devo-profiles {
+  width: 50%;
+  margin: auto;
+}
+
 footer {
   position: fixed;
   left: 0;
@@ -76,7 +85,20 @@ footer p {
   font-size: 13px;
 }
 
+footer p a {
+  color: aliceblue;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media screen and (min-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
   .mains {
     width: 70%;
   }

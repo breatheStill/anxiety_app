@@ -39,11 +39,12 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
-app.post('/', newSuggestion);
 
 app.get('/', findAir);
 
 //functional
+app.get('/about-us', aboutUs);
+app.post('/', newSuggestion);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
 app.get('/create', renderCreate);
@@ -67,6 +68,10 @@ function home(req, res) {
       res.render('pages/index', {array, mapSRC: process.env.MAP});
     })
     .catch(err => handleError(err, res));
+}
+
+function aboutUs(req, res) {
+  res.render('pages/about-us/about-us');
 }
 
 
@@ -239,8 +244,7 @@ function newSuggestion(req, res) {
   return client.query(SQL, values)
     .then(result => {
       console.log('in the then');
-      // res.render('pages/index');
-      res.redirect('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }
