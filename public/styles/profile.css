@@ -18,10 +18,10 @@ body {
 }
 
 header {
-  /* width: 100%; */
+  /* width: 100%;
   height: 40px;
   padding: 3px;
-  background: url("../styles/images/feather-3010848_1920.jpg");
+  background: url("../styles/images/feather-3010848_1920.jpg"); */
 
 }
 
@@ -123,6 +123,8 @@ input, textarea {
 }
 
 #map-container{
+  margin-left: auto;
+  margin-right: auto;
   height: 500px;
   width: 500px;
 }

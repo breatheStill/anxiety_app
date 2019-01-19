@@ -1,5 +1,22 @@
 /* base */
-
-body {
-  background-color: lightgreen;
+/* START - CSS trick to keep footer at bottom */
+html, body {
+  height: 100%;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  background: url("/styles/images/light-1282314_1920.jpg");
+}
+.content {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(91, 137, 190, 0.5);
+  color: white;
+  padding: 5px 0;
+}
+/* END - CSS trick to keep footer at bottom */

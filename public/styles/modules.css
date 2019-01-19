@@ -1,1 +1,55 @@
-/* layout */
+/* modules */
+
+header a {
+  color: aliceblue;
+}
+.mains {
+  border-radius: 25px;
+}
+
+.mains h2 {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 35px;
+  color: rgb(72, 164, 207);
+}
+
+#map-container{
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  width: 500px;
+}
+
+#map{
+  height: 100%;
+}
+
+.food-dos-donts {
+  margin-left: 10px;
+  float: left;
+  width: 45%;
+  border-radius: 25px;
+  border: 2px solid rgb(68, 110, 173);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: aquamarine;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  body {
+    background-color: aqua;
+  }
+}
+
+.center-link {
+  margin: auto;
+}
+
+a.toggleLogin {
+  text-decoration: none;
+  font-size: 90%;
+}

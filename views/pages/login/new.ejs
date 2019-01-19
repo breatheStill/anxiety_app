@@ -1,6 +1,6 @@
 <main id="createUser">
     <%- include('../../layout/banner', {bannerMessage: 'Create New Profile'}) %>
-    <div id="createProfile">
+    <div id="createProfile" class="login">
         <form action="/create" method="POST">
             <label>Username:</label>
             <input name="username" type="text" placeholder="Create a username" maxlength="9" required>
@@ -9,10 +9,13 @@
             <button type="submit">Create</button>
         </form>
 
+
         <a href="/login" class="toggleLogin">Login</a>
 
         <% if (typeof errorMessage === 'string' && errorMessage) { %>
-            <p class="error"><%= errorMessage %></p>
+        <p class="error">
+            <%= errorMessage %>
+        </p>
         <% } %>
 
     </div>
