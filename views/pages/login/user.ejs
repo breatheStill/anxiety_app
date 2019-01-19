@@ -9,7 +9,7 @@
     <button type="submit">Login</button>
   </form>
 
-  <a href="/create" class="toggleLogin">Create New User</a>
+  <a href="/create" class="toggleLogin" id="create-new-user-link">Create New User</a>
 
   <% if (typeof errorMessage === 'string' && errorMessage) { %>
     <p class="error"><%= errorMessage %></p>

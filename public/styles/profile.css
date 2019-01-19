@@ -175,6 +175,10 @@ form > button {
   margin-right: auto;
 }
 
+#create-new-user-link {
+  text-align: center;
+}
+
 .journal {
   font-family: 'PT Sans Caption', sans-serif;
   border: solid black 1px;
