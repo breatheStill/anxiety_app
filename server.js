@@ -42,8 +42,8 @@ app.get('/', home);
 app.post('/', newSuggestion);
 
 //test section
-app.get('/test/test', test);
-app.get('/test/show', findAir);
+// app.get('/test/test', test);
+app.get('/', findAir);
 
 //functional
 app.get('/login', renderLogin);
@@ -61,6 +61,8 @@ app.get('/logout', logout);
 // ============================
 
 function home(req, res) {
+  res.render('pages/index', {mapSRC: process.env.MAP});
+
   let SQL = `SELECT * FROM suggestions`;
 
   return client.query(SQL)
@@ -272,7 +274,7 @@ function findAir(req, res){
   console.log(req.query)
   return searchLatLong(req.query.search)
     .then( () => {
-      res.render('pages/test/show');
+      res.render('pages/index');
     })
 
     .catch(err => {console.error(err)});
@@ -283,31 +285,16 @@ function findAir(req, res){
 //Constructor functions
 // ===============================
 
-// function Food(food){
-//   this.name = food.fields.item_name;
-//   this.brand = food.fields.brand_name;
-//   console.log('this', this);
-// }
+var mapLocations = [];
 
 function Location(location){
   this.formatted_query = location.formatted_address;
   this.latitude = location.geometry.location.lat;
   this.longitude = location.geometry.location.lng;
+  mapLocations.push(this);
 }
 
-//Search for Resource
-// function foodSearch(query){
-//   console.log('in my query function', query);
-//   let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
-//   console.log('searching');
-//   return superagent.get(url)
-//     .then(foodData => {
-//       let results = foodData.body.hits.map(item => new Food(item));
-//       res.render('/pages/test/show', {results});
-//     })
-//     .catch(err => console.error(err));
-// }
-
+// Resources
 function searchLatLong(query){
   console.log('query', query);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;
@@ -320,6 +307,9 @@ function searchLatLong(query){
     })
     .catch(err =>console.error(err));
 }
+
+
+
 
 // Error 404
 app.get('/*', function(req, res) {
