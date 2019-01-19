@@ -1,5 +1,10 @@
 <main id="mainGraph">
 
+    <%- include('../../layout/banner', {
+        bannerMessage: `Main Graph`,
+        username: username
+    }) %>
+
     <div id="graphContainer">
         <canvas id="myMainChart"></canvas>
     </div>
