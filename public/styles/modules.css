@@ -232,3 +232,52 @@ b {
 .entry-options a.delete:hover {
   color: red;
 }
+
+.delete-form {
+  width: 400px;
+  font-size: 100%;
+  background-color: rgba(245, 114, 91, 0.329);
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
+
+.delete-form button {
+  color: darkred;
+  background-color: #eee;
+}
+
+.delete-form button:hover {
+  color: red;
+}
+
+.delete-form a.cancel {
+  color: darkslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+}
+
+.delete-form a.cancel:hover {
+  color: darkgreen;
+}
+
+div > form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#user, #createProfile > input, label, button {
+  margin-top: 30px;
+}
+
+form > button {
+  margin-left: auto;
+  margin-right: auto;
+}
