@@ -41,8 +41,6 @@ app.set('view engine', 'ejs');
 app.get('/', home);
 app.post('/', newSuggestion);
 
-//test section
-// app.get('/test/test', test);
 app.get('/', findAir);
 
 //functional
@@ -61,22 +59,16 @@ app.get('/logout', logout);
 // ============================
 
 function home(req, res) {
-  res.render('pages/index', {mapSRC: process.env.MAP});
-
   let SQL = `SELECT * FROM suggestions`;
 
   return client.query(SQL)
     .then(suggestion => {
       let array = suggestion.rows;
-      console.log('suggestion array', array);
-      res.render('pages/index', {array});
+      res.render('pages/index', {array, mapSRC: process.env.MAP});
     })
     .catch(err => handleError(err, res));
 }
 
-function test(req, res) {
-  res.render('pages/test/test');
-}
 
 function renderLogin(req, res) {
   res.render('pages/login/show', {
@@ -232,10 +224,10 @@ function deleteJournal(req, res) {
   const values = [req.body.jid];
 
   client.query(SQL, values)
-  .then(result => {
-    res.redirect(`/profile/${req.body.uid}`);
-  })
-  .catch(err => handleError(err, res));
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
 function newSuggestion(req, res) {
@@ -248,7 +240,7 @@ function newSuggestion(req, res) {
     .then(result => {
       console.log('in the then');
       // res.render('pages/index');
-      res.redirect('/');
+      res.redirect('pages/index');
     })
     .catch(err => handleError(err, res));
 }

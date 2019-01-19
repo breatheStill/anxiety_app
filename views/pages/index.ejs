@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../layout/head', {stylesheet: 'profile.css'}) %>
+<%- include('../layout/head')%>
 
 <body>
   <%- include('../layout/header') %>
   <main>
-    <h1>Index</h1>
-    <a href="/login">Sign In</a>
 
     <section class="mains" id="geocoding">
     
@@ -18,20 +16,21 @@
           <script src="/js/map.js"> </script>
           <script src="<%= mapSRC %>" async defer></script>
       </section>
-      
-       <section id="loCal">
+      <section id="loCal">
           <div>
-            <form id="localForm">
-              <input type="text" name="search" required>
-              <button type="submit">Search</button>
-            </form>
-          </div>
-        </section>
+              <form id="localForm">
+                <input type="text" name="search" required>
+                <button type="submit">Search</button>
+              </form>
+            </div>
+      </section>
       
     </section>
    
 
-    <section id="nutrition">
+    <section class="mains" id="nutrition">
+
+      <h2>Can a Snack Help?</h2>
 
       <div id="nutrition-intro">
         
@@ -82,7 +81,9 @@
 
       </div>
     </section>
-    <section id="articles">
+    
+    <section  class="mains" id="articles">
+      <h2>From the Professionals</h2>
       <div id="articles_anxiety">
         <h3>Articles on Anxiety</h3>
         <ul>
@@ -102,16 +103,20 @@
     </section>
 
     <section id="side-bar">
-
-      <% array.forEach(suggestion => { %>
       
-        <div class="community-suggestion">
+      <div id="suggestions-container">
+        
+        <% array.forEach(suggestion => { %>
+        
+          <div class="suggestion">
+  
+          <p><%=suggestion.suggestion%></p>
+          <p><%=suggestion.name%></p>
+  
+          </div>
+        <% }) %>
 
-        <p><%=suggestion.suggestion%></p>
-        <p><%=suggestion.name%></p>
-
-        </div>
-      <% }) %>
+      </div>
      
       <div class="community-suggestion">
 
