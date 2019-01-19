@@ -44,37 +44,24 @@ h1 {
   margin: 10px auto 10px auto;
 }
 
-div > form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+#nutrition {
+  background-image: url('/styles/images/table-2879215_640.jpg');
+  background-size: cover;
+  background-attachment: no-repeat;
+  /* z-index: -1;
+  opacity: 0.2; */
 }
 
-#user, #createProfile > input, label, button {
-  margin-top: 30px;
-}
 
-form > button {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-img {
-  height: 200px;
-  width: 225px;
-}
 
 @media screen and (min-width: 768px) {
-  body {
-    background-color: aquamarine;
+  .mains {
+    width: 80%;
   }
 }
 
 @media screen and (min-width: 960px) {
-  body {
-    background-color: aqua;
+  .mains {
+    width: 75%;
   }
 }

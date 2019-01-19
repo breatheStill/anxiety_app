@@ -3,9 +3,12 @@
 header a {
   color: aliceblue;
 }
-.mains {
+
+/* .mains {
+  height: 200px;
+  width: 90%;
   border-radius: 25px;
-}
+} */
 
 .mains h2 {
   text-align: center;
@@ -14,33 +17,118 @@ header a {
   color: rgb(72, 164, 207);
 }
 
+
+
 #map-container{
-  margin-left: auto;
-  margin-right: auto;
-  height: 500px;
-  width: 500px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  height: 300px;
+}
+
+#geocoding {
+  height: 450px;
 }
 
 #map{
   height: 100%;
 }
 
+#nutrition {
+  height: 450px;
+}
+
+.nutri-info {
+  text-indent: 20px;
+  margin: 10px auto;
+  width: 85%;
+}
+
+#nutri-2nd {
+  justify-content: space-between;
+}
+
 .food-dos-donts {
+  /* background-color: aliceblue; */
   margin-left: 10px;
   float: left;
   width: 45%;
-  border-radius: 25px;
-  border: 2px solid rgb(68, 110, 173);
+  
+  /* border-radius: 2px; */
+  /* border: 2px solid rgb(180, 198, 226); */
 }
 
+.food-dos-donts h6 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.food-dos-donts ul {
+  list-style: circle;
+  list-style-position: inside;
+}
+
+.food-dos-donts ul li {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+
+div > form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+#user, #createProfile > input, label, button {
+  margin-top: 30px;
+}
+
+form > button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 @media screen and (min-width: 768px) {
-  body {
-    background-color: aquamarine;
+  #geocoding {
+    height: 600px;
+  }
+
+  #map-container{
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 400px;
+  }
+  
+  .food-dos-donts ul li {
+    margin-left: 25px;
+    font-size: 13px;
+  }
+  
+  div > form {
+    margin-top: 30px;
   }
 }
 
 @media screen and (min-width: 960px) {
-  body {
-    background-color: aqua;
+  #geocoding {
+    height: 700px;
+  }
+  
+  #map-container{
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 500px;
+  }
+
+  .food-dos-donts ul li {
+    margin-left: 35px;
+    font-size: 15px;
   }
 }
