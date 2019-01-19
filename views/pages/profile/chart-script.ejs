@@ -1,0 +1,138 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+<script>
+
+    window.onload = function () {
+
+        // This creates normal js object to work wth
+        journals = <%- JSON.stringify(journals) %>;
+        // journals.sort((a,b) => a.date - b.date);
+        // console.log(journals[0].date);
+
+        // ============================
+        // Embedded Profile Page Chart
+        // ============================
+
+        if (document.getElementById('myChart')) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: journals.slice(0, Math.min(journals.length, 5)).map(j => new Date(j.date)),
+                    datasets: [{
+                        label: "Sentiment",
+                        backgroundColor: 'rgba(29, 87, 134, 0.1)',
+                        borderColor: 'rgb(29, 87, 134)',
+                        data: journals.map(j => j.sentiment).slice(0, Math.min(journals.length, 5)),
+                        borderWidth: 1
+                    }],
+
+                },
+
+                // Configuration options go here
+                options: {
+                    legend: {
+                        labels: {
+                            boxWidth: 15
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Emotional Ratings Over Time'
+                    },
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            // time: {
+                            //     unit: 'week'
+                            // }
+                        }]
+                    }
+                }
+            });
+        }
+
+
+        // ============================
+        // Main Chart
+        // ============================
+
+        if (document.getElementById('myMainChart')) {
+            console.log(journals);
+            var mctx = document.getElementById('myMainChart').getContext('2d');
+            var mainChart = new Chart(mctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+
+                    labels: journals.map(j => new Date(j.date)),
+                    datasets: [{
+                        label: "Sentiment",
+                        backgroundColor: 'rgba(71, 139, 194, .05)',
+                        borderColor: 'rgba(71, 139, 194, 1)',
+                        data: journals.map(j => j.sentiment),
+                        borderWidth: 2
+                    }, {
+                        label: "Anger",
+                        backgroundColor: 'rgba(211, 69, 69, .05)',
+                        borderColor: 'rgba(211, 69, 69, 1)',
+                        data: journals.map(j => j.anger),
+                        borderWidth: 2
+                    }, {
+                        label: "Fear",
+                        backgroundColor: 'rgba(252, 221, 128, .05)',
+                        borderColor: 'rgba(252, 221, 128, 1)',
+                        data: journals.map(j => j.fear),
+                        borderWidth: 2
+                    }, {
+                        label: "Joy",
+                        backgroundColor: 'rgba(239, 149, 157, .05)',
+                        borderColor: 'rgba(239, 149, 157, 1)',
+                        data: journals.map(j => j.joy),
+                        borderWidth: 2
+                    }, {
+                        label: "Sadness",
+                        backgroundColor: 'rgba(166, 212, 216, .05)',
+                        borderColor: 'rgba(166, 212, 216, 1)',
+                        data: journals.map(j => j.sadness),
+                        borderWidth: 2
+                    }, {
+                        label: "Surprise",
+                        backgroundColor: 'rgba(161, 204, 126, .05)',
+                        borderColor: 'rgba(161, 204, 126, 1)',
+                        data: journals.map(j => j.surprise),
+                        borderWidth: 2
+                    }
+                    ]
+                },
+
+                // Configuration options go here
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Emotional Ratings Over Time',
+                        fontSize: 16
+                    },
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            // time: {
+                            //     unit: 'week'
+                            // }
+                        }]
+                    }
+                }
+            });
+
+        }
+
+    };
+
+
+</script>

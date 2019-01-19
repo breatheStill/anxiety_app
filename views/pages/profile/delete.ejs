@@ -1,0 +1,12 @@
+<div class="delete-form" id="<%= `delete-${journal.id}` %>">
+  <form action="/delete" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input name="jid" type="hidden" value="<%= journal.id %>">
+      <input name="uid" type="hidden" value="<%= uid %>">
+
+      <p>Are you sure you want to delete this journal entry from <em><%= journal.date.toDateString() %></em>?</p>
+
+      <button type="submit">Delete It</button>
+      <a href="" class="cancel return">Nevermind</a>
+  </form>
+</div>

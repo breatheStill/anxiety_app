@@ -8,24 +8,32 @@
     <h1>Index</h1>
     <a href="/login">Sign In</a>
 
-    <section id="map-container">
-        <div id="map"></div>
-        <!-- Replace the value of the key parameter with your own API key. -->
-        <script src="/js/map.js"> </script>
-        <script src="<%= mapSRC %>" async defer></script>
-    </section>
-    <section id="loCal">
-        <div>
+    <section class="mains" id="geocoding">
+    
+      <h2>Find an Open Space and Fresh Air</h2>
+      
+      <section id="map-container">
+          <div id="map"></div>
+          <!-- Replace the value of the key parameter with your own API key. -->
+          <script src="/js/map.js"> </script>
+          <script src="<%= mapSRC %>" async defer></script>
+      </section>
+      
+       <section id="loCal">
+          <div>
             <form id="localForm">
               <input type="text" name="search" required>
               <button type="submit">Search</button>
             </form>
           </div>
+        </section>
+      
     </section>
+   
 
     <section id="nutrition">
 
-      <div>
+      <div id="nutrition-intro">
         
         <h5>Nutrition can affect our mood</h5>
 
@@ -33,7 +41,7 @@
           Conversely, there are also foods that can bring us down, and increase our feelings of anxiety. Foods that quickly ramp up our system, but are often followed by a crash just as quickly. 
         </p>
 
-        <div>
+        <div class="food-dos-donts">
 
           <h6>Quick snacks</h6>
           
@@ -55,7 +63,7 @@
 
         </div>
 
-        <div>
+        <div class="food-dos-donts">
 
           <h6>Foods to Avoid</h6>
 
@@ -90,6 +98,38 @@
           <li>“There is no trouble so great or grave that cannot be much diminished by a nice cup of tea.” — attributed to Bernard-Paul Heroux</li>
           <li>"You don't have to see the whole staircase, just take the first step." — Martin Luther King</li>
         </ul>
+      </div>
+    </section>
+
+    <section id="side-bar">
+
+      <% array.forEach(suggestion => { %>
+      
+        <div class="community-suggestion">
+
+        <p><%=suggestion.suggestion%></p>
+        <p><%=suggestion.name%></p>
+
+        </div>
+      <% }) %>
+     
+      <div class="community-suggestion">
+
+        <h3>What have you found helpful to manage your anxiety?</h3>
+
+        <form id="suggestion-form" action="/" method="POST">
+          <fieldset>
+            <div>
+              <textarea name="suggestion" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label class="block" for="name">Submitted by...</label>
+              <input type="text" name="name">
+            </div>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+
       </div>
     </section>
 

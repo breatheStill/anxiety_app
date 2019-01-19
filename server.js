@@ -39,6 +39,7 @@ app.set('view engine', 'ejs');
 // ============================
 
 app.get('/', home);
+app.post('/', newSuggestion);
 
 //test section
 // app.get('/test/test', test);
@@ -51,6 +52,8 @@ app.get('/create', renderCreate);
 app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
+app.put('/update', updateJournal);
+app.delete('/delete', deleteJournal);
 app.get('/logout', logout);
 
 // ============================
@@ -59,6 +62,16 @@ app.get('/logout', logout);
 
 function home(req, res) {
   res.render('pages/index', {mapSRC: process.env.MAP});
+
+  let SQL = `SELECT * FROM suggestions`;
+
+  return client.query(SQL)
+    .then(suggestion => {
+      let array = suggestion.rows;
+      console.log('suggestion array', array);
+      res.render('pages/index', {array});
+    })
+    .catch(err => handleError(err, res));
 }
 
 function test(req, res) {
@@ -126,16 +139,22 @@ function createAndLogin (req, res) {
 }
 
 function getProfile(req, res) {
-  const SQL = `SELECT users.username, journals.*
-  FROM users 
+  const SQL = `
+
+  SELECT users.username, journals.*
+  FROM users
   LEFT JOIN journals
   ON users.id=journals.uid
   WHERE users.id=$1
-  ORDER BY journals.date DESC;`;
+  ORDER BY journals.date DESC,
+  journals.entered DESC;
+  `;
 
   const values = [req.params.uid];
 
   client.query(SQL, values)
+
+
     .then(result => {
       res.render('pages/profile/show', {
         journals: result.rows[0].id === null ? undefined : result.rows,
@@ -155,8 +174,7 @@ function newJournal(req, res) {
         .then(emotions => {
           const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
 
-          // console.log(...Object.values(emotions), sentiment);
-          // console.log(Object.values(journalMetrics));
+
 
           const SQL = `INSERT INTO journals(uid, date, exercise, outdoors, entry, sentiment, anger, fear, joy, sadness, surprise) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
 
@@ -169,6 +187,68 @@ function newJournal(req, res) {
             .catch(err => handleError(err, res));
         })
         .catch(err => handleError(err, res));
+    })
+    .catch(err => handleError(err, res));
+}
+
+function updateJournal(req, res) {
+  console.log('got here', req.body);
+  indico.sentimentHQ(req.body.entry)
+    .then(sentiment => {
+      // seconen indical returns 5 emotion scores
+      indico.emotion(req.body.entry)
+        .then(emotions => {
+          const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
+
+          const SQL = `UPDATE journals SET
+              date=$2,
+              entered=$3,
+              exercise=$4,
+              outdoors=$5,
+              entry=$6,
+              sentiment=$7,
+              anger=$8,
+              fear=$9,
+              joy=$10,
+              sadness=$11,
+              surprise=$12
+              WHERE id=$1;`;
+
+          const values = [req.body.jid, req.body.date, new Date().toISOString().slice(0,10), req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
+
+          client.query(SQL, values)
+            .then(result => {
+              res.redirect(`/profile/${req.body.uid}`);
+            })
+            .catch(err => handleError(err, res));
+        })
+        .catch(err => handleError(err, res));
+    })
+    .catch(err => handleError(err, res));
+}
+
+function deleteJournal(req, res) {
+  const SQL = 'DELETE FROM journals WHERE id=$1';
+  const values = [req.body.jid];
+
+  client.query(SQL, values)
+  .then(result => {
+    res.redirect(`/profile/${req.body.uid}`);
+  })
+  .catch(err => handleError(err, res));
+}
+
+function newSuggestion(req, res) {
+  const SQL = `INSERT INTO suggestions (suggestion, name) VALUES ($1, $2);`;
+  const values = [req.body.suggestion, req.body.name];
+
+  console.log('suggestion', req.body);
+
+  return client.query(SQL, values)
+    .then(result => {
+      console.log('in the then');
+      // res.render('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }
@@ -201,14 +281,11 @@ function findAir(req, res){
     .catch(err => {console.error(err)});
 }
 
+
+// ===============================
 //Constructor functions
 // ===============================
 
-// function Food(food){
-//   this.name = food.fields.item_name;
-//   this.brand = food.fields.brand_name;
-//   console.log('this', this);
-// }
 var mapLocations = [];
 
 function Location(location){
@@ -218,19 +295,7 @@ function Location(location){
   mapLocations.push(this);
 }
 
-//Search for Resource
-// function foodSearch(query){
-//   console.log('in my query function', query);
-//   let url = `https://api.nutritionix.com/v1_1/search/${query}?appId=d1c767cf&appKey=${process.env.NUTRITIONIX_API_KEY}`;
-//   console.log('searching');
-//   return superagent.get(url)
-//     .then(foodData => {
-//       let results = foodData.body.hits.map(item => new Food(item));
-//       res.render('/pages/test/show', {results});
-//     })
-//     .catch(err => console.error(err));
-// }
-
+// Resources
 function searchLatLong(query){
   console.log('query', query);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${process.env.GEOCODE_API_KEY}`;

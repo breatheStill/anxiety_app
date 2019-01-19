@@ -1,0 +1,15 @@
+<main id="mainGraph">
+    <%- include('../../layout/banner', {
+        bannerMessage: `Main Graph`,
+        username: username
+    }) %>
+    <div id="graphContainer">
+        <canvas id="myMainChart"></canvas>
+    </div>
+
+    <%- include('definitions') %>
+
+    <a href="/profile/<%= uid %>">Return to Profile</a>
+</main>
+
+<%- include('chart-script') %>
