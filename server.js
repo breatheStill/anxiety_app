@@ -7,7 +7,7 @@ const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
 const indico = require('indico.io');
-indico.apiKey =  process.env.INDICO_API_KEY;
+indico.apiKey = process.env.INDICO_API_KEY;
 
 // Load env vars;
 require('dotenv').config();
@@ -229,10 +229,10 @@ function deleteJournal(req, res) {
   const values = [req.body.jid];
 
   client.query(SQL, values)
-  .then(result => {
-    res.redirect(`/profile/${req.body.uid}`);
-  })
-  .catch(err => handleError(err, res));
+    .then(result => {
+      res.redirect(`/profile/${req.body.uid}`);
+    })
+    .catch(err => handleError(err, res));
 }
 
 function newSuggestion(req, res) {
@@ -244,7 +244,8 @@ function newSuggestion(req, res) {
   return client.query(SQL, values)
     .then(result => {
       console.log('in the then');
-      res.render('pages/index');
+      // res.render('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }

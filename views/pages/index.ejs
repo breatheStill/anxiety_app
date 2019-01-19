@@ -86,16 +86,20 @@
     </section>
 
     <section id="side-bar">
-
-      <% array.forEach(suggestion => { %>
       
-        <div class="community-suggestion">
+      <div id="suggestions-container">
+        
+        <% array.forEach(suggestion => { %>
+        
+          <div class="suggestion">
+  
+          <p><%=suggestion.suggestion%></p>
+          <p><%=suggestion.name%></p>
+  
+          </div>
+        <% }) %>
 
-        <p><%=suggestion.suggestion%></p>
-        <p><%=suggestion.name%></p>
-
-        </div>
-      <% }) %>
+      </div>
      
       <div class="community-suggestion">
 
