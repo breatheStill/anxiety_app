@@ -1,14 +1,22 @@
 <header>
   <section>
-    <% if (typeof username === 'string' && username) { %>
-      <div>
-        <a href="/logout">
-          <h4><%= username %></h4>
-        </a>
+    <div class="header-div" id="menu">
+      <a href="/">
+        <h4>Home</h4>
+      </a>
+      <a href="/login">
+        Login</a>
+        
       </div>
-    <% } %>
-    <div>
-      <h1><a href="/">(just)Breathe</a></h1>
+      <% if (typeof username === 'string' && username) { %>
+        <div id="logout">
+          <a href="/logout">
+            <h4><%= username %></h4>
+          </a>
+        </div>
+      <% } %>
+    <div class="header-div" id="just-breathe-logo">
+      <h1>(just)Breathe</h1>
     </div>
   </section>
 </header>

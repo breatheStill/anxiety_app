@@ -1,19 +1,10 @@
 /* base */
-html {
-  width: 480px;
-}
+/* html {
+} */
 body {
   background: url("/styles/images/abstract-2055567_1920.jpg");
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    background-color: aquamarine;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  body {
-    background-color: aqua;
-  }
+  margin: auto;
+  background-size: cover;
+  background-attachment: no-repeat;
+  width: 100%;
 }

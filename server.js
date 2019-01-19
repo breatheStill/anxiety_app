@@ -66,7 +66,6 @@ function home(req, res) {
   return client.query(SQL)
     .then(suggestion => {
       let array = suggestion.rows;
-      console.log('suggestion array', array);
       res.render('pages/index', {array});
     })
     .catch(err => handleError(err, res));
