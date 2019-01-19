@@ -1,12 +1,12 @@
 -- First go into psql:
 --    CREATE DATABASE just_breathe
 -- Then back in terminal run schema:
---    psql just_breathe -f schema.sql 
+--    psql just_breathe -f schema.sql
 
 -- Push db to heroku
 -- heroku pg:push just_breathe DATABASE_URL --app just-breathe-cf301
 
-	
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 DROP TABLE IF EXISTS journals;

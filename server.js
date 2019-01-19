@@ -40,10 +40,13 @@ app.set('view engine', 'ejs');
 
 app.get('/', home);
 app.post('/', newSuggestion);
+
 app.get('/', findAir);
 
 
 //functional
+app.get('/about-us', aboutUs);
+app.post('/', newSuggestion);
 app.get('/login', renderLogin);
 app.post('/login', verifyLogin);
 app.get('/create', renderCreate);
@@ -68,6 +71,10 @@ function home(req, res) {
       res.render('pages/index', {array, mapSRC: `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&callback=initMap`})
     })
     .catch(err => handleError(err, res));
+}
+
+function aboutUs(req, res) {
+  res.render('pages/about-us/about-us');
 }
 
 

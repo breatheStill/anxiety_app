@@ -26,19 +26,36 @@
       </section>
       
     </section>
+
+    <section class="mains" id="breathing">
+      <h2>Just Breathe</h2>
+      <div id="five-sec-loop"></div>
+      <div id="loop-p">
+        <p>Breathe in as the sphere gets larger, and breathe out as it shrinks back down. Try it for a minute.</p>
+      </div>
+    </section>
    
 
     <section class="mains" id="nutrition">
 
-      <h2>Can a Snack Help?</h2>
-
-      <div id="nutrition-intro">
+      <div id="nutri-1st">
         
-        <h5>Nutrition can affect our mood</h5>
+        <h2>Can a Snack Help?</h2>
+  
+        <div id="nutrition-intro">
+  
+          <p class="nutri-info">Science has found that what we eat can affect our mood. So maybe choose your snacks with that in mind. Look for foods high in magnesium, zinc, B-vitamins, and Omega-3 fatty acids. Also there is strong evidence for including anti-oxidants and probiotics, a healthy gut helps with the production of serotonin, one of the "happy hormones".</p>
+          
+          <p class="nutri-info">Conversely, there are also foods that can bring us down, and increase our feelings of anxiety. Foods that quickly ramp up our system, but are often followed by a crash just as quickly. 
+          </p>
 
-        <p>Science has found that what we eat can affect our mood. So maybe choose your snacks with that in mind. Look for foods high in magnesium, zinc, B-vitamins, and Omega-3 fatty acids. Also there is strong evidence for including anti-oxidants and probiotics, a healthy gut helps with the production of serotonin, one of the "happy hormones". <br>
-          Conversely, there are also foods that can bring us down, and increase our feelings of anxiety. Foods that quickly ramp up our system, but are often followed by a crash just as quickly. 
-        </p>
+      </div>
+
+      </div>
+
+
+      <div id="nutri-2nd">
+
 
         <div class="food-dos-donts">
 
@@ -80,62 +97,72 @@
         </div>
 
       </div>
+
     </section>
     
     <section  class="mains" id="articles">
+
       <h2>From the Professionals</h2>
-      <div id="articles_anxiety">
-        <h3>Articles on Anxiety</h3>
-        <ul>
-          <li><a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders/index.shtml">Anxiety definition, symptoms, and types</a></li>
-          <li><a href="https://www.webmd.com/anxiety-panic/guide/anxiety-panic-guide-treatment-care">Web MD suggestions for treatment</a></li>
-          <li><a href="https://www.anxiety.org/treatments">More suggestions on treatment</a></li>
-        </ul>
-      </div>
-      <div id="quotes">
-        <h3>Quotes</h3>
+
+      <div class="anxiety-info" id="quotes">
+
+        <h3>Quotes:</h3>
         <ul>
           <li>“Do what you can, with what you've got, where you are.” — Theodore Roosevelt</li>
           <li>“There is no trouble so great or grave that cannot be much diminished by a nice cup of tea.” — attributed to Bernard-Paul Heroux</li>
           <li>"You don't have to see the whole staircase, just take the first step." — Martin Luther King</li>
         </ul>
+
       </div>
+
+      <div class="anxiety-info" id="articles_anxiety">
+
+        <h3>Articles on Anxiety:</h3>
+        <ul>
+          <li><a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders/index.shtml">Anxiety definition, symptoms, and types</a></li>
+          <li><a href="https://www.webmd.com/anxiety-panic/guide/anxiety-panic-guide-treatment-care">Web MD suggestions for treatment</a></li>
+          <li><a href="https://www.anxiety.org/treatments">More suggestions on treatment</a></li>
+        </ul>
+
+      </div>
+
     </section>
 
-    <section id="side-bar">
+    <section class="mains" id="side-bar">
       
-      <div id="suggestions-container">
+      <div class="community-suggestion" id="suggestion-form">
         
-        <% array.forEach(suggestion => { %>
+        <h2>What have you found helpful to manage your anxiety?</h2>
         
-          <div class="suggestion">
-  
-          <p><%=suggestion.suggestion%></p>
-          <p><%=suggestion.name%></p>
-  
-          </div>
-        <% }) %>
-
-      </div>
-     
-      <div class="community-suggestion">
-
-        <h3>What have you found helpful to manage your anxiety?</h3>
-
         <form id="suggestion-form" action="/" method="POST">
           <fieldset>
             <div>
               <textarea name="suggestion" id="" cols="30" rows="10"></textarea>
             </div>
             <div>
-                <label class="block" for="name">Submitted by...</label>
+              <label class="block" for="name">Submitted by...</label>
               <input type="text" name="name">
             </div>
           </fieldset>
           <button type="submit">Submit</button>
         </form>
+        
+      </div>
+      
+      <div class="community-suggestion" id="suggestions-container">
+        
+        <% array.forEach(suggestion => { %>
+        
+          <div class="suggestion">
+  
+          <p id="suggestion-content"><%=suggestion.suggestion%></p>
+          <p id="suggestion-name"><%=suggestion.name%></p>
+  
+          </div>
+        <% }) %>
 
       </div>
+
     </section>
 
   </main>

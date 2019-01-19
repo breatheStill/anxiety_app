@@ -1,4 +1,6 @@
 /* layout */
+
+/* App wide */
 body {
   font-family: 'Catamaran', sans-serif;
 }
@@ -27,6 +29,14 @@ header section {
   align-self: flex-end;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+#banner {
+  visibility: hidden;
+}
+
 #just-breathe-logo {
   text-align: end;
 }
@@ -43,6 +53,7 @@ h3 {
   font-size: 25px;
 }
 
+/* Index */
 .mains {
   border-radius: 25px;
   width: 85%;
@@ -50,17 +61,17 @@ h3 {
   margin: 10px auto 10px auto;
 }
 
-div > form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+.community-suggestion {
+  height: 100%;
+  margin-bottom: 15%;
+  border-radius: 25px;
+  background-color: rgb(239, 243, 247);
 }
 
-#user, #createProfile > input, label, button {
-  margin-top: 30px;
+/* About Us */
+#devo-profiles {
+  width: 50%;
+  margin: auto;
 }
 
 form > button {
@@ -68,21 +79,63 @@ form > button {
   margin-right: auto;
   margin-bottom: 15px;
 }
-
-img {
-  height: 200px;
-  width: 225px;
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 35px;
+  width: 100%;
+  margin-top: 15px;
+  color: aliceblue;
+  background-color: rgb(107, 153, 194);
+  text-align: center;
 }
 
+footer p {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+footer p a {
+  color: aliceblue;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media screen and (min-width: 768px) {
-  body {
-    background-color: aquamarine;
+  h1 {
+    font-size: 35px;
+  }
+  .mains {
+    width: 70%;
+  }
+
+  footer {
+    height: 60px;
+  }
+
+  footer p {
+    margin-top: 18px;
+    font-size: 20px;
   }
 }
 
 @media screen and (min-width: 960px) {
-  body {
-    background-color: aqua;
+  .mains {
+    width: 75%;
+  }
+
+  footer {
+    height: 80px;
+  }
+
+  footer p {
+    margin-top: 30px;
+    font-size: 30px;
   }
 }
 

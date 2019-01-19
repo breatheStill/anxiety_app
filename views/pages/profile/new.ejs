@@ -1,34 +1,34 @@
 <main id="new">
-    <%- include('../../layout/banner', {
-      bannerMessage: `${typeof journal === 'object' ? 'Update' : 'New'} Journal Entry`,
-      username: username
-    }) %>
 
-  <form action="/new" method="POST">
-    <fieldset>
-      <input name="uid" type="hidden" value="<%= uid %>">
-      <section>
-        <label class="block" for="date">Date</label>
-        <input id="datePicker" name="date" type="date" required>
-      </section>
-      <section>
+  <div class="profile-forms" id="new-journal-form">
+    
+    <form action="/new" method="POST">
+      <fieldset>
+        <input name="uid" type="hidden" value="<%= uid %>">
+        <section>
+          <label class="block" for="date">Date</label>
+          <input id="datePicker" name="date" type="date" required>
+        </section>
+        <section>
+          <div>
+            <label for="exercise">Exercise</label>
+            <input type="checkbox" name="exercise">
+          </div>
+          <div>
+            <label for="outdoors">Outdoors</label>
+            <input type="checkbox" name="outdoors">
+          </div>
+        </section>
+      </fieldset>
         <div>
-          <label for="exercise">Exercise</label>
-          <input type="checkbox" name="exercise">
+          <label class="block" for="entry">Write About Your Day</label>
+          <textarea name="entry" id="" cols="30" rows="10" required></textarea>
         </div>
-        <div>
-          <label for="outdoors">Outdoors</label>
-          <input type="checkbox" name="outdoors">
-        </div>
-      </section>
-    </fieldset>
+      <button type="submit">Submit</button>
       <div>
-        <label class="block" for="entry">Write About Your Day</label>
-        <textarea name="entry" id="" cols="30" rows="10" required></textarea>
+        <a class="cancel" href="#">Cancel</a>
       </div>
-    <button type="submit">Submit</button>
-    <div>
-      <a class="cancel" href="#">Cancel</a>
-    </div>
-  </form>
+    </form>
+
+  </div>
 </main>
