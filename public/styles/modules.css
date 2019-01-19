@@ -1,46 +1,293 @@
 /* modules */
 
+/* Header */
 header a {
   color: aliceblue;
 }
-.mains {
-  border-radius: 25px;
+
+#menu {
+    position: relative;
+    display: inline-block;
 }
 
+#menu-content {
+  display: none;
+  position: absolute;
+  min-width: 20px;
+  padding: 5px 5px;
+  z-index: 1;
+}
+
+#menu:hover #menu-content {
+  display: block;
+}
+
+#wind-icon {
+  color: aliceblue;
+  font-size: 20px;
+}
+
+/* Index */
 .mains h2 {
+  margin-top: 10px;
   text-align: center;
   font-family: 'Amatic SC', cursive;
-  font-size: 35px;
+  font-size: 25px;
   color: rgb(72, 164, 207);
 }
 
 #map-container{
+  height: 300px;
+}
+
+#geocoding {
+  height: 350px;
+}
+
+#loCal {
+  visibility: hidden;
+}
+
+#geocoding form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
-  height: 500px;
-  width: 500px;
+  margin-top: 15px;
 }
 
 #map{
   height: 100%;
 }
 
+#nutrition {
+  height: 500px;
+}
+
+.nutri-info {
+  text-indent: 20px;
+  margin: 5px auto;
+  font-size: 13px;
+  width: 85%;
+}
+
+#nutri-2nd {
+  justify-content: space-between;
+}
+
 .food-dos-donts {
   margin-left: 10px;
   float: left;
   width: 45%;
+}
+
+.food-dos-donts h6 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+.food-dos-donts ul {
+  list-style: circle;
+  list-style-position: inside;
+}
+
+.food-dos-donts ul li {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  font-size: 10px;
+}
+
+#articles {
+  height: 300px;
+}
+
+#articles div {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#articles h3 {
+  text-decoration: underline;
+  margin-bottom: 3px;
+}
+
+#articles_anxiety ul {
+  list-style: circle;
+  list-style-position: inside;
+}
+
+#articles ul li {
+  margin-left: 3px;
+  margin-bottom: 3px;
+  font-size: 10px;
+}
+
+#articles a {
+  color: black;
+}
+
+#articles a:hover {
+  color: rgb(82, 82, 141);
+  text-decoration: underline;
+}
+
+#side-bar h2 {
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  color: rgb(72, 164, 207);
+}
+
+#side-bar form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.suggestion {
+  /* background-color: aliceblue; */
   border-radius: 25px;
-  border: 2px solid rgb(68, 110, 173);
+}
+
+#suggestion-form {
+  display: inline;
+}
+
+#suggestion-content {
+  width: 80%;
+  text-align: center;
+}
+
+#suggestion-name {
+  width: 80%;
+  text-align: right;
+}
+
+/* Animation */
+#breathing {
+  position: relative;
+  height: 300px;
+}
+
+#loop-p {
+  width: 80%;
+  margin-top: 3px;
+  margin-left: 23px;
+  text-align: center;
+  font-size: 10px;
+}
+
+#five-sec-loop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  /* background: url('/styles/images/abstract-2055567_1920.jpg');
+  background-size: cover; */
+  animation: animate 5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    box-shadow: 0 0 0 15px rgba(114, 163, 218, 0.2), 0 0 0 30px rgba(114, 163, 218, 0.2), 0 0 0 45px rgba(114, 163, 218, 0.2), 0 0 0 60px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 25px rgba(114, 163, 218, 0.2), 0 0 0 50px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2), 0 0 0 100px rgba(114, 163, 218, 0.2), 0 0 0 125px rgba(114, 163, 218, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(114, 163, 218, 0.2), 0 0 0 30px rgba(114, 163, 218, 0.2), 0 0 0 45px rgba(114, 163, 218, 0.2), 0 0 0 60px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2);
+  }
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    background-color: aquamarine;
+  #wind-icon {
+    font-size: 30px;
+  }
+
+  #geocoding {
+    height: 550px;
+  }
+
+  #map-container{
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 400px;
+  }
+
+  .mains h2 {
+    font-size: 45px;
+  }
+  
+  #geocoding form {
+     margin-top: 30px;
+  }
+  
+  #loop-p {
+    width: 30%;
+    margin-top: 38px;
+    margin-left: 50px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  #five-sec-loop {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+  }
+
+  .food-dos-donts h6 {
+    font-size: 18px;
+  } 
+
+  .food-dos-donts ul li {
+    margin-left: 25px;
+    font-size: 13px;
+  }
+
+  #articles div {
+    font-size: 20px;
   }
 }
 
 @media screen and (min-width: 960px) {
-  body {
-    background-color: aqua;
+  .mains h2 {
+    font-size: 40px;
   }
+
+  #geocoding {
+    height: 650px;
+  }
+  
+  #map-container{
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    width: 500px;
+  }
+
+  #geocoding form {
+    margin-top: 40px;
+  }
+
+  .food-dos-donts ul li {
+    margin-left: 35px;
+    font-size: 18px;
+  }
+
+  #articles div {
+    font-size: 30px;
+  }
+
+
+  
 }

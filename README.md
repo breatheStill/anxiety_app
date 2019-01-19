@@ -105,3 +105,10 @@ ___
 * Article referenced for nutrition suggestions,  https://www.health.harvard.edu/blog/nutritional-strategies-to-ease-anxiety-201604139441
 
 https://www.webmd.com/depression/ss/slideshow-avoid-foods-anxiety-depression
+
+* CSS tutorials 
+animation code, https://www.youtube.com/watch?v=BSoIOi3GWy4
+
+* Code referenced from JE's repos, https://github.com/pnwjce/book_app, https://github.com/pnwjce/lab-08-sql-postgres, and https://github.com/bite-log/bite-log 
+
+* Fonts found on Google fonts, and icons from FontAwesome

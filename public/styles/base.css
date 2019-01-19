@@ -2,6 +2,8 @@
 /* html {
 } */
 body {
-  background: url("/styles/images/light-1282314_1920.jpg");
-  /* margin: auto; */
+  background-image: url("/styles/images/light-1282314_1920.jpg");
+  background-size: cover;
+  background-attachment: no-repeat;
+  height: 100%;
 }
