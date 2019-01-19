@@ -101,3 +101,22 @@ main#login, main#createUser{
   align-items: center;
   /* height: 160px; */
 }
+
+#smallGraphContainer {
+  position: relative;
+  margin: 20px auto;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.527);
+  border: 2px rgb(49, 116, 49) solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#graphContainer {
+  position: relative;
+  width: 90%;
+  margin: auto auto 50px auto;
+  background-color: rgba(255, 255, 255, 0.705);
+  border: 1px solid black;
+  border-radius: 5px;
+}

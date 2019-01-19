@@ -2,11 +2,13 @@
 <html lang="en">
 <%- include('../layout/head') %>
 <body>
-  <%- include('../layout/header') %>
-  <main>
-    <h1><%= message %></h1>
-    <p><%= error %></p>
-  </main>
+  <div class="content">
+    <%- include('../layout/header') %>
+    <main>
+      <h1><%= message %></h1>
+      <p><%= error %></p>
+    </main>
+  </div>
   <%- include('../layout/footer') %>
 </body>
 </html>

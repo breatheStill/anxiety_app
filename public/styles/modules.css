@@ -54,15 +54,7 @@ a.toggleLogin {
   font-size: 90%;
 }
 
-#smallGraphContainer {
-  position: relative;
-  margin: 20px auto;
-  width: 350px;
-  background-color: rgba(184, 208, 245, 0.281);
-  border: 1px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 
 #previews {
   width: 90%;
@@ -76,7 +68,7 @@ a.toggleLogin {
 .journal {
   font-family: 'Times New Roman', Times, serif;
   border: solid black 1px;
-  background-color: rgba(36, 175, 131, 0.281);
+  background-color: rgba(255, 255, 255, 0.514);
   margin: 20px auto;
   clear: right;
   width: 90%;
@@ -92,8 +84,8 @@ a.toggleLogin {
   cursor: pointer;
   padding: 20px;
   font-family: 'Times New Roman', Times, serif;
-  border: solid black 1px;
-  background-color: rgba(177, 248, 239, 0.281);
+  border: solid rgba(91, 137, 190, 1) 2px;
+  background-color: rgba(255, 255, 255, 0.575);
   border-radius: 5px;
 }
 
@@ -236,7 +228,7 @@ b {
 .delete-form {
   width: 400px;
   font-size: 100%;
-  background-color: rgba(245, 114, 91, 0.329);
+  background-color: rgba(255, 255, 255, 0.541);
   border: 1px solid black;
   border-radius: 5px;
   font-family: 'Times New Roman', Times, serif;
@@ -246,11 +238,12 @@ b {
 
 .delete-form button {
   color: darkred;
-  background-color: #eee;
+  border: 2px solid darkred;
 }
 
 .delete-form button:hover {
   color: red;
+  border: 2px solid red;
 }
 
 .delete-form a.cancel {
@@ -280,4 +273,107 @@ div > form {
 form > button {
   margin-left: auto;
   margin-right: auto;
+}
+
+fieldset section{
+  display: inline-block;
+  margin: 30px;
+}
+
+textarea {
+  max-width: 100%;
+  width: 500px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 90%;
+}
+
+.block {
+  display: block;
+}
+
+a.cancel {
+  text-decoration: none;
+  color: darkred;
+}
+
+a.cancel:hover {
+  color: red;
+}
+
+a.toggleLogin {
+  color: darkblue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+}
+
+a.toggleLogin:hover {
+  color: rgb(67, 147, 197);
+}
+
+.error {
+  color: red;
+}
+
+/* START - Definitions */
+
+#definitions {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+
+#definitions>div {
+  width: 300px;
+  /* height: 200px; */
+  background-color: rgba(252, 252, 252, 0.507);
+
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+#definitions h3 {
+  margin-bottom: 10px;
+}
+#definitions p {
+  text-align: jusfity;
+}
+
+#sentiment {
+  border: 4px solid rgba(71, 139, 194, 1);
+}
+
+#anger {
+  border: 4px solid rgba(211, 69, 69, 1);
+}
+
+#fear {
+  border: 4px solid rgba(252, 221, 128, 1);
+}
+
+#joy {
+  border: 4px solid rgba(239, 149, 157, 1);
+}
+
+#sadness {
+  border: 4px solid rgba(166, 212, 216, 1);
+}
+
+#surprise {
+  border: 4px solid rgba(161, 204, 126, 1);
+}
+
+/* END - Definitions */
+
+small {
+  font-size: 75%;
 }
