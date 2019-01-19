@@ -109,7 +109,8 @@ header a {
   text-decoration: underline;
   margin-bottom: 3px;
 }
-#articles ul li a {
+
+#articles_anxiety ul {
   list-style: circle;
   list-style-position: inside;
 }
@@ -146,7 +147,7 @@ header a {
 }
 
 .suggestion {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   border-radius: 25px;
 }
 
@@ -164,12 +165,48 @@ header a {
   text-align: right;
 }
 
+/* Animation */
+#breathing {
+  position: relative;
+  height: 300px;
+}
+
+#loop-p {
+  width: 80%;
+  margin-top: 3px;
+  margin-left: 23px;
+  text-align: center;
+  font-size: 10px;
+}
+
+#five-sec-loop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  /* background: url('/styles/images/abstract-2055567_1920.jpg');
+  background-size: cover; */
+  animation: animate 5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    box-shadow: 0 0 0 15px rgba(114, 163, 218, 0.2), 0 0 0 30px rgba(114, 163, 218, 0.2), 0 0 0 45px rgba(114, 163, 218, 0.2), 0 0 0 60px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 25px rgba(114, 163, 218, 0.2), 0 0 0 50px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2), 0 0 0 100px rgba(114, 163, 218, 0.2), 0 0 0 125px rgba(114, 163, 218, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(114, 163, 218, 0.2), 0 0 0 30px rgba(114, 163, 218, 0.2), 0 0 0 45px rgba(114, 163, 218, 0.2), 0 0 0 60px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2);
+  }
+}
+
 @media screen and (min-width: 768px) {
   #wind-icon {
     font-size: 30px;
   }
-
-  
 
   #geocoding {
     height: 550px;
@@ -190,6 +227,20 @@ header a {
      margin-top: 30px;
   }
   
+  #loop-p {
+    width: 30%;
+    margin-top: 38px;
+    margin-left: 50px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  #five-sec-loop {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+  }
+
   .food-dos-donts h6 {
     font-size: 18px;
   } 
@@ -205,6 +256,10 @@ header a {
 }
 
 @media screen and (min-width: 960px) {
+  .mains h2 {
+    font-size: 40px;
+  }
+
   #geocoding {
     height: 650px;
   }
@@ -220,14 +275,15 @@ header a {
     margin-top: 40px;
   }
 
-  .mains h2 {
-    font-size: 40px;
-  }
-
   .food-dos-donts ul li {
     margin-left: 35px;
     font-size: 18px;
   }
+
+  #articles div {
+    font-size: 30px;
+  }
+
 
   
 }
