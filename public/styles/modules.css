@@ -142,21 +142,26 @@ header a {
 }
 
 #side-bar form {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
+  border-radius: 25px;
+  width: 75px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
 }
 
-.suggestion {
-  /* background-color: aliceblue; */
-  border-radius: 25px;
-}
+/* .suggestion textarea {
+  background-color: aliceblue; 
+} */
 
 #suggestion-form {
   display: inline;
+  margin: 30px auto;
+}
+
+#sugg-text-area {
+  margin-left: 20px;
+  height: 80px;
+  width: 180px;
 }
 
 #suggestion-content {
@@ -205,6 +210,386 @@ header a {
   100% {
     box-shadow: 0 0 0 15px rgba(114, 163, 218, 0.2), 0 0 0 30px rgba(114, 163, 218, 0.2), 0 0 0 45px rgba(114, 163, 218, 0.2), 0 0 0 60px rgba(114, 163, 218, 0.2), 0 0 0 75px rgba(114, 163, 218, 0.2);
   }
+}
+
+#banner {
+  text-align: center;
+}
+
+main#login, main#createUser{
+  text-align: center;
+}
+
+#headingContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* height: 160px; */
+}
+
+#smallGraphContainer {
+  position: relative;
+  margin: 20px auto;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.527);
+  border: 2px rgb(49, 116, 49) solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#graphContainer {
+  position: relative;
+  width: 90%;
+  margin: auto auto 50px auto;
+  background-color: rgba(255, 255, 255, 0.705);
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.center-link {
+  margin: auto;
+}
+
+a.toggleLogin {
+  text-decoration: none;
+  font-size: 90%;
+}
+
+
+
+#previews {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.journal {
+  font-family: 'Times New Roman', Times, serif;
+  border: solid black 2px;
+  background-color: rgba(255, 255, 255, 0.514);
+  margin: 20px auto;
+  clear: right;
+  width: 90%;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.preview {
+  font-size: 80%;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  padding: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  border: solid rgba(91, 137, 190, 1) 2px;
+  background-color: rgba(255, 255, 255, 0.575);
+  border-radius: 5px;
+}
+
+.journal p, .journal li {
+  margin-bottom: 10px;
+}
+
+.journalHeader {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  flex-flow: column;
+  /* justify-content: flex-start; */
+  align-items: center;
+}
+
+.journalInfo {
+  /* flex: 0 1 auto; */
+  /* position: absolute;             /* new */
+  /* left: 50%;
+  transform: translateX(-50%);  */
+  font-size: 100%;
+}
+
+.journalInfo em {
+  font-size: 115%;
+}
+
+.negative {
+  color: rgb(165, 5, 5);
+}
+
+.positive {
+  color: rgb(11, 146, 11);
+}
+
+table {
+  font-size: 75%;
+  /* flex: 0 1 auto; */
+  /* margin: 0 40px 10px auto; */
+  margin: 0 auto;
+  table-layout: fixed;
+  background-color: aliceblue;
+  border-left: 5px solid aliceblue;
+  width: 150px;
+}
+
+thead {
+  /* padding: 5px; */
+  border-bottom: 1px black solid;
+}
+
+th {
+  font-weight: bold;
+}
+
+th:nth-child(1){
+  padding-right: 3px;
+  /* margin-left: 3px; */
+}
+
+th:nth-child(2){
+  /* padding-right: 5px; */
+  margin-left: 3px;
+}
+
+th:nth-child(1), td:nth-child(1) {
+  text-align: left;
+  border-right: black 1px solid;
+}
+
+td {
+  text-align: center;
+}
+
+
+tr:nth-child(odd) {
+  background-color: rgba(32, 153, 115, 0.356);
+  border-right: 5px solid rgba(32, 153, 115, 0.356);
+  border-left: 5px solid rgba(32, 153, 115, 0.356);
+}
+
+.journalInfo em {
+  font-size: 115%;
+}
+
+em {
+  font-style: italic;
+}
+
+b {
+  font-weight: bold;
+}
+
+.entry {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.entry-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.entry-options a {
+  text-decoration: none;
+  font-size: 75%;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #555;
+  padding: 4px;
+}
+
+
+.entry-options a.return {
+  border: none;
+  color: darkgreen;
+}
+
+.entry-options a.return:hover {
+  color: green;
+}
+
+.entry-options a.update {
+  color: darkblue;
+}
+
+.entry-options a.update:hover {
+  color: blue;
+}
+
+.entry-options a.delete {
+  color: darkred;
+}
+
+.entry-options a.delete:hover {
+  color: red;
+}
+
+.delete-form {
+  width: 400px;
+  font-size: 100%;
+  background-color: rgba(255, 255, 255, 0.541);
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
+
+.delete-form button {
+  color: darkred;
+  border: 2px solid darkred;
+}
+
+.delete-form button:hover {
+  color: red;
+  border: 2px solid red;
+}
+
+.delete-form a.cancel {
+  color: darkslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+}
+
+.delete-form a.cancel:hover {
+  color: darkgreen;
+}
+
+.profile-forms form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#user, #createProfile > input, label, button {
+  margin-top: 30px;
+}
+
+.profile-forms button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+fieldset section{
+  display: inline-block;
+  margin: 30px;
+}
+
+textarea {
+  max-width: 100%;
+  width: 500px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 90%;
+}
+
+.block {
+  display: block;
+}
+
+a.cancel {
+  text-decoration: none;
+  color: darkred;
+}
+
+a.cancel:hover {
+  color: red;
+}
+
+a.toggleLogin {
+  color: darkblue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+}
+
+a.toggleLogin:hover {
+  color: rgb(67, 147, 197);
+}
+
+.error {
+  color: red;
+}
+
+/* START - Definitions */
+
+#definitions {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+
+#definitions>div {
+  width: 300px;
+  /* height: 200px; */
+  background-color: rgba(252, 252, 252, 0.507);
+
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+#definitions h3 {
+  margin-bottom: 10px;
+}
+#definitions p {
+  text-align: jusfity;
+}
+
+#sentiment {
+  border: 4px solid rgba(71, 139, 194, 1);
+}
+
+#anger {
+  border: 4px solid rgba(211, 69, 69, 1);
+}
+
+#fear {
+  border: 4px solid rgba(252, 221, 128, 1);
+}
+
+#joy {
+  border: 4px solid rgba(239, 149, 157, 1);
+}
+
+#sadness {
+  border: 4px solid rgba(166, 212, 216, 1);
+}
+
+#surprise {
+  border: 4px solid rgba(161, 204, 126, 1);
+}
+
+/* END - Definitions */
+
+small {
+  font-size: 75%;
+}
+
+#user-button {
+  font-size: 115%;
+  background-color: #eee;
+  color: rgb(25, 67, 116);
+  padding: 7px 10px;
+  border-radius: 3px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include('../../layout/head') %>
+<body class="andrew-body">
+  <!-- This div.content grouping is a CSS trick to keep the footer always at the bottom of the page -->
 
-<%- include('../../layout/head', {stylesheet: 'profile.css'}) %>
-
-  <body>
-
+  <div class="content">
     <%- include('../../layout/header') %>
-
-    <section class="main-container">
-
-      <div class="content">
-        <%- include('journals') %>
-        <%- include('form') %>
-        <%- include('main-graph') %>
-      </div>
-
-    </section>
-    
-    <%- include('../../layout/footer') %>
-
-  </body>
-
+    <%- include('journals') %>
+    <%- include('form') %>
+    <%- include('main-graph') %>
+  </div>
+  <%- include('../../layout/footer') %>
+</body>
 </html>

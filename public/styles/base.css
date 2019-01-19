@@ -7,3 +7,12 @@ body {
   background-attachment: no-repeat;
   height: 100%;
 }
+
+.andrew-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.andrew-body .content {
+  flex: 1 0 auto;
+}
