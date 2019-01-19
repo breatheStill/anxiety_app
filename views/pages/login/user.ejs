@@ -1,5 +1,6 @@
 <main id="login">
-<div id="user">
+    <%- include('../../layout/banner', {bannerMessage: 'Login'}) %>
+<div class="profile-forms" id="user">
   <form action="/login" method="POST">
     <label>Username:</label>
     <input name="username" type="text" placeholder="Your username" required>

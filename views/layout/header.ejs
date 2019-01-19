@@ -2,20 +2,35 @@
   <section>
 
     <div class="header-div" id="menu">
-      <a href="/">
-        <h4>Home</h4>
-      </a>
-      <a href="/login">
-        Login</a>
+
+      <span id="wind-icon"><i class="fas fa-wind"></i></span>
+
+      <div id="menu-content"> 
+
+        <a href="/">
+          <h4>Home</h4>
+        </a>
         
+        <a href="/login">
+          <h4>Login</h4>
+        </a>
+          
+        <% if (typeof username === 'string' && username) { %>
+            <a href="/logout">
+              <h4>Logout</h4>
+            </a>
+        <% } %>
+
       </div>
+
       <% if (typeof username === 'string' && username) { %>
-        <div id="logout">
-          <a href="/logout">
+        <div id="user-button">
             <h4><%= username %></h4>
-          </a>
         </div>
       <% } %>
+
+    </div>
+
     <div class="header-div" id="just-breathe-logo">
       <h1>(just)Breathe</h1>
     </div>

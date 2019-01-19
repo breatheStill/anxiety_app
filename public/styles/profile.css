@@ -1,69 +1,75 @@
-
+/* profile */
 
 html, body {
   height: 100%;
-}
+} 
 
 body {
-  font-family: cursive;
+  font-family: 'Catamaran', sans-serif;
+  /* align-items: center; */
+}
+
+.main-container {
   text-align: center;
   font-size: 120%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-}
-
-.content {
-  flex: 1 0 auto;
 }
 
 header {
-  /* width: 100%; */
-  height: 40px;
-  padding: 3px;
-  background: url("../styles/images/feather-3010848_1920.jpg");
-
-}
-
-header h1 {
-  flex: 0 1 auto;
-  position: absolute;             /* new */
-  left: 50%;
-  transform: translateX(-50%);
+  background-image: url('/styles/images/dandelion-463928_1920.jpg');
+  background-size: cover;
+  background-attachment: no-repeat;
+  width: 100%;
+  min-width: 320px;
+  margin-bottom: 15px;
+  opacity: 0.7;
+  height: 195px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 header section {
-  position: relative;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 5px;
+  width: 100%;
+  
 }
 
+.header-div {
+  width: 100%;
+  height: 120px;
+  align-self: flex-end;
+}
 
+header a {
+  color: whitesmoke;
+}
 /* header h1 {
   width: 200px
 } */
 
-header a.header-menu {
+/* header a.header-menu {
   display: block;
   width: 50px;
   height: 30px;
   text-decoration: none;
-  color: ivory;
+  color: whitesmoke;
   display: flex;
   flex-flow: column;
   justify-content: center;
-
+  
   font-size: 70%;
   background-color: rgb(108, 188, 214);
   border-radius: 10%;
   flex: 0 1 auto;
   margin-left: auto;
+} */
+
+#just-breathe-logo {
+  text-align: end;
 }
 
-#banner {
+/* #banner {
+  
   margin-bottom: 40px;
   display: flex;
   flex-flow: column;
@@ -80,13 +86,17 @@ header a.header-menu {
 
 #banner div:nth-child(2){
   background-color: lightblue;
+} */
+
+.content {
+  flex: 1 0 auto;
 }
 
 main {
   margin-bottom: 100px;
 }
 
-h1 {
+/* h1 {
   font-size: 150%;
 }
 
@@ -94,7 +104,7 @@ h1 a {
   text-decoration: none;
   color: gray;
 
-}
+} */
 
 h2 {
   font-size: 120%;
@@ -114,13 +124,13 @@ input, textarea {
   font-size: 90%;
 }
 
-#headingContainer {
+/* #headingContainer {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  /* height: 160px; */
-}
+  height: 160px;
+} */
 
 #map-container{
   margin-left: auto;
@@ -132,8 +142,6 @@ input, textarea {
 #map{
   height: 100%;
 }
-
-
 
 
 em {
@@ -149,10 +157,32 @@ li {
   font-size: 80%;
 }
 
+div > form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+#user, #createProfile > input, label, button {
+  margin-top: 30px;
+}
+
+form > button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#create-new-user-link {
+  text-align: center;
+}
+
 .journal {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'PT Sans Caption', sans-serif;
   border: solid black 1px;
-  background-color: ivory;
+  background-color: whitesmoke;
   margin: 20px auto;
   clear: right;
   width: 90%;
@@ -175,7 +205,7 @@ li {
   text-decoration: none;
   font-size: 75%;
   color: #555;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   border: 1px solid #555;
   padding: 4px;
 }
@@ -227,7 +257,7 @@ li {
 button {
   width: 200px;
   height: 50px;
-  background-color: aliceblue;
+  background-color: whitesmoke;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
@@ -235,16 +265,16 @@ button {
 }
 
 button:hover {
-  background-color: ivory;
+  background-color: whitesmoke;
 }
 
 .delete-form {
   width: 400px;
   font-size: 100%;
-  background-color: ivory;
+  background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 5px;
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
   padding-bottom: 30px;
 }
 
@@ -259,7 +289,7 @@ button:hover {
 
 .delete-form a.cancel {
   color: darkslategray;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 80%;
 }
 
@@ -309,12 +339,15 @@ a.toggleLogin:hover {
 }
 
 footer {
-  /* position: fixed; */
-  /* bottom: 0; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 35px;
   width: 100%;
-  padding: 10px;
-  background-color: ivory;
-  flex-shrink: 0;
+  margin-top: 15px;
+  color: aliceblue;
+  background-color: rgb(107, 153, 194);
+  text-align: center;
 }
 
 .journal p, .journal li {
@@ -355,8 +388,8 @@ table {
   /* margin: 0 40px 10px auto; */
   margin: 0 auto;
   table-layout: fixed;
-  background-color: aliceblue;
-  border-left: 5px solid aliceblue;
+  background-color: whitesmoke;
+  border-left: 5px solid whitesmoke;
   width: 150px;
 }
 
@@ -386,16 +419,16 @@ th:nth-child(1), td:nth-child(1) {
 
 
 tr:nth-child(even) {
-  background-color: ivory;
-  border-right: 5px solid ivory;
-  border-left: 5px solid ivory;
+  background-color: whitesmoke;
+  border-right: 5px solid whitesmoke;
+  border-left: 5px solid whitesmoke;
 }
 
 #smallGraphContainer {
   position: relative;
   margin: 20px auto;
   width: 350px;
-  background-color: ivory;
+  background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
@@ -405,7 +438,7 @@ tr:nth-child(even) {
   position: relative;
   width: 90%;
   margin: auto auto 50px auto;
-  background-color: ivory;
+  background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 5px;
 }
@@ -486,10 +519,10 @@ tr:nth-child(even) {
 #definitions>div {
   width: 300px;
   /* height: 200px; */
-  background-color: ivory;
+  background-color: whitesmoke;
 
   border-radius: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 80%;
   padding: 15px;
   margin-bottom: 30px;
@@ -537,7 +570,7 @@ tr:nth-child(even) {
 }
 
 @media only screen and (min-width: 444px) and (max-width: 767px) {
-  header {
+  /* header {
     height: 70px;
     padding: 5px;
   }
@@ -549,12 +582,12 @@ tr:nth-child(even) {
   font-size: 85%;
 
 
-    /* width: 115px;
+    width: 115px;
     height: 74px;
     font-size: 85%;
     border-radius: 10%;
-    flex: 0 1 auto; */
-  }
+    flex: 0 1 auto; 
+  } 
 
   h1 {
     font-size: 200%;
@@ -572,13 +605,13 @@ tr:nth-child(even) {
 
   h3 {
     font-size: 100%;
-    /* text-decoration: underline; */
-  }
+    /* text-decoration: underline; 
+  }*/
 }
 
 
 @media only screen and (min-width: 768px) {
-  header {
+  /* header {
     height: 90px;
     padding: 10px;
   }
@@ -600,7 +633,7 @@ tr:nth-child(even) {
     text-decoration: none;
     color: gray;
 
-  }
+  } */
 
   h2 {
     font-size: 200%;
