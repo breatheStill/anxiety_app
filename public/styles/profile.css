@@ -1,3 +1,5 @@
+
+
 html, body {
   height: 100%;
 }
@@ -8,6 +10,7 @@ body {
   font-size: 120%;
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
 }
 
 .content {
@@ -15,49 +18,53 @@ body {
 }
 
 header {
-  padding: 10px;
+  /* width: 100%; */
+  height: 40px;
+  padding: 3px;
   background: url("../styles/images/feather-3010848_1920.jpg");
-  /* box-sizing: border-box; */
+
 }
 
 header h1 {
-  /* margin-left: 74px; */
-  color: aliceblue;
+  flex: 0 1 auto;
+  position: absolute;             /* new */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 header section {
+  position: relative;
   width: 90%;
   margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 5px;
 }
 
-header div {
-  float: right;
-  width: 111px;
-  height: 74px;
-  border-radius: 10%;
-  background-color: rgb(108, 188, 214);
-  /* color: ivory; */
 
+/* header h1 {
+  width: 200px
+} */
 
-  margin-left: -74px;
-}
-
-header div a {
+header a.header-menu {
   display: block;
-  width: 111px;
-  height: 74px;
+  width: 50px;
+  height: 30px;
   text-decoration: none;
   color: ivory;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* cursor: pointer; */
+
+  font-size: 70%;
+  background-color: rgb(108, 188, 214);
+  border-radius: 10%;
+  flex: 0 1 auto;
+  margin-left: auto;
 }
 
 #banner {
   margin-bottom: 40px;
-  /* background-color: coral; */
-  /* padding: 8px; */
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -80,7 +87,7 @@ main {
 }
 
 h1 {
-  font-size: 300%;
+  font-size: 150%;
 }
 
 h1 a {
@@ -90,16 +97,16 @@ h1 a {
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 120%;
 }
 
 h3 {
-  font-size: 150%;
+  font-size: 90%;
   /* text-decoration: underline; */
 }
 
 h4 {
-  font-size: 130%;
+  font-size: 80%;
   /* text-decoration: underline; */
 }
 
@@ -154,12 +161,71 @@ li {
 
 .entry {
   text-align: left;
+  margin-bottom: 30px;
 }
+
+.entry-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.entry-options a {
+  text-decoration: none;
+  font-size: 75%;
+  color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #555;
+  padding: 4px;
+}
+
+
+.entry-options a.return {
+  border: none;
+  color: darkgreen;
+}
+
+.entry-options a.return:hover {
+  color: green;
+}
+
+.entry-options a.update {
+  color: darkblue;
+}
+
+.entry-options a.update:hover {
+  color: blue;
+}
+
+.entry-options a.delete {
+  color: darkred;
+}
+
+.entry-options a.delete:hover {
+  color: red;
+}
+
+#previews {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.preview {
+  font-size: 80%;
+  width: 250px;
+  margin: 10px;
+  cursor: pointer;
+  padding: 20px;
+}
+
 
 button {
   width: 200px;
   height: 50px;
-  background-color: azure;
+  background-color: aliceblue;
   border: solid black 1px;
   cursor: pointer;
   font-size: 80%;
@@ -170,15 +236,46 @@ button:hover {
   background-color: ivory;
 }
 
+.delete-form {
+  width: 400px;
+  font-size: 100%;
+  background-color: ivory;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+}
+
+.delete-form button {
+  color: darkred;
+  background-color: #eee;
+}
+
+.delete-form button:hover {
+  color: red;
+}
+
+.delete-form a.cancel {
+  color: darkslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+}
+
+.delete-form a.cancel:hover {
+  color: darkgreen;
+}
+
 fieldset section{
   display: inline-block;
   margin: 30px;
 }
 
 textarea {
+  max-width: 100%;
   width: 500px;
   height: 200px;
   margin: 10px;
+  padding: 10px;
 }
 
 .block {
@@ -226,23 +323,39 @@ footer {
   display: flex;
   justify-content: flex-start;
   position: relative;
+  flex-flow: column;
+  /* justify-content: flex-start; */
 }
 
 .journalInfo {
-  flex: 0 1 auto;
-  position: absolute;             /* new */
-  left: 50%;
-  transform: translateX(-50%);
+  /* flex: 0 1 auto; */
+  /* position: absolute;             /* new */
+  /* left: 50%;
+  transform: translateX(-50%);  */
+  font-size: 100%;
+}
 
+.journalInfo em {
+  font-size: 115%;
+}
+
+.negative {
+  color: rgb(165, 5, 5);
+}
+
+.positive {
+  color: rgb(11, 146, 11);
 }
 
 table {
-  font-size: 65%;
-  flex: 0 1 auto;
-  margin: 0 40px 10px auto;
+  font-size: 75%;
+  /* flex: 0 1 auto; */
+  /* margin: 0 40px 10px auto; */
+  margin: 0 auto;
   table-layout: fixed;
   background-color: aliceblue;
   border-left: 5px solid aliceblue;
+  width: 150px;
 }
 
 thead {
@@ -295,15 +408,9 @@ tr:nth-child(even) {
   border-radius: 5px;
 }
 
-#myMainChart {
-  /* height: 500px;
-  width: 700px;
-  margin: auto; */
-}
-
 #mainChart {
   margin-bottom: 50px;
-
+}
 /* Map */
 
 #map {
@@ -378,7 +485,7 @@ tr:nth-child(even) {
   width: 300px;
   /* height: 200px; */
   background-color: ivory;
-  border: black 1px solid;
+
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 80%;
@@ -394,7 +501,27 @@ tr:nth-child(even) {
 }
 
 #sentiment {
-  background-color: rgba(71, 139, 194, .5);
+  border: 4px solid rgba(71, 139, 194, 1);
+}
+
+#anger {
+  border: 4px solid rgba(211, 69, 69, 1);
+}
+
+#fear {
+  border: 4px solid rgba(252, 221, 128, 1);
+}
+
+#joy {
+  border: 4px solid rgba(239, 149, 157, 1);
+}
+
+#sadness {
+  border: 4px solid rgba(166, 212, 216, 1);
+}
+
+#surprise {
+  border: 4px solid rgba(161, 204, 126, 1);
 }
 
 /* END - Definitions */
@@ -407,3 +534,83 @@ tr:nth-child(even) {
   width: 75%;
 }
 
+@media only screen and (min-width: 444px) and (max-width: 767px) {
+  header {
+    height: 70px;
+    padding: 5px;
+  }
+
+  header a.header-menu {
+
+  width: 75px;
+  height: 50px;
+  font-size: 85%;
+
+
+    /* width: 115px;
+    height: 74px;
+    font-size: 85%;
+    border-radius: 10%;
+    flex: 0 1 auto; */
+  }
+
+  h1 {
+    font-size: 200%;
+  }
+
+  h1 a {
+    text-decoration: none;
+    color: gray;
+
+  }
+
+  h2 {
+    font-size: 150%;
+  }
+
+  h3 {
+    font-size: 100%;
+    /* text-decoration: underline; */
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  header {
+    height: 90px;
+    padding: 10px;
+  }
+
+  header a.header-menu {
+
+    width: 115px;
+    height: 74px;
+    font-size: 90%;
+    border-radius: 10%;
+    flex: 0 1 auto;
+  }
+
+  h1 {
+    font-size: 300%;
+  }
+
+  h1 a {
+    text-decoration: none;
+    color: gray;
+
+  }
+
+  h2 {
+    font-size: 200%;
+  }
+
+  h3 {
+    font-size: 150%;
+    /* text-decoration: underline; */
+  }
+
+  h4 {
+    font-size: 130%;
+    /* text-decoration: underline; */
+  }
+}

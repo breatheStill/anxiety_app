@@ -1,12 +1,14 @@
 <header>
   <section>
+    <!-- <div> -->
+      <h1><a href="/">(just)Breathe</a></h1>
+    <!-- </div> -->
     <% if (typeof username === 'string' && username) { %>
-      <div>
-        <a href="/logout">
+      <!-- <div> -->
+        <a class="header-menu" href="/logout">
           <h4><%= username %></h4>
         </a>
-      </div>
-    <% } %>
-    <h1><a href="/">(just)Breathe</a></h1>
+      <!-- </div> -->
+      <% } %>
   </section>
 </header>

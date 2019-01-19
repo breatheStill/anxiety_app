@@ -52,6 +52,8 @@ app.get('/create', renderCreate);
 app.post('/create', createAndLogin);
 app.get('/profile/:uid', getProfile);
 app.post('/new', newJournal);
+app.put('/update', updateJournal);
+app.delete('/delete', deleteJournal);
 app.get('/logout', logout);
 
 // ============================
@@ -187,6 +189,53 @@ function newJournal(req, res) {
     .catch(err => handleError(err, res));
 }
 
+function updateJournal(req, res) {
+  console.log('got here', req.body);
+  indico.sentimentHQ(req.body.entry)
+    .then(sentiment => {
+      // seconen indical returns 5 emotion scores
+      indico.emotion(req.body.entry)
+        .then(emotions => {
+          const journalMetrics = normalizeJournalMetrics(sentiment, emotions);
+
+          const SQL = `UPDATE journals SET
+              date=$2,
+              entered=$3,
+              exercise=$4,
+              outdoors=$5,
+              entry=$6,
+              sentiment=$7,
+              anger=$8,
+              fear=$9,
+              joy=$10,
+              sadness=$11,
+              surprise=$12
+              WHERE id=$1;`;
+
+          const values = [req.body.jid, req.body.date, new Date().toISOString().slice(0,10), req.body.exercise !== undefined, req.body.outdoors !== undefined, req.body.entry, journalMetrics.sentiment, journalMetrics.anger, journalMetrics.fear, journalMetrics.joy, journalMetrics.sadness, journalMetrics.surprise];
+
+          client.query(SQL, values)
+            .then(result => {
+              res.redirect(`/profile/${req.body.uid}`);
+            })
+            .catch(err => handleError(err, res));
+        })
+        .catch(err => handleError(err, res));
+    })
+    .catch(err => handleError(err, res));
+}
+
+function deleteJournal(req, res) {
+  const SQL = 'DELETE FROM journals WHERE id=$1';
+  const values = [req.body.jid];
+
+  client.query(SQL, values)
+  .then(result => {
+    res.redirect(`/profile/${req.body.uid}`);
+  })
+  .catch(err => handleError(err, res));
+}
+
 function newSuggestion(req, res) {
   const SQL = `INSERT INTO suggestions (suggestion, name) VALUES ($1, $2);`;
   const values = [req.body.suggestion, req.body.name];
@@ -196,7 +245,8 @@ function newSuggestion(req, res) {
   return client.query(SQL, values)
     .then(result => {
       console.log('in the then');
-      res.render('pages/index');
+      // res.render('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }

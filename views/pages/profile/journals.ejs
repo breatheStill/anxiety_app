@@ -1,79 +1,32 @@
 <main id="profile">
-  <%- include('../../layout/banner', {
-    bannerMessage: `Profile Page`,
-    username: username
-  }) %>
+    <%- include('../../layout/banner', {
+      bannerMessage: `Profile Page`,
+      username: username
+    }) %>
 
-  <%- include('graph') %>
+    <%- include('graph') %>
 
-  <div id="headingContainer">
-    <h4>Your Journal Entries</h4>
-    <button>Add New Entry</button>
-  </div>
+    <div id="headingContainer">
+      <h4>Your Journal Entries</h4>
+      <button class="new">Add New Entry</button>
+    </div>
 
 
 
   <% if (typeof journals === 'object' && journals) { %>
-  <% journals.forEach(journal => { %>
-  <div class="journal">
-    <div class="journalHeader">
-      <div class="journalInfo">
-        <p><em>
-            <%= journal.date.toDateString() %></em></p>
-        <ul>
-          <li>Exercise? <b>
-              <%= journal.exercise ? 'Yes' : 'No' %></b></li>
-          <li>Go outside? <b>
-              <%= journal.outdoors ? 'Yes' : 'No ' %></b></li>
-          <li>Sentiment: <b>
-              <%= journal.sentiment %></b></li>
-        </ul>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Emotion</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tr>
-          <td>Anger</td>
-          <td>
-            <%= journal.anger %>
-          </td>
-        </tr>
-        <tr>
-          <td>Fear</td>
-          <td>
-            <%= journal.fear %>
-          </td>
-        </tr>
-        <tr>
-          <td>Joy</td>
-          <td>
-            <%= journal.joy %>
-          </td>
-        </tr>
-        <tr>
-          <td>Sadness</td>
-          <td>
-            <%= journal.sadness %>
-          </td>
-        </tr>
-        <tr>
-          <td>Surprise</td>
-          <td>
-            <%= journal.surprise %>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <hr>
-    <p class="entry">
-      <%- journal.entry.replace(/\n/g, '<br>') %>
-    </p>
-  </div>
-  <% }) %>
+    <section id="previews">
+      <% journals.forEach(journal => { %>
+
+        <%- include('entry-preview', {journal}) %>
+
+        <%- include('entry', {journal}) %>
+
+        <%- include('form', {journal, username, uid}) %>
+
+        <%- include('delete', {journal, uid}) %>
+
+      <% }) %>
+    </section>
   <% } else { %>
   <p>You have not written any journal entries yet.</p>
   <% } %>
