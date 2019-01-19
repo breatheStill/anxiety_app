@@ -245,7 +245,8 @@ function newSuggestion(req, res) {
   return client.query(SQL, values)
     .then(result => {
       console.log('in the then');
-      res.render('pages/index');
+      // res.render('pages/index');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }
