@@ -1,8 +1,4 @@
 <main id="new">
-    <%- include('../../layout/banner', {
-      bannerMessage: `${typeof journal === 'object' ? 'Update' : 'New'} Journal Entry`,
-      username: username
-    }) %>
 
   <form action="/new" method="POST">
     <fieldset>
