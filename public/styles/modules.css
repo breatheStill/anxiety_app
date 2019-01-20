@@ -1,4 +1,12 @@
 /* modules */
+@import url('https://fonts.googleapis.com/css?family=Knewave');
+
+#banner>h2 {
+  /* font-family: 'Knewave', cursive; */
+  font-size: 235%;
+  color: darkslategray;
+  font-weight: 400;
+}
 
 /* Header */
 header a {
@@ -303,7 +311,7 @@ a.toggleLogin {
 
 .journal {
   font-family: 'Times New Roman', Times, serif;
-  border: solid black 2px;
+  /* border: solid black 2px; */
   background-color: rgba(255, 255, 255, 0.514);
   margin: 20px auto;
   clear: right;
@@ -320,7 +328,7 @@ a.toggleLogin {
   cursor: pointer;
   padding: 20px;
   font-family: 'Times New Roman', Times, serif;
-  border: solid rgba(91, 137, 190, 1) 2px;
+  /* border: solid rgba(91, 137, 190, 1) 2px; */
   background-color: rgba(255, 255, 255, 0.575);
   border-radius: 5px;
 }
@@ -520,14 +528,7 @@ fieldset section{
   margin: 30px;
 }
 
-textarea {
-  max-width: 100%;
-  width: 500px;
-  height: 200px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 90%;
-}
+
 
 .block {
   display: block;
@@ -630,9 +631,13 @@ div#user-button {
   display: inline-block;
 }
 
+.food-dos-donts ul {
+  text-align: left;
+}
+
   .food-dos-donts ul li {
-    margin-left: 35px;
-    font-size: 18px;
+    margin-left: 10px;
+    font-size: 55%;
   }
 
   #articles div {

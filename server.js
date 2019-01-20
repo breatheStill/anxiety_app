@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 const indico = require('indico.io');
 indico.apiKey = process.env.INDICO_API_KEY;
 
+const createGradient = require('./dependencies/gradient');
+
 // Load env vars;
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
@@ -159,7 +161,8 @@ function getProfile(req, res) {
       res.render('pages/profile/show', {
         journals: result.rows[0].id === null ? undefined : result.rows,
         uid: req.params.uid,
-        username: result.rows[0].username
+        username: result.rows[0].username,
+        rgGradient: createGradient('rgb(170,0,0)', 'rgb(0,170,0)', 11)
       });
     })
     .catch(err => handleError(err, res));

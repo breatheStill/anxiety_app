@@ -8,7 +8,11 @@ body {
   flex-direction: column;
   background: url("/styles/images/light-1282314_1920.jpg");
   font-size: 110%;
+  font-family: 'Catamaran', sans-serif;
 }
+
+
+
 .content {
   flex: 1 0 auto;
 }
@@ -24,6 +28,19 @@ footer {
   background-color: rgb(107, 153, 194);
 }
 /* END - CSS trick to keep footer at bottom */
+
+header {
+  background-image: url('/styles/images/dandelion-463928_1920.jpg');
+  background-size: cover;
+  background-attachment: no-repeat;
+  width: 100%;
+  min-width: 320px;
+  margin-bottom: 15px;
+  opacity: 0.7;
+  height: 195px;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
 main {
   text-align: center;
@@ -55,10 +72,10 @@ div.checkbox input {
 
 
 textarea {
-  width: 50%;
+  width: 80%;
   resize: none;
-  /* width: 500px;
-  height: 200px; */
+  /* width: 500px; */
+  height: 200px;
   margin: 10px;
   padding: 10px;
   font-size: 90%;

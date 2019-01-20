@@ -1,22 +1,6 @@
 /* layout */
 
 /* App wide */
-body {
-  font-family: 'Catamaran', sans-serif;
-}
-
-header {
-  background-image: url('/styles/images/dandelion-463928_1920.jpg');
-  background-size: cover;
-  background-attachment: no-repeat;
-  width: 100%;
-  min-width: 320px;
-  margin-bottom: 15px;
-  opacity: 0.7;
-  height: 195px;
-  padding: 10px;
-  box-sizing: border-box;
-}
 
 header section {
   width: 100%;
@@ -63,12 +47,19 @@ h3 {
   font-size: 25px;
 }
 
+main.index {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
 /* Index */
 .mains {
   border-radius: 25px;
-  width: 85%;
-  background-color: rgb(239, 243, 247);
-  margin: 10px auto 10px auto;
+  width: 90%;
+  background-color: rgb(217, 233, 250);
+  /* margin: 10px auto 10px auto; */
+  margin: 15px auto;
 }
 
 .community-suggestion {
