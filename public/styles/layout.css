@@ -79,17 +79,7 @@ form > button {
   margin-right: auto;
   margin-bottom: 15px;
 }
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 35px;
-  width: 100%;
-  margin-top: 15px;
-  color: aliceblue;
-  background-color: rgb(107, 153, 194);
-  text-align: center;
-}
+
 
 footer p {
   margin-top: 12px;
@@ -106,7 +96,7 @@ footer p a:hover {
 
 
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   h1 {
     font-size: 35px;
   }
@@ -122,9 +112,9 @@ footer p a:hover {
     margin-top: 18px;
     font-size: 20px;
   }
-}
+} */
 
-@media screen and (min-width: 960px) {
+/* @media screen and (min-width: 960px) {
   .mains {
     width: 75%;
   }
@@ -137,7 +127,7 @@ footer p a:hover {
     margin-top: 30px;
     font-size: 30px;
   }
-}
+} */
 
 #banner {
   text-align: center;

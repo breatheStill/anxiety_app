@@ -636,4 +636,10 @@ div#user-button {
 
 
 
+footer a {
+  color: aliceblue;
+  text-decoration: none;
+}
+footer a:hover {
+  color: lightskyblue;
 }
