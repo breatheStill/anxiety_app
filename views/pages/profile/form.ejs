@@ -26,7 +26,7 @@
     </fieldset>
     <div>
       <label class="block" for="entry">Write About Your Day</label>
-      <textarea name="entry" id="" cols="30" rows="10" required><%= typeof journal === 'object' ? journal.entry : '' %></textarea>
+      <textarea name="entry" id="" required><%= typeof journal === 'object' ? journal.entry : '' %></textarea>
     </div>
     <button type="submit">
       <%= typeof journal === 'object' ? 'Update' : 'Submit' %></button>
