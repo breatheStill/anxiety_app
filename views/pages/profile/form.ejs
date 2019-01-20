@@ -1,6 +1,9 @@
 <main class="<%= typeof journal === 'object' ? 'entry-edit' : '' %>" id="<%= typeof journal === 'object' ? `edit-${journal.id}` : 'new' %>">
 
 
+  <%- include('../../layout/banner', {bannerMessage: `${typeof journal === 'object' ? 'Edit' : 'Create'} Journal Entry`}) %>
+
+
   <form action="<%= typeof journal === 'object' ? '/update' : '/new' %>" method="POST">
     <% if (typeof journal === 'object') { %>
     <input type="hidden" name="_method" value="PUT">

@@ -40,10 +40,7 @@ button {
 
 input {
   height: 30px;
-  /* background-image: url("/styles/images/light-1282314_1920.jpg"); */
   background-size: cover;
-  /* background-attachment: no-repeat; */
-  /* height: 100%; */
 }
 
 div.checkbox  {
@@ -54,11 +51,15 @@ div.checkbox  {
 
 div.checkbox input {
   height: 13px;
-  /* margin-left */
 }
 
 
 textarea {
   width: 50%;
   resize: none;
+  /* width: 500px;
+  height: 200px; */
+  margin: 10px;
+  padding: 10px;
+  font-size: 90%;
 }
