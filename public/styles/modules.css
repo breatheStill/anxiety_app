@@ -501,8 +501,12 @@ div > form {
   text-align: center;
 }
 
-#user, #createProfile > input, label, button {
+#user, #createProfile > input {
   margin-top: 30px;
+}
+
+label, button {
+  margin-bottom: 10px;
 }
 
 form > button {
