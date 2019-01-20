@@ -2,7 +2,7 @@
 <header>
     <section>
 
-      <div class="header-div" id="menu">
+      <div class="" id="menu">
 
         <span id="wind-icon"><i class="fas fa-wind"></i></span>
 
@@ -24,17 +24,17 @@
 
         </div>
 
-        <% if (typeof username === 'string' && username) { %>
-          <div id="user-button">
-              <h4><%= username %></h4>
-          </div>
-        <% } %>
 
       </div>
+      <% if (typeof username === 'string' && username) { %>
+        <div id="user-button">
+            <h4><%= username %></h4>
+        </div>
+      <% } %>
 
-      <div class="header-div" id="just-breathe-logo">
-        <h1>(just)Breathe</h1>
-      </div>
+      <!-- <div class="header-div" id="just-breathe-logo"> -->
+        <h1 id="just-breathe-logo">(just)Breathe</h1>
+      <!-- </div> -->
 
     </section>
   </header>

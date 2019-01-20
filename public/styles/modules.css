@@ -8,6 +8,7 @@ header a {
 #menu {
     position: relative;
     display: inline-block;
+    padding: 10px;
 }
 
 #menu-content {
@@ -646,4 +647,11 @@ footer a {
 }
 footer a:hover {
   color: lightskyblue;
+}
+
+#user-button {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
