@@ -67,11 +67,11 @@ main.index {
 .mains {
   border-radius: 25px;
   width: 90%;
-  background-color: rgb(230, 239, 248);
+  background-color: rgba(181, 215, 250, 0.356);
   /* margin: 10px auto 10px auto; */
   margin: 15px auto;
   padding: 5px 0;
-  font-size: 75%;
+  font-size:85%;
   text-align: center;
   box-sizing: border-box;
 }
@@ -107,12 +107,13 @@ footer p {
   font-size: 13px;
 }
 
-footer p a {
+footer a {
   color: aliceblue;
 }
 
-footer p a:hover {
-  text-decoration: underline;
+footer a:hover {
+  /* text-decoration: underline; */
+  color: white;
 }
 
 

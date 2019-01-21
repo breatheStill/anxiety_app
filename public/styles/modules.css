@@ -41,6 +41,11 @@ header a {
   font-size: 20px;
 }
 
+header h4 {
+  font-size: 90%;
+  text-decoration: none;
+}
+
 /* Index */
 .mains h2 {
   margin-top: 10px;
@@ -55,17 +60,17 @@ header a {
   font-size: 115%;
 }
 
-.mains input {
+/* .mains input  {
   margin-bottom: 10px;
   border: 0mm;
   height: 100%
-}
+} */
 
-.mains button {
+/* .mains button {
   background-color: white;
   border: white;
   cursor: pointer;
-}
+} */
 
 .mains li, .mains p{
   margin-bottom: 5px;
@@ -123,21 +128,29 @@ header a {
 } */
 
 .nutri-info {
-  /* text-indent: 20px; */
-  /* margin: 5px auto; */
+  text-indent: 20px;
+  /* margin: 50px auto; */
   /* font-size: 13px; */
-  /* width: 85%;  */
-  text-align: left;
+  /* width: 85%; */
+  /* text-align: left; */
+}
+
+#nutri-1st {
+  margin-bottom: 20px;
 }
 
 #nutri-2nd {
   /* justify-content: space-between; */
+  font-size: 90%;
+  width: 90%;
+  margin: auto;
 }
 
 .food-dos-donts {
   /* margin-left: 10px;
   float: left;
   width: 45%; */
+  margin-bottom: 15px;
 }
 
 .food-dos-donts h6 {
@@ -175,6 +188,10 @@ header a {
   text-decoration: underline;
   margin-bottom: 3px;
 } */
+
+#articles ul {
+  list-style: none;
+}
 
 .mains ul {
   list-style: circle;
@@ -567,7 +584,7 @@ div > form {
 }
 
 #user, #createProfile > input {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 label, button {
@@ -707,7 +724,7 @@ footer a {
   text-decoration: none;
 }
 footer a:hover {
-  color: lightskyblue;
+  color: white;
 }
 
 #user-button {

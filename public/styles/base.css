@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   background: url("/styles/images/light-1282314_1920.jpg");
-  font-size: 110%;
+  font-size: 120%;
   font-family: 'Catamaran', sans-serif;
 }
 
@@ -52,14 +52,19 @@ button {
   padding: 5px;
   margin: 10px;
   font-size: 80%;
-  border: solid black 1px;
   border-radius: 3px;
+  cursor: pointer;
+  background-color: white;
+  border: white;
   cursor: pointer;
 }
 
 input {
   height: 30px;
   background-size: cover;
+  margin-bottom: 20px;
+  border: 0mm;
+  /* height: 100% */
 }
 
 div.checkbox  {
