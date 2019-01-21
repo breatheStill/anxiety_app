@@ -1,5 +1,10 @@
 <main id="new">
 
+  <%- include('../../layout/banner', {
+    bannerMessage: `${typeof journal === 'object' ? 'Update' : 'New'} Journal Entry`,
+    username: username
+  }) %>
+
   <div class="profile-forms" id="new-journal-form">
     
     <form action="/new" method="POST">
