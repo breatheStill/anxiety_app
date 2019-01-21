@@ -37,7 +37,7 @@ header {
   /* min-width: 320px; */
   margin-bottom: 15px;
   opacity: 0.7;
-  height: 195px;
+  height: 100px;
   padding: 10px;
   box-sizing: border-box;
 }
@@ -45,6 +45,8 @@ header {
 main {
   text-align: center;
 }
+
+
 
 button {
   padding: 5px;

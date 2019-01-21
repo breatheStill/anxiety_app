@@ -5,7 +5,7 @@
 <body>
   <main class="index content">
       <%- include('../layout/header') %>
-    <%- include('../layout/banner', {bannerMessage: '(just)Breathe'}) %>
+    <%- include('../layout/banner', {bannerMessage: 'Serene Pursuits'}) %>
     <section class="mains" id="geocoding">
 
       <h2>Find an Open Space and Fresh Air</h2>
@@ -59,7 +59,7 @@
 
         <div class="food-dos-donts">
 
-          <h6>Quick snacks</h6>
+          <h3>Quick snacks</h6>
 
           <ul>
 
@@ -81,7 +81,7 @@
 
         <div class="food-dos-donts">
 
-          <h6>Foods to Avoid</h6>
+          <h3>Foods to Avoid</h3>
 
           <ul>
 
@@ -138,12 +138,13 @@
         <form id="suggestion-form" action="/" method="POST">
           <fieldset>
             <div>
-                <label class="block" for="name">Your suggestion...</label>
-              <input name="suggestion" type="text">
+                <!-- <label class="block" for="name">Your suggestion...</label> -->
+              <input placeholder=
+              "Your name" name="name" type="text">
             </div>
             <div>
-              <label class="block" for="name">Submitted by...</label>
-              <input type="text" name="name">
+              <!-- <label class="block" for="name">Submitted by...</label> -->
+              <input placeholder="Your suggestion" type="text" name="suggestion">
             </div>
           </fieldset>
           <button type="submit">Submit</button>

@@ -3,9 +3,14 @@
 
 #banner>h2 {
   /* font-family: 'Knewave', cursive; */
-  font-size: 235%;
+  /* font-size: 175%;
   color: darkslategray;
-  font-weight: 400;
+  font-weight: 400; */
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+  font-size: 175%;
+  color: rgb(49, 104, 129);
 }
 
 /* Header */
@@ -39,15 +44,15 @@ header a {
 /* Index */
 .mains h2 {
   margin-top: 10px;
-  /* text-align: center; */
   font-family: 'Amatic SC', cursive;
-  font-size: 25px;
+  font-size: 170%;
   color: rgb(72, 164, 207);
 }
 
 .mains h3{
   text-decoration: underline;
   margin-bottom: 3px;
+  font-size: 115%;
 }
 
 .mains input {
@@ -62,9 +67,21 @@ header a {
   cursor: pointer;
 }
 
-.mains p {
-  /* width: 80%; */
+.mains li, .mains p{
+  margin-bottom: 5px;
+  text-align: left;
 }
+
+
+.mains p, .mains ul {
+  width: 80%;
+  margin: 5px auto;
+}
+
+/* .mains ul {
+  list-style: circle;
+  list-style-position: inside;
+} */
 
 #map-container{
   height: 85%;
@@ -106,63 +123,69 @@ header a {
 } */
 
 .nutri-info {
-  text-indent: 20px;
-  margin: 5px auto;
-  font-size: 13px;
-  width: 85%;
+  /* text-indent: 20px; */
+  /* margin: 5px auto; */
+  /* font-size: 13px; */
+  /* width: 85%;  */
+  text-align: left;
 }
 
 #nutri-2nd {
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .food-dos-donts {
-  margin-left: 10px;
+  /* margin-left: 10px;
   float: left;
-  width: 45%;
+  width: 45%; */
 }
 
 .food-dos-donts h6 {
-  text-align: center;
+  /* text-align: center;
   text-decoration: underline;
   margin-bottom: 3px;
-  font-size: 12px;
+  font-size: 12px; */
+}
+
+.mains h6 {
+  text-decoration: underline;
 }
 
 .food-dos-donts ul {
-  list-style: circle;
-  list-style-position: inside;
+  /* list-style: circle;
+  list-style-position: inside; */
 }
 
 .food-dos-donts ul li {
-  margin-left: 3px;
+  /* margin-left: 3px;
   margin-bottom: 3px;
-  font-size: 10px;
+  font-size: 10px; */
 }
 
 #articles {
-  height: 300px;
+  /* height: 300px; */
 }
 
-#articles div {
+/* #articles div {
   margin-top: 10px;
   margin-left: 20px;
-}
+} */
 
-#articles h3 {
+/* #articles h3 {
   text-decoration: underline;
   margin-bottom: 3px;
-}
+} */
 
-#articles_anxiety ul {
+.mains ul {
   list-style: circle;
   list-style-position: inside;
+  margin: 5px auto;
 }
 
 #articles ul li {
-  margin-left: 3px;
-  margin-bottom: 3px;
-  font-size: 10px;
+  /* margin-left: 3px;
+  margin-bottom: 3px; */
+  /* font-size: 10px; */
 }
 
 #articles a {
@@ -192,22 +215,22 @@ header a {
 
 .suggestion {
   /* background-color: aliceblue; */
-  border-radius: 25px;
+  /* border-radius: 25px; */
 }
 
 #suggestion-form {
-  display: inline;
+  /* display: inline; */
 }
 
-#suggestion-content {
+/* #suggestion-content {
   width: 80%;
   text-align: center;
-}
+} */
 
-#suggestion-name {
+/* #suggestion-name {
   width: 80%;
   text-align: right;
-}
+} */
 
 /* Animation */
 #breathing {
@@ -664,18 +687,18 @@ div#user-button {
   display: inline-block;
 }
 
-.food-dos-donts ul {
+/* .food-dos-donts ul {
   text-align: left;
-}
+} */
 
-  .food-dos-donts ul li {
+  /* .food-dos-donts ul li {
     margin-left: 10px;
     font-size: 55%;
-  }
+  } */
 
-  #articles div {
+  /* #articles div {
     font-size: 30px;
-  }
+  } */
 
 
 
