@@ -29,10 +29,10 @@
 
     <section class="mains" id="breathing">
       <h2>Just Breathe</h2>
-      <div id="five-sec-loop"></div>
       <div id="loop-p">
         <p>Breathe in as the sphere gets larger, and breathe out as it shrinks back down. Try it for a minute.</p>
       </div>
+        <div id="five-sec-loop"></div>
     </section>
 
 
@@ -130,14 +130,16 @@
 
     <section class="mains" id="side-bar">
 
-      <div class="community-suggestion" id="suggestion-form">
+      <!-- <div class="community-suggestion" id="suggestion-form"> -->
 
         <h2>What have you found helpful to manage your anxiety?</h2>
+
 
         <form id="suggestion-form" action="/" method="POST">
           <fieldset>
             <div>
-              <textarea name="suggestion" id="" cols="30" rows="10"></textarea>
+                <label class="block" for="name">Your suggestion...</label>
+              <input name="suggestion" type="text">
             </div>
             <div>
               <label class="block" for="name">Submitted by...</label>
@@ -147,21 +149,13 @@
           <button type="submit">Submit</button>
         </form>
 
-      </div>
+        <h3>User Suggestions</h3>
 
-      <div class="community-suggestion" id="suggestions-container">
-
-        <% array.forEach(suggestion => { %>
-
-          <div class="suggestion">
-
-          <p id="suggestion-content"><%=suggestion.suggestion%></p>
-          <p id="suggestion-name"><%=suggestion.name%></p>
-
-          </div>
-        <% }) %>
-
-      </div>
+          <ul>
+            <% array.forEach(suggestion => { %>
+              <li><b><%= suggestion.name %></b> suggests <em><%= suggestion.suggestion %></em></li>
+              <% }) %>
+            </ul>
 
     </section>
 

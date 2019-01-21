@@ -39,18 +39,49 @@ header a {
 /* Index */
 .mains h2 {
   margin-top: 10px;
-  text-align: center;
+  /* text-align: center; */
   font-family: 'Amatic SC', cursive;
   font-size: 25px;
   color: rgb(72, 164, 207);
 }
 
+.mains h3{
+  text-decoration: underline;
+  margin-bottom: 3px;
+}
+
+.mains input {
+  margin-bottom: 10px;
+  border: 0mm;
+  height: 100%
+}
+
+.mains button {
+  background-color: white;
+  border: white;
+  cursor: pointer;
+}
+
+.mains p {
+  /* width: 80%; */
+}
+
 #map-container{
-  height: 300px;
+  height: 85%;
+  /* width: 100%;
+  position: relative;
+  overflow: hidden; */
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 #geocoding {
-  height: 350px;
+  height: 435px;
 }
 
 #loCal {
@@ -70,9 +101,9 @@ header a {
   height: 100%;
 }
 
-#nutrition {
+/* #nutrition {
   height: 500px;
-}
+} */
 
 .nutri-info {
   text-indent: 20px;
@@ -180,26 +211,28 @@ header a {
 
 /* Animation */
 #breathing {
-  position: relative;
-  height: 300px;
+  /* position: relative; */
+  /* height: 300px; */
+  /* top: 20px; */
 }
 
-#loop-p {
+/* #loop-p {
   width: 80%;
   margin-top: 3px;
   margin-left: 23px;
   text-align: center;
   font-size: 10px;
-}
+} */
 
 #five-sec-loop {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   height: 11px;
   width: 11px;
   border-radius: 50%;
+  margin: 125px auto;
   /* background: url('/styles/images/abstract-2055567_1920.jpg');
   background-size: cover; */
   animation: animate 5s linear infinite;
@@ -216,7 +249,7 @@ header a {
   }
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   #wind-icon {
     font-size: 30px;
   }
@@ -287,7 +320,7 @@ header a {
   #geocoding form {
     margin-top: 40px;
   }
-}
+} */
 
 .center-link {
   margin: auto;
@@ -328,7 +361,7 @@ a.toggleLogin {
   cursor: pointer;
   padding: 20px;
   font-family: 'Times New Roman', Times, serif;
-  /* border: solid rgba(91, 137, 190, 1) 2px; */
+  border: solid rgba(91, 137, 190, 1) 2px;
   background-color: rgba(255, 255, 255, 0.575);
   border-radius: 5px;
 }
