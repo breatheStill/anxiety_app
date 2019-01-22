@@ -590,7 +590,8 @@ b {
 div > form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 90%;
+  max-width: 400px;;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -612,10 +613,12 @@ form > button {
 
 fieldset section{
   display: inline-block;
-  margin: 30px;
+  margin: 10px;
 }
 
-
+input#cbx {
+  color: white !important;
+}
 
 .block {
   display: block;
@@ -707,14 +710,14 @@ small {
 }
 
 div#user-button {
-  font-size: 115%;
+  font-size: 95%;
   background-color: #eee;
   color: rgb(25, 67, 116);
-  padding: 7px 10px;
+  padding: 5px 7px;
   border-radius: 3px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   display: inline-block;
 }
 

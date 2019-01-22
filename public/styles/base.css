@@ -62,12 +62,14 @@ button {
 input {
   height: 30px;
   background-size: cover;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   border: 0mm;
-  /* height: 100% */
+  width: 75%;
+  background-color: white;
 }
 
 div.checkbox  {
+  width: 80px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;

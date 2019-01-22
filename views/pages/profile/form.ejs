@@ -18,12 +18,12 @@
       </section>
       <section>
         <div class="checkbox">
+          <input class="cbx" type="checkbox" name="exercise" <%=typeof journal==='object' && journal.exercise ? 'checked' : '' %>>
           <label for="exercise">Exercise</label>
-          <input type="checkbox" name="exercise" <%=typeof journal==='object' && journal.exercise ? 'checked' : '' %>>
         </div>
         <div class="checkbox">
+          <input class="cbx" type="checkbox" name="outdoors" <%=typeof journal==='object' && journal.outdoors ? 'checked' : '' %>>
           <label for="outdoors">Outdoors</label>
-          <input type="checkbox" name="outdoors" <%=typeof journal==='object' && journal.outdoors ? 'checked' : '' %>>
         </div>
       </section>
     </fieldset>
