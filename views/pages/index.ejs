@@ -151,12 +151,14 @@
         </form>
 
         <h3>User Suggestions</h3>
+<div class="centerlist">
 
-          <ul>
-            <% array.forEach(suggestion => { %>
-              <li><b><%= suggestion.name %></b> suggests <em><%= suggestion.suggestion %></em></li>
-              <% }) %>
-            </ul>
+  <ul>
+    <% array.forEach(suggestion => { %>
+      <li><b><%= suggestion.name %></b> suggests <em><%= suggestion.suggestion %></em></li>
+      <% }) %>
+    </ul>
+</div>
 
     </section>
 

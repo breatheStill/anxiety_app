@@ -1,91 +1,153 @@
 /* base */
-/* START - CSS trick to keep footer at bottom */
-html, body {
-  height: 100%;
+
+/* Extra small devices (phones, 600px and down) */
+
+  /* START - CSS trick to keep footer at bottom */
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    background: url("/styles/images/light-1282314_1920.jpg");
+    font-size: 105%;
+    font-family: 'Catamaran', sans-serif;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+  footer {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(40, 83, 134, 0.6);
+    color: white;
+    padding: 10px 0;
+    margin-top: 10px;
+    color: aliceblue;
+    /* background-color: rgb(107, 153, 194); */
+  }
+  /* END - CSS trick to keep footer at bottom */
+
+  header {
+    background-image: url('/styles/images/dandelion-463928_1920.jpg');
+    background-size: cover;
+    background-attachment: no-repeat;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.7;
+    height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  main {
+    text-align: center;
+  }
+
+  button {
+    padding: 5px;
+    margin: 10px;
+    font-size: 80%;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: white;
+    border: white;
+    cursor: pointer;
+  }
+
+  input {
+    height: 30px;
+    background-size: cover;
+    margin: 0 auto 20px auto;
+    border: 0mm;
+    width: 75%;
+    background-color: white;
+  }
+
+  div.checkbox  {
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  div.checkbox input {
+    height: 13px;
+  }
+
+  textarea {
+    width: 60%;
+    resize: none;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 90%;
+  }
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 110%
+  }
+  footer {
+    padding: 10px
+  }
+  header {
+    height: 100px;
+  }
+  textarea {
+    width: 85px
+  };
 }
-body {
-  display: flex;
-  flex-direction: column;
-  background: url("/styles/images/light-1282314_1920.jpg");
-  font-size: 105%;
-  font-family: 'Catamaran', sans-serif;
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 120%
+  }
+  footer {
+    padding: 15px
+  }
+  header {
+    height: 120px;
+  }
+  textarea {
+    width: 90px;
+  }
+
 }
 
-
-
-.content {
-  flex: 1 0 auto;
-}
-footer {
-  flex-shrink: 0;
-  width: 100%;
-  text-align: center;
-  background-color: rgba(91, 137, 190, 0.5);
-  color: white;
-  padding: 5px 0;
-  margin-top: 10px;
-  color: aliceblue;
-  background-color: rgb(107, 153, 194);
-}
-/* END - CSS trick to keep footer at bottom */
-
-header {
-  background-image: url('/styles/images/dandelion-463928_1920.jpg');
-  background-size: cover;
-  background-attachment: no-repeat;
-  width: 100%;
-  /* min-width: 320px; */
-  margin-bottom: 15px;
-  opacity: 0.7;
-  height: 100px;
-  padding: 10px;
-  box-sizing: border-box;
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 130%
+  }
+  footer {
+    padding: 20px
+  }
+  header {
+    height: 140px;
+  }
+  textarea {
+    width: 95px;
+  }
 }
 
-main {
-  text-align: center;
-}
-
-
-
-button {
-  padding: 5px;
-  margin: 10px;
-  font-size: 80%;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: white;
-  border: white;
-  cursor: pointer;
-}
-
-input {
-  height: 30px;
-  background-size: cover;
-  margin: 0 auto 20px auto;
-  border: 0mm;
-  width: 75%;
-  background-color: white;
-}
-
-div.checkbox  {
-  width: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-div.checkbox input {
-  height: 13px;
-}
-
-
-textarea {
-  width: 80%;
-  resize: none;
-  /* width: 500px; */
-  height: 200px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 90%;
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size: 140%;
+  }
+  footer {
+    padding: 20px
+  }
+  header {
+    height: 150px;
+  }
+  textarea {
+    width: 100px;
+  }
 }

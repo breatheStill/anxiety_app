@@ -1,11 +1,8 @@
 /* modules */
 @import url('https://fonts.googleapis.com/css?family=Knewave');
 
+/* Extra small devices (phones, 600px and down) */
 #banner>h2 {
-  /* font-family: 'Knewave', cursive; */
-  /* font-size: 175%;
-  color: darkslategray;
-  font-weight: 400; */
   margin-top: 10px;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
@@ -19,9 +16,9 @@ header a {
 }
 
 #menu {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
+    /* position: relative;
+    display: inline-block; */
+    padding: 5px;
 }
 
 #menu-content {
@@ -66,10 +63,11 @@ header h4 {
   border: 0mm;
   height: 150%;
   width: 50%;
+  max-width: 200px;;
 }
 
 .mains textarea {
-  height: 250%;
+  height: 200px;
   width: 50%;
   font-family: arial;
 }
@@ -85,7 +83,6 @@ header h4 {
   text-align: left;
 }
 
-
 .mains p, .mains ul {
   width: 80%;
   margin: 5px auto;
@@ -99,9 +96,6 @@ header h4 {
 #map-container{
   min-height: 70%;
   height: 80%;
-  /* width: 100%;
-  position: relative;
-  overflow: hidden; */
 }
 
 #map {
@@ -132,16 +126,8 @@ header h4 {
   height: 100%;
 }
 
-/* #nutrition {
-  height: 500px;
-} */
-
 .nutri-info {
   text-indent: 20px;
-  /* margin: 50px auto; */
-  /* font-size: 13px; */
-  /* width: 85%; */
-  /* text-align: left; */
 }
 
 #nutri-1st {
@@ -149,54 +135,18 @@ header h4 {
 }
 
 #nutri-2nd {
-  /* justify-content: space-between; */
   font-size: 90%;
   width: 90%;
   margin: auto;
 }
 
 .food-dos-donts {
-  /* margin-left: 10px;
-  float: left;
-  width: 45%; */
   margin-bottom: 15px;
-}
-
-.food-dos-donts h6 {
-  /* text-align: center;
-  text-decoration: underline;
-  margin-bottom: 3px;
-  font-size: 12px; */
 }
 
 .mains h6 {
   text-decoration: underline;
 }
-
-.food-dos-donts ul {
-  /* list-style: circle;
-  list-style-position: inside; */
-}
-
-.food-dos-donts ul li {
-  /* margin-left: 3px;
-  margin-bottom: 3px;
-  font-size: 10px; */
-}
-
-#articles {
-  /* height: 300px; */
-}
-
-/* #articles div {
-  margin-top: 10px;
-  margin-left: 20px;
-} */
-
-/* #articles h3 {
-  text-decoration: underline;
-  margin-bottom: 3px;
-} */
 
 #articles ul {
   list-style: none;
@@ -209,10 +159,16 @@ header h4 {
   text-align: center;
 }
 
+.mains div.centerlist {
+  display: flex;
+  justify-content: center;
+}
+
 .mains ul, #articless_anxiety ul{
   list-style: circle;
-  list-style-position: inside;
+  list-style-position: outside;
   margin: 5px auto 15px auto;
+  width: 60%;
 }
 
 #articles ul li {
@@ -230,67 +186,18 @@ header h4 {
   text-decoration: underline;
 }
 
-#side-bar h2 {
-  /* text-align: center;
-  font-family: 'Amatic SC', cursive;
-  font-size: 25px;
-  color: rgb(72, 164, 207); */
-}
-
-#side-bar form {
-  /* display: flex;
-  flex-direction: column;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px; */
-}
-
-.suggestion {
-  /* background-color: aliceblue; */
-  /* border-radius: 25px; */
-}
-
-#suggestion-form {
-  /* display: inline; */
-}
-
-/* #suggestion-content {
-  width: 80%;
-  text-align: center;
-} */
-
 #suggestion-name {
   width: 80%;
   text-align: right;
 }
 
 /* Animation */
-#breathing {
-  /* position: relative; */
-  /* height: 300px; */
-  /* top: 20px; */
-}
-
-/* #loop-p {
-  width: 80%;
-  margin-top: 3px;
-  margin-left: 23px;
-  text-align: center;
-  font-size: 10px;
-} */
-
 #five-sec-loop {
   position: relative;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   height: 11px;
   width: 11px;
   border-radius: 50%;
   margin: 125px auto;
-  /* background: url('/styles/images/abstract-2055567_1920.jpg');
-  background-size: cover; */
   animation: animate 5s linear infinite;
 }
 @keyframes animate {
@@ -305,77 +212,6 @@ header h4 {
   }
 }
 
-/* @media screen and (min-width: 768px) {
-  #wind-icon {
-    font-size: 30px;
-  }
-
-  #geocoding {
-    height: 550px;
-  }
-
-  #map-container{
-    margin-left: auto;
-    margin-right: auto;
-    height: 400px;
-    width: 400px;
-  }
-*/
-
-/*
-  #geocoding form {
-     margin-top: 30px;
-  }
-
-  #loop-p {
-    width: 30%;
-    margin-top: 38px;
-    margin-left: 50px;
-    text-align: center;
-    font-size: 20px;
-  }
-
-  #five-sec-loop {
-    position: absolute;
-    top: 50%;
-    left: 70%;
-  }
-
-  .food-dos-donts h6 {
-    font-size: 18px;
-  }
-
-  .food-dos-donts ul li {
-    margin-left: 25px;
-    font-size: 13px;
-  }
-
-  #articles div {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .mains h2 {
-    font-size: 40px;
-  }
-
-  #geocoding {
-    height: 650px;
-  }
-
-  #map-container{
-    margin-left: auto;
-    margin-right: auto;
-    height: 500px;
-    width: 500px;
-  }
-
-  #geocoding form {
-    margin-top: 40px;
-  }
-} */
-
 .center-link {
   margin: auto;
 }
@@ -384,8 +220,6 @@ a.toggleLogin {
   text-decoration: none;
   font-size: 90%;
 }
-
-
 
 #previews {
   width: 90%;
@@ -429,15 +263,10 @@ a.toggleLogin {
   justify-content: flex-start;
   position: relative;
   flex-flow: column;
-  /* justify-content: flex-start; */
   align-items: center;
 }
 
 .journalInfo {
-  /* flex: 0 1 auto; */
-  /* position: absolute;             /* new */
-  /* left: 50%;
-  transform: translateX(-50%);  */
   font-size: 100%;
 }
 
@@ -455,8 +284,6 @@ a.toggleLogin {
 
 table {
   font-size: 75%;
-  /* flex: 0 1 auto; */
-  /* margin: 0 40px 10px auto; */
   margin: 0 auto;
   table-layout: fixed;
   background-color: aliceblue;
@@ -465,7 +292,6 @@ table {
 }
 
 thead {
-  /* padding: 5px; */
   border-bottom: 1px black solid;
 }
 
@@ -491,7 +317,6 @@ th:nth-child(1), td:nth-child(1) {
 td {
   text-align: center;
 }
-
 
 tr:nth-child(odd) {
   background-color: rgba(32, 153, 115, 0.356);
@@ -529,7 +354,6 @@ b {
   border: 1px solid #555;
   padding: 4px;
 }
-
 
 .entry-options a.return {
   border: none;
@@ -598,9 +422,6 @@ div > form {
   text-align: center;
 }
 
-#user, #createProfile > input {
-  /* margin-top: 30px; */
-}
 
 label, button {
   margin-bottom: 10px;
@@ -710,31 +531,17 @@ small {
 }
 
 div#user-button {
-  font-size: 95%;
+  font-size: 90%;
   background-color: #eee;
   color: rgb(25, 67, 116);
-  padding: 5px 7px;
-  border-radius: 3px;
+  padding: 3px 5px;
+  border-radius: 10%;
   position: absolute;
   top: 10px;
   right: 10px;
   display: inline-block;
+  cursor: pointer;
 }
-
-/* .food-dos-donts ul {
-  text-align: left;
-} */
-
-  /* .food-dos-donts ul li {
-    margin-left: 10px;
-    font-size: 55%;
-  } */
-
-  /* #articles div {
-    font-size: 30px;
-  } */
-
-
 
 footer a {
   color: aliceblue;
@@ -742,11 +549,60 @@ footer a {
 }
 footer a:hover {
   color: white;
+  text-decoration: underline;
 }
 
-#user-button {
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #menu {
+    /* padding-left: 20px; */
+  }
+  #wind-icon {
+    font-size: 30px;
+  }
+  div#user-button {
+    font-size: 100%;
+    padding: 5px 8px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #menu {
+    /* padding-left: 30px; */
+  }
+  #wind-icon {
+    font-size: 40px;
+  }
+  div#user-button {
+    font-size: 105%;
+    padding: 7px 11px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #menu {
+    /* padding-left: 40px; */
+  }
+  #wind-icon {
+    font-size: 50px;
+  }
+  div#user-button {
+    font-size: 110%;
+    padding: 9px 14px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #menu {
+    /* padding-left: 50px; */
+  }
+  #wind-icon {
+    font-size: 60px;
+  }
+  div#user-button {
+    font-size: 110%;
+    padding: 11px 17px;
+  }
 }
