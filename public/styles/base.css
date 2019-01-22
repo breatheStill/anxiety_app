@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   background: url("/styles/images/light-1282314_1920.jpg");
-  font-size: 120%;
+  font-size: 105%;
   font-family: 'Catamaran', sans-serif;
 }
 

@@ -36,11 +36,11 @@ a:link {
 h1 {
   color: aliceblue;
   font-family: 'Montserrat', sans-serif;
-  font-size: 100%;
+  font-size: 120%;
 }
 
 h2 {
-  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: 'Amatic SC', cursive;
   font-size: 185%;
   color: rgb(24, 81, 107);
@@ -104,7 +104,7 @@ form > button {
 
 footer p {
   margin-top: 12px;
-  font-size: 13px;
+  font-size: 90%;
 }
 
 footer a {

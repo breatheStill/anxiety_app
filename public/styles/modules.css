@@ -9,7 +9,7 @@
   margin-top: 10px;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
-  font-size: 175%;
+  font-size: 250%;
   color: rgb(49, 104, 129);
 }
 
@@ -48,29 +48,37 @@ header h4 {
 
 /* Index */
 .mains h2 {
-  margin-top: 10px;
+  margin-top: 5px;
   font-family: 'Amatic SC', cursive;
-  font-size: 170%;
+  font-size: 190%;
   color: rgb(72, 164, 207);
+  margin-bottom: 15px;
 }
 
 .mains h3{
   text-decoration: underline;
-  margin-bottom: 3px;
+  margin: 5px auto 15px auto;
   font-size: 115%;
 }
 
-/* .mains input  {
+.mains input  {
   margin-bottom: 10px;
   border: 0mm;
-  height: 100%
-} */
+  height: 150%;
+  width: 50%;
+}
 
-/* .mains button {
+.mains textarea {
+  height: 250%;
+  width: 50%;
+  font-family: arial;
+}
+
+.mains button {
   background-color: white;
   border: white;
   cursor: pointer;
-} */
+}
 
 .mains li, .mains p{
   margin-bottom: 5px;
@@ -83,13 +91,14 @@ header h4 {
   margin: 5px auto;
 }
 
-/* .mains ul {
+.mains ul {
   list-style: circle;
   list-style-position: inside;
-} */
+}
 
 #map-container{
-  height: 85%;
+  min-height: 70%;
+  height: 80%;
   /* width: 100%;
   position: relative;
   overflow: hidden; */
@@ -193,15 +202,22 @@ header h4 {
   list-style: none;
 }
 
-.mains ul {
+#articles_anxiety ul {
   list-style: circle;
   list-style-position: inside;
   margin: 5px auto;
+  text-align: center;
+}
+
+.mains ul, #articless_anxiety ul{
+  list-style: circle;
+  list-style-position: inside;
+  margin: 5px auto 15px auto;
 }
 
 #articles ul li {
-  /* margin-left: 3px;
-  margin-bottom: 3px; */
+  margin-left: 3px;
+  margin-bottom: 3px;
   /* font-size: 10px; */
 }
 
@@ -215,19 +231,19 @@ header h4 {
 }
 
 #side-bar h2 {
-  text-align: center;
+  /* text-align: center;
   font-family: 'Amatic SC', cursive;
   font-size: 25px;
-  color: rgb(72, 164, 207);
+  color: rgb(72, 164, 207); */
 }
 
 #side-bar form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 200px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px;
+  margin-top: 15px; */
 }
 
 .suggestion {
@@ -244,10 +260,10 @@ header h4 {
   text-align: center;
 } */
 
-/* #suggestion-name {
+#suggestion-name {
   width: 80%;
   text-align: right;
-} */
+}
 
 /* Animation */
 #breathing {
@@ -304,11 +320,9 @@ header h4 {
     height: 400px;
     width: 400px;
   }
+*/
 
-  .mains h2 {
-    font-size: 45px;
-  }
-
+/*
   #geocoding form {
      margin-top: 30px;
   }
@@ -384,7 +398,7 @@ a.toggleLogin {
 
 .journal {
   font-family: 'Times New Roman', Times, serif;
-  /* border: solid black 2px; */
+  border: solid black 2px;
   background-color: rgba(255, 255, 255, 0.514);
   margin: 20px auto;
   clear: right;
