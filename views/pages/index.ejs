@@ -140,22 +140,22 @@
             <div>
                 <!-- <label class="block" for="name">Your suggestion...</label> -->
               <input placeholder=
-              "Your name" name="name" type="text">
+              "Your name" name="name" type="text" required>
             </div>
             <div>
               <!-- <label class="block" for="name">Submitted by...</label> -->
-              <textarea placeholder="What is helpful for your anxiety?" type="text" name="suggestion"></textarea>
+              <textarea placeholder="What is helpful for your anxiety?" type="text" name="suggestion" requred></textarea>
             </div>
           </fieldset>
           <button type="submit">Submit</button>
         </form>
 
-        <h3>User Suggestions</h3>
+        <h3>Commmunity Suggestions:</h3>
 <div class="centerlist">
 
   <ul>
     <% array.forEach(suggestion => { %>
-      <li><b><%= suggestion.name %></b> says <em>"<%= suggestion.suggestion %></em>"</li>
+      <li><b><%= suggestion.name %></b> says: "<%= suggestion.suggestion %>" - <span class="datestring"><%= new Date(suggestion.entered).toUTCString() %></span></li>
       <% }) %>
     </ul>
 </div>

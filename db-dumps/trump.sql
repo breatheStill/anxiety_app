@@ -85,7 +85,8 @@ ALTER SEQUENCE public.journals_id_seq OWNED BY public.journals.id;
 CREATE TABLE public.suggestions (
     suggestion text,
     name text,
-    id integer NOT NULL
+    id integer NOT NULL,
+    entered TIMESTAMP DEFAULT now()
 );
 
 

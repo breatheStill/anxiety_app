@@ -70,6 +70,7 @@ function home(req, res) {
 
   return client.query(SQL)
     .then(suggestion => {
+      console.log(suggestion.rows);
       let array = suggestion.rows;
       // res.render('pages/index', {array, mapSRC: process.env.MAP});
       res.render('pages/index', {array, mapSRC: `https://maps.googleapis.com/maps/api/js?key=${process.env.API_KEY}&callback=initMap`})
