@@ -59,13 +59,13 @@ header h4 {
 .mains input  {
   margin-bottom: 10px;
   border: 0mm;
-  height: 150%;
+  /* height: 150%; */
   width: 50%;
-  max-width: 200px;;
+  max-width: 200px;
 }
 
 .mains textarea {
-  height: 200px;
+  /* height: 200px; */
   width: 50%;
   font-family: arial;
 }

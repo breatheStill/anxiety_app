@@ -144,7 +144,7 @@
             </div>
             <div>
               <!-- <label class="block" for="name">Submitted by...</label> -->
-              <textarea placeholder="Your suggestion" type="text" name="suggestion"></textarea>
+              <textarea placeholder="What is helpful for your anxiety?" type="text" name="suggestion"></textarea>
             </div>
           </fieldset>
           <button type="submit">Submit</button>
@@ -155,7 +155,7 @@
 
   <ul>
     <% array.forEach(suggestion => { %>
-      <li><b><%= suggestion.name %></b> suggests <em><%= suggestion.suggestion %></em></li>
+      <li><b><%= suggestion.name %></b> says <em>"<%= suggestion.suggestion %></em>"</li>
       <% }) %>
     </ul>
 </div>
