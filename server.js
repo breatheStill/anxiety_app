@@ -64,7 +64,9 @@ app.get('/logout', logout);
 // ============================
 
 function home(req, res) {
-  let SQL = `SELECT * FROM suggestions`;
+  let SQL = `SELECT * FROM suggestions
+              ORDER BY entered DESC
+              LIMIT 10`;
 
   return client.query(SQL)
     .then(suggestion => {
