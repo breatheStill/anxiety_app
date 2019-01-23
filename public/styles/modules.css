@@ -254,6 +254,8 @@ a.toggleLogin {
 
 .journal p, .journal li {
   margin-bottom: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 85%;
 }
 
 .journalHeader {
@@ -469,7 +471,7 @@ input#cbx {
 }
 
 input.date-picker {
-  width: 75%;
+  width: 100%;
 }
 
 .block {

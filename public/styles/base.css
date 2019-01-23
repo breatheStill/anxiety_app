@@ -64,6 +64,7 @@
     border: 0mm;
     width: 75%;
     background-color: white;
+    font-size: 85%;
   }
 
   textarea {
@@ -72,7 +73,7 @@
     height: 100px;
     margin: 10px;
     padding: 10px;
-    font-size: 90%;
+    font-size: 85%;
   }
 
 
