@@ -11,24 +11,27 @@
     <% } %>
     <input name="uid" type="hidden" value="<%= uid %>">
     <fieldset>
-      <section>
-        <label class="block" for="date">Date</label>
-        <input id="datePicker" name="date" type="date" value="<%= typeof journal === 'object' ? journal.date.toISOString().slice(0,10) : '' %>"
-          required>
-      </section>
-      <section>
-        <div class="checkbox">
-          <input class="cbx" type="checkbox" name="exercise" <%=typeof journal==='object' && journal.exercise ? 'checked' : '' %>>
-          <label for="exercise">Exercise</label>
-        </div>
-        <div class="checkbox">
-          <input class="cbx" type="checkbox" name="outdoors" <%=typeof journal==='object' && journal.outdoors ? 'checked' : '' %>>
-          <label for="outdoors">Outdoors</label>
-        </div>
-      </section>
-    </fieldset>
+    <div id="form-fieldset">
+        <section id="date-section">
+          <label class="block" for="date">Date</label>
+          <input class="date-picker" name="date" type="date" value="<%= typeof journal === 'object' ? journal.date.toISOString().slice(0,10) : '' %>"
+            required>
+        </section>
+        <section id="checkboxes">
+          <div class="checkbox">
+            <label for="exercise">Exercise</label>
+            <input class="cbx" type="checkbox" name="exercise" <%=typeof journal==='object' && journal.exercise ? 'checked' : '' %>>
+          </div>
+          <div class="checkbox">
+            <label for="outdoors">Outdoors</label>
+            <input class="cbx" type="checkbox" name="outdoors" <%=typeof journal==='object' && journal.outdoors ? 'checked' : '' %>>
+          </div>
+        </section>
+      </div>
+      </fieldset>
     <div>
       <label class="block" for="entry">Write About Your Day</label>
+      <!-- <h4>Write About Your Day</h4> -->
       <textarea name="entry" id="" required><%= typeof journal === 'object' ? journal.entry : '' %></textarea>
     </div>
     <button type="submit">

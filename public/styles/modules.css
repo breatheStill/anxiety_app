@@ -6,7 +6,7 @@
   margin-top: 10px;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
-  font-size: 250%;
+  font-size: 200%;
   color: rgb(49, 104, 129);
 }
 
@@ -16,9 +16,7 @@ header a {
 }
 
 #menu {
-    /* position: relative;
-    display: inline-block; */
-    padding: 5px;
+  padding: 5px;
 }
 
 #menu-content {
@@ -39,7 +37,7 @@ header a {
 }
 
 header h4 {
-  font-size: 90%;
+  font-size: 75%;
   text-decoration: none;
 }
 
@@ -432,13 +430,42 @@ form > button {
   margin-right: auto;
 }
 
+#form-fieldset {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: 0 auto 15px auto;
+}
+
+#form-fieldset section {
+  width: 150px;;
+}
+
 fieldset section{
-  display: inline-block;
-  margin: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+
+}
+div.checkbox  {
+  width: 100%;
+}
+
+div.checkbox input {
+  height: 13px;
+  width: 10%;
 }
 
 input#cbx {
   color: white !important;
+}
+
+input.date-picker {
+  width: 75%;
 }
 
 .block {
@@ -448,6 +475,7 @@ input#cbx {
 a.cancel {
   text-decoration: none;
   color: darkred;
+  font-size: 80%;
 }
 
 a.cancel:hover {
@@ -527,7 +555,7 @@ a.toggleLogin:hover {
 /* END - Definitions */
 
 small {
-  font-size: 75%;
+  font-size: 70%;
 }
 
 div#user-button {
@@ -555,8 +583,8 @@ footer a:hover {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  #menu {
-    /* padding-left: 20px; */
+  small {
+    font-size: 75%;
   }
   #wind-icon {
     font-size: 30px;
@@ -565,11 +593,14 @@ footer a:hover {
     font-size: 100%;
     padding: 5px 8px;
   }
+  #banner>h2 {
+    font-size: 250%;
+  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  #menu {
-    /* padding-left: 30px; */
+  small {
+    font-size: 80%;
   }
   #wind-icon {
     font-size: 40px;
@@ -582,8 +613,8 @@ footer a:hover {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  #menu {
-    /* padding-left: 40px; */
+  small {
+    font-size: 90%;
   }
   #wind-icon {
     font-size: 50px;
@@ -595,8 +626,8 @@ footer a:hover {
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  #menu {
-    /* padding-left: 50px; */
+  small {
+    font-size: 95%;
   }
   #wind-icon {
     font-size: 60px;

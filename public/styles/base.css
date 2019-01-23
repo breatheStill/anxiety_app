@@ -66,17 +66,6 @@
     background-color: white;
   }
 
-  div.checkbox  {
-    width: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  div.checkbox input {
-    height: 13px;
-  }
-
   textarea {
     width: 60%;
     resize: none;
@@ -99,7 +88,7 @@
     height: 100px;
   }
   textarea {
-    width: 85px
+    height: 85px
   };
 }
 
@@ -115,7 +104,7 @@
     height: 120px;
   }
   textarea {
-    width: 90px;
+    height: 90px;
   }
 
 }
@@ -132,7 +121,7 @@
     height: 140px;
   }
   textarea {
-    width: 95px;
+    height: 95px;
   }
 }
 
@@ -148,6 +137,6 @@
     height: 150px;
   }
   textarea {
-    width: 100px;
+    height: 100px;
   }
 }
