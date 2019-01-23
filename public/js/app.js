@@ -56,7 +56,7 @@ $(() => {
     $(`#entry-${jid}`).show();
   });
 
-  $('a.return').on('click', e => {
+  $('a#toggle-login').on('click', e => {
     eventHelper(e);
     $(e.target).closest('.entry-full').hide();
     $('.delete-form').hide();

@@ -346,20 +346,24 @@ b {
 
 .entry-options a {
   text-decoration: none;
-  font-size: 75%;
+  font-size: 85%;
   color: #555;
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #555;
-  padding: 4px;
+  padding: 6px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .entry-options a.return {
   border: none;
+  background-color: initial;
   color: darkgreen;
 }
 
 .entry-options a.return:hover {
   color: green;
+  text-decoration: underline;
 }
 
 .entry-options a.update {
@@ -482,17 +486,31 @@ a.cancel:hover {
   color: red;
 }
 
-a.toggleLogin {
-  color: darkblue;
+
+a.return {
+  color: rgb(67, 147, 197);
   text-decoration: none;
   display: block;
-  margin-bottom: 20px;
 }
 
-a.toggleLogin:hover {
+a.return:hover {
+  color: darkcyan;
+  text-decoration: underline;
+}
+
+a.login {
+  font-size: 80%;
+}
+
+/* a.return {
+  font-size: 100%;
+  color: darkcyan;
+}
+
+a.return:hover {
   color: rgb(67, 147, 197);
-}
-
+  text-decoration: underline;
+} */
 .error {
   color: red;
 }
@@ -501,7 +519,7 @@ a.toggleLogin:hover {
 
 #definitions {
   width: 90%;
-  margin: 30px auto;
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -518,7 +536,7 @@ a.toggleLogin:hover {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 80%;
   padding: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #definitions h3 {

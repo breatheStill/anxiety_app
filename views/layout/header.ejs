@@ -27,9 +27,11 @@
 
       </div>
       <% if (typeof username === 'string' && username) { %>
-        <div id="user-button">
+        <a href="/profile/<%= uid %>">
+          <div id="user-button">
             <h4><%= username %></h4>
-        </div>
+          </div>
+        </a>
       <% } %>
 
       <!-- <div class="header-div" id="just-breathe-logo"> -->
